@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Démarches Administratives - E-Administration Territoriale</title>
+        <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Pacifico&family=Inter:wght@300;400;500;600;700&display=swap"
+            rel="stylesheet">
+        <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css"
+            rel="stylesheet">
+        <script>
+tailwind.config = {
+theme: {
+extend: {
+colors: {
+primary: '#00853F',
+secondary: '#FDEF42',
+accent: '#E31B23'
+},
+borderRadius: {
+'none': '0px',
+'sm': '4px',
+DEFAULT: '8px',
+'md': '12px',
+'lg': '16px',
+'xl': '20px',
+'2xl': '24px',
+'3xl': '32px',
+'full': '9999px',
+'button': '8px'
+},
+fontFamily: {
+'sans': ['Inter', 'sans-serif']
+}
+}
+}
+}
+</script>
+        <style>
+:where([class^="ri-"])::before {
+content: "\f3c2";
+}
+body {
+font-family: 'Inter', sans-serif;
+}
+</style>
+    </head>
+    <body class="bg-white">
+        <nav class="fixed top-0 left-0 right-0 bg-white shadow-sm z-50">
+            <div class="max-w-7xl mx-auto px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 flex items-center justify-center">
+                            <i
+                                class="ri-government-line text-4xl text-primary"></i>
+                        </div>
+                        <div>
+                            <div
+                                class="text-sm font-semibold text-primary">République
+                                du Sénégal</div>
+                            <div
+                                class="text-lg font-bold text-gray-900">E-Administration
+                                Territoriale</div>
+                        </div>
+                    </div>
+                                        <div class="hidden lg:flex items-center gap-8">
+                        <a href="index.html"
+                            class="text-gray-700 hover:text-primary transition cursor-pointer">Accueil</a>
+                        <a href="actualites.html"
+                            class="text-gray-700 hover:text-primary transition cursor-pointer">Actualités</a>
+                        <a href="projets.html"
+                            class="text-gray-700 hover:text-primary transition cursor-pointer">Projets</a>
+                        <a href="demarches.html"
+                            class="text-gray-900 font-medium hover:text-primary transition cursor-pointer">Démarches</a>
+                        <a href="alertes.html"
+                            class="text-gray-700 hover:text-primary transition cursor-pointer">Alertes</a>
+                        <a href="contact.html"
+                            class="text-gray-700 hover:text-primary transition cursor-pointer">Contact</a>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <a href="connexion.html"
+                            class="px-5 py-2.5 text-primary border border-primary hover:bg-primary hover:text-white transition !rounded-button whitespace-nowrap flex items-center gap-2 cursor-pointer">
+                            <i class="ri-login-box-line text-lg"></i>
+                            Se connecter
+                        </a>
+                        <a href="inscription.html"
+                            class="px-5 py-2.5 bg-primary text-white hover:bg-green-700 transition !rounded-button whitespace-nowrap flex items-center gap-2 cursor-pointer">
+                            <i class="ri-user-add-line text-lg"></i>
+                            S'inscrire
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div class="pt-24">
+            <section
+                class="bg-gradient-to-br from-primary to-green-700 text-white py-20">
+                <div class="max-w-7xl mx-auto px-6">
+                    <div class="max-w-4xl">
+                        <h1 class="text-5xl font-bold mb-6">Vos Démarches
+                            Administratives en Ligne</h1>
+                        <p class="text-xl text-white/90 mb-8">Effectuez toutes
+                            vos démarches administratives 24h/24 et 7j/7 en
+                            quelques clics. Simple, rapide et sécurisé.</p>
+                        <div class="flex items-center gap-6">
+                            <div class="flex items-center gap-2 text-white/90">
+                                <i class="ri-time-line text-2xl"></i>
+                                <div>
+                                    <div class="text-3xl font-bold">24/7</div>
+                                    <div class="text-sm">Disponible</div>
+                                </div>
+                            </div>
+                            <div class="w-px h-12 bg-white/30"></div>
+                            <div class="flex items-center gap-2 text-white/90">
+                                <i class="ri-file-check-line text-2xl"></i>
+                                <div>
+                                    <div class="text-3xl font-bold">1.2M</div>
+                                    <div class="text-sm">Démarches
+                                        réalisées</div>
+                                </div>
+                            </div>
+                            <div class="w-px h-12 bg-white/30"></div>
+                            <div class="flex items-center gap-2 text-white/90">
+                                <i class="ri-emotion-happy-line text-2xl"></i>
+                                <div>
+                                    <div class="text-3xl font-bold">94%</div>
+                                    <div class="text-sm">Satisfaction</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="py-12 bg-white border-b border-gray-200">
+                <div class="max-w-7xl mx-auto px-6">
+                    <div class="flex items-center justify-between gap-6">
+                        <div class="flex-1">
+                            <div class="relative">
+                                <input type="text"
+                                    placeholder="Rechercher une démarche..."
+                                    class="w-full pl-12 pr-4 py-4 border-2 border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-base">
+                                <i
+                                    class="ri-search-line absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-2xl"></i>
+                            </div>
+                        </div>
+                        <button
+                            class="px-6 py-4 bg-primary text-white hover:bg-green-700 transition !rounded-button whitespace-nowrap cursor-pointer flex items-center gap-2">
+                            <i class="ri-filter-3-line text-lg"></i>
+                            Filtrer
+                        </button>
+                    </div>
+                </div>
+            </section>
+            <section class="py-16 bg-gray-50">
+                <div class="max-w-7xl mx-auto px-6">
+                    <div class="mb-12">
+                        <h2
+                            class="text-3xl font-bold text-gray-900 mb-2">Démarches
+                            les Plus Populaires</h2>
+                        <p class="text-gray-600">Les services les plus utilisés
+                            par les citoyens</p>
+                    </div>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <a href="#"
+                            class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition cursor-pointer">
+                            <div class="flex items-start gap-4">
+                                <div
+                                    class="w-14 h-14 flex items-center justify-center bg-primary/10 rounded-lg flex-shrink-0">
+                                    <i
+                                        class="ri-file-text-line text-3xl text-primary"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <h3
+                                        class="text-lg font-bold text-gray-900 mb-2">Demande
+                                        d'Extrait de Naissance</h3>
+                                    <p
+                                        class="text-sm text-gray-600 mb-3">Obtenez
+                                        votre extrait de naissance en ligne en
+                                        48h</p>
+                                    <div
+                                        class="flex items-center gap-2 text-sm text-gray-500">
+                                        <i class="ri-time-line"></i>
+                                        <span>5 min</span>
+                                        <span class="text-gray-300">•</span>
+                                        <i
+                                            class="ri-money-dollar-circle-line"></i>
+                                        <span>Gratuit</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#"
+                            class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition cursor-pointer">
+                            <div class="flex items-start gap-4">
+                                <div
+                                    class="w-14 h-14 flex items-center justify-center bg-blue-100 rounded-lg flex-shrink-0">
+                                    <i
+                                        class="ri-building-4-line text-3xl text-blue-600"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <h3
+                                        class="text-lg font-bold text-gray-900 mb-2">Permis
+                                        de Construire</h3>
+                                    <p
+                                        class="text-sm text-gray-600 mb-3">Déposez
+                                        votre demande de permis de
+                                        construire</p>
+                                    <div
+                                        class="flex items-center gap-2 text-sm text-gray-500">
+                                        <i class="ri-time-line"></i>
+                                        <span>15 min</span>
+                                        <span class="text-gray-300">•</span>
+                                        <i
+                                            class="ri-money-dollar-circle-line"></i>
+                                        <span>25 000 FCFA</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#"
+                            class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition cursor-pointer">
+                            <div class="flex items-start gap-4">
+                                <div
+                                    class="w-14 h-14 flex items-center justify-center bg-yellow-100 rounded-lg flex-shrink-0">
+                                    <i
+                                        class="ri-money-dollar-circle-line text-3xl text-yellow-600"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <h3
+                                        class="text-lg font-bold text-gray-900 mb-2">Paiement
+                                        Taxe Foncière</h3>
+                                    <p class="text-sm text-gray-600 mb-3">Payez
+                                        votre taxe foncière en ligne</p>
+                                    <div
+                                        class="flex items-center gap-2 text-sm text-gray-500">
+                                        <i class="ri-time-line"></i>
+                                        <span>3 min</span>
+                                        <span class="text-gray-300">•</span>
+                                        <i
+                                            class="ri-money-dollar-circle-line"></i>
+                                        <span>Variable</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#"
+                            class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition cursor-pointer">
+                            <div class="flex items-start gap-4">
+                                <div
+                                    class="w-14 h-14 flex items-center justify-center bg-purple-100 rounded-lg flex-shrink-0">
+                                    <i
+                                        class="ri-user-heart-line text-3xl text-purple-600"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <h3
+                                        class="text-lg font-bold text-gray-900 mb-2">Déclaration
+                                        de Mariage</h3>
+                                    <p
+                                        class="text-sm text-gray-600 mb-3">Déclarez
+                                        votre intention de mariage</p>
+                                    <div
+                                        class="flex items-center gap-2 text-sm text-gray-500">
+                                        <i class="ri-time-line"></i>
+                                        <span>10 min</span>
+                                        <span class="text-gray-300">•</span>
+                                        <i
+                                            class="ri-money-dollar-circle-line"></i>
+                                        <span>5 000 FCFA</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#"
+                            class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition cursor-pointer">
+                            <div class="flex items-start gap-4">
+                                <div
+                                    class="w-14 h-14 flex items-center justify-center bg-green-100 rounded-lg flex-shrink-0">
+                                    <i
+                                        class="ri-store-2-line text-3xl text-green-600"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <h3
+                                        class="text-lg font-bold text-gray-900 mb-2">Licence
+                                        Commerce</h3>
+                                    <p
+                                        class="text-sm text-gray-600 mb-3">Demandez
+                                        votre licence d'exploitation
+                                        commerciale</p>
+                                    <div
+                                        class="flex items-center gap-2 text-sm text-gray-500">
+                                        <i class="ri-time-line"></i>
+                                        <span>20 min</span>
+                                        <span class="text-gray-300">•</span>
+                                        <i
+                                            class="ri-money-dollar-circle-line"></i>
+                                        <span>50 000 FCFA</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#"
+                            class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition cursor-pointer">
+                            <div class="flex items-start gap-4">
+                                <div
+                                    class="w-14 h-14 flex items-center justify-center bg-pink-100 rounded-lg flex-shrink-0">
+                                    <i
+                                        class="ri-file-copy-line text-3xl text-pink-600"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <h3
+                                        class="text-lg font-bold text-gray-900 mb-2">Certificat
+                                        de Résidence</h3>
+                                    <p
+                                        class="text-sm text-gray-600 mb-3">Obtenez
+                                        votre certificat de résidence</p>
+                                    <div
+                                        class="flex items-center gap-2 text-sm text-gray-500">
+                                        <i class="ri-time-line"></i>
+                                        <span>8 min</span>
+                                        <span class="text-gray-300">•</span>
+                                        <i
+                                            class="ri-money-dollar-circle-line"></i>
+                                        <span>2 000 FCFA</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+            <section class="py-16 bg-white">
+                <div class="max-w-7xl mx-auto px-6">
+                    <div class="mb-12">
+                        <h2 class="text-3xl font-bold text-gray-900 mb-2">Toutes
+                            les Démarches par Catégorie</h2>
+                        <p class="text-gray-600">Trouvez facilement la démarche
+                            dont vous avez besoin</p>
+                    </div>
+                    <div class="space-y-8">
+                        <div>
+                            <div class="flex items-center gap-3 mb-6">
+                                <div
+                                    class="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-lg">
+                                    <i
+                                        class="ri-user-heart-line text-2xl text-primary"></i>
+                                </div>
+                                <h3
+                                    class="text-2xl font-bold text-gray-900">État
+                                    Civil</h3>
+                            </div>
+                            <div
+                                class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                                <a href="#"
+                                    class="bg-gray-50 hover:bg-gray-100 p-5 rounded-lg transition cursor-pointer flex items-center justify-between">
+                                    <div class="flex items-center gap-3">
+                                        <i
+                                            class="ri-file-text-line text-xl text-gray-700"></i>
+                                        <span
+                                            class="font-semibold text-gray-900">Extrait
+                                            de naissance</span>
+                                    </div>
+                                    
+                                </a>
+                                <a href="#"
+                                    class="bg-gray-50 hover:bg-gray-100 p-5 rounded-lg transition cursor-pointer flex items-center justify-between">
+                                    <div class="flex items-center gap-3">
+                                        <i
+                                            class="ri-file-list-line text-xl text-gray-700"></i>
+                                        <span
+                                            class="font-semibold text-gray-900">Acte
+                                            de mariage</span>
+                                    </div>
+                                    
+                                </a>
+                                <a href="#"
+                                    class="bg-gray-50 hover:bg-gray-100 p-5 rounded-lg transition cursor-pointer flex items-center justify-between">
+                                    <div class="flex items-center gap-3">
+                                        <i
+                                            class="ri-file-copy-line text-xl text-gray-700"></i>
+                                        <span
+                                            class="font-semibold text-gray-900">Acte
+                                            de décès</span>
+                                    </div>
+                                    
+                                </a>
+                                <a href="#"
+                                    class="bg-gray-50 hover:bg-gray-100 p-5 rounded-lg transition cursor-pointer flex items-center justify-between">
+                                    <div class="flex items-center gap-3">
+                                        <i
+                                            class="ri-heart-line text-xl text-gray-700"></i>
+                                        <span
+                                            class="font-semibold text-gray-900">Déclaration
+                                            de mariage</span>
+                                    </div>
+                                    
+                                </a>
+                                <a href="#"
+                                    class="bg-gray-50 hover:bg-gray-100 p-5 rounded-lg transition cursor-pointer flex items-center justify-between">
+                                    <div class="flex items-center gap-3">
+                                        <i
+                                            class="ri-parent-line text-xl text-gray-700"></i>
+                                        <span
+                                            class="font-semibold text-gray-900">Déclaration
+                                            de naissance</span>
+                                    </div>
+                                    
+                                </a>
+                                <a href="#"
+                                    class="bg-gray-50 hover:bg-gray-100 p-5 rounded-lg transition cursor-pointer flex items-center justify-between">
+                                    <div class="flex items-center gap-3">
+                                        <i
+                                            class="ri-user-line text-xl text-gray-700"></i>
+                                        <span
+                                            class="font-semibold text-gray-900">Livret
+                                            de famille</span>
+                                    </div>
+                                    
+                                </a>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-3 mb-6">
+                                <div
+                                    class="w-12 h-12 flex items-center justify-center bg-blue-100 rounded-lg">
+                                    <i
+                                        class="ri-building-4-line text-2xl text-blue-600"></i>
+                                </div>
+                                <h3
+                                    class="text-2xl font-bold text-gray-900">Urbanisme
+                                    et Logement</h3>
+                            </div>
+                            <div
+                                class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                                <a href="#"
+                                    class="bg-gray-50 hover:bg-gray-100 p-5 rounded-lg transition cursor-pointer flex items-center justify-between">
+                                    <div class="flex items-center gap-3">
+                                        <i
+                                            class="ri-building-line text-xl text-gray-700"></i>
+                                        <span
+                                            class="font-semibold text-gray-900">Permis
+                                            de construire</span>
+                                    </div>
+                                    
+                                </a>
+                                <a href="#"
+                                    class="bg-gray-50 hover:bg-gray-100 p-5 rounded-lg transition cursor-pointer flex items-center justify-between">
+                                    <div class="flex items-center gap-3">
+                                        <i
+                                            class="ri-hammer-line text-xl text-gray-700"></i>
+                                        <span
+                                            class="font-semibold text-gray-900">Déclaration
+                                            de travaux</span>
+                                    </div>
+                                    
+                                </a>
+                                <a href="#"
+                                    class="bg-gray-50 hover:bg-gray-100 p-5 rounded-lg transition cursor-pointer flex items-center justify-between">
+                                    <div class="flex items-center gap-3">
+                                        <i
+                                            class="ri-home-line text-xl text-gray-700"></i>
+                                        <span
+                                            class="font-semibold text-gray-900">Certificat
+                                            d'urbanisme</span>
+                                    </div>
+                                    
+                                </a>
+                                <a href="#"
+                                    class="bg-gray-50 hover:bg-gray-100 p-5 rounded-lg transition cursor-pointer flex items-center justify-between">
+                                    <div class="flex items-center gap-3">
+                                        <i
+                                            class="ri-door-line text-xl text-gray-700"></i>
+                                        <span
+                                            class="font-semibold text-gray-900">Permis
+                                            de démolir</span>
+                                    </div>
+                                    
+                                </a>
+                                <a href="#"
+                                    class="bg-gray-50 hover:bg-gray-100 p-5 rounded-lg transition cursor-pointer flex items-center justify-between">
+                                    <div class="flex items-center gap-3">
+                                        <i
+                                            class="ri-pencil-ruler-line text-xl text-gray-700"></i>
+                                        <span
+                                            class="font-semibold text-gray-900">Plan
+                                            cadastral</span>
+                                    </div>
+                                    
+                                </a>
+                                <a href="#"
+                                    class="bg-gray-50 hover:bg-gray-100 p-5 rounded-lg transition cursor-pointer flex items-center justify-between">
+                                    <div class="flex items-center gap-3">
+                                        <i
+                                            class="ri-map-line text-xl text-gray-700"></i>
+                                        <span
+                                            class="font-semibold text-gray-900">Morcellement
+                                            terrain</span>
+                                    </div>
+                                    
+                                </a>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-3 mb-6">
+                                <div
+                                    class="w-12 h-12 flex items-center justify-center bg-yellow-100 rounded-lg">
+                                    <i
+                                        class="ri-money-dollar-circle-line text-2xl text-yellow-600"></i>
+                                </div>
+                                <h3
+                                    class="text-2xl font-bold text-gray-900">Fiscalité
+                                    Locale</h3>
+                            </div>
+                            <div
+                                class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                                <a href="#"
+                                    class="bg-gray-50 hover:bg-gray-100 p-5 rounded-lg transition cursor-pointer flex items-center justify-between">
+                                    <div class="flex items-center gap-3">
+                                        <i
+                                            class="ri-home-gear-line text-xl text-gray-700"></i>
+                                        <span
+                                            class="font-semibold text-gray-900">Taxe
+                                            foncière</span>
+                                    </div>
+                                    
+                                </a>
+                                <a href="#"
+                                    class="bg-gray-50 hover:bg-gray-100 p-5 rounded-lg transition cursor-pointer flex items-center justify-between">
+                                    <div class="flex items-center gap-3">
+                                        <i
+                                            class="ri-delete-bin-line text-xl text-gray-700"></i>
+                                        <span
+                                            class="font-semibold text-gray-900">Taxe
+                                            d'enlèvement ordures</span>
+                                    </div>
+                                    
+                                </a>
+                                <a href="#"
+                                    class="bg-gray-50 hover:bg-gray-100 p-5 rounded-lg transition cursor-pointer flex items-center justify-between">
+                                    <div class="flex items-center gap-3">
+                                        <i
+                                            class="ri-store-line text-xl text-gray-700"></i>
+                                        <span
+                                            class="font-semibold text-gray-900">Patente
+                                            commerciale</span>
+                                    </div>
+                                    
+                                </a>
+                                <a href="#"
+                                    class="bg-gray-50 hover:bg-gray-100 p-5 rounded-lg transition cursor-pointer flex items-center justify-between">
+                                    <div class="flex items-center gap-3">
+                                        <i
+                                            class="ri-receipt-line text-xl text-gray-700"></i>
+                                        <span
+                                            class="font-semibold text-gray-900">Consultation
+                                            compte fiscal</span>
+                                    </div>
+                                    
+                                </a>
+                                <a href="#"
+                                    class="bg-gray-50 hover:bg-gray-100 p-5 rounded-lg transition cursor-pointer flex items-center justify-between">
+                                    <div class="flex items-center gap-3">
+                                        <i
+                                            class="ri-calendar-check-line text-xl text-gray-700"></i>
+                                        <span
+                                            class="font-semibold text-gray-900">Échéancier
+                                            de paiement</span>
+                                    </div>
+                                    
+                                </a>
+                                <a href="#"
+                                    class="bg-gray-50 hover:bg-gray-100 p-5 rounded-lg transition cursor-pointer flex items-center justify-between">
+                                    <div class="flex items-center gap-3">
+                                        <i
+                                            class="ri-file-shield-line text-xl text-gray-700"></i>
+                                        <span
+                                            class="font-semibold text-gray-900">Attestation
+                                            fiscale</span>
+                                    </div>
+                                    
+                                </a>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-3 mb-6">
+                                <div
+                                    class="w-12 h-12 flex items-center justify-center bg-green-100 rounded-lg">
+                                    <i
+                                        class="ri-store-2-line text-2xl text-green-600"></i>
+                                </div>
+                                <h3
+                                    class="text-2xl font-bold text-gray-900">Commerce
+                                    et Entreprise</h3>
+                            </div>
+                            <div
+                                class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                                <a href="#"
+                                    class="bg-gray-50 hover:bg-gray-100 p-5 rounded-lg transition cursor-pointer flex items-center justify-between">
+                                    <div class="flex items-center gap-3">
+                                        <i
+                                            class="ri-store-3-line text-xl text-gray-700"></i>
+                                        <span
+                                            class="font-semibold text-gray-900">Licence
+                                            d'exploitation</span>
+                                    </div>
+                                    
+                                </a>
+                                <a href="#"
+                                    class="bg-gray-50 hover:bg-gray-100 p-5 rounded-lg transition cursor-pointer flex items-center justify-between">
+                                    <div class="flex items-center gap-3">
+                                        <i
+                                            class="ri-restaurant-line text-xl text-gray-700"></i>
+                                        <span
+                                            class="font-semibold text-gray-900">Autorisation
+                                            débit boissons</span>
+                                    </div>
+                                    
+                                </a>
+                                <a href="#"
+                                    class="bg-gray-50 hover:bg-gray-100 p-5 rounded-lg transition cursor-pointer flex items-center justify-between">
+                                    <div class="flex items-center gap-3">
+                                        <i
+                                            class="ri-shopping-bag-line text-xl text-gray-700"></i>
+                                        <span
+                                            class="font-semibold text-gray-900">Occupation
+                                            domaine public</span>
+                                    </div>
+                                    
+                                </a>
+                                <a href="#"
+                                    class="bg-gray-50 hover:bg-gray-100 p-5 rounded-lg transition cursor-pointer flex items-center justify-between">
+                                    <div class="flex items-center gap-3">
+                                        <i
+                                            class="ri-advertisement-line text-xl text-gray-700"></i>
+                                        <span
+                                            class="font-semibold text-gray-900">Autorisation
+                                            publicité</span>
+                                    </div>
+                                    
+                                </a>
+                                <a href="#"
+                                    class="bg-gray-50 hover:bg-gray-100 p-5 rounded-lg transition cursor-pointer flex items-center justify-between">
+                                    <div class="flex items-center gap-3">
+                                        <i
+                                            class="ri-calendar-event-line text-xl text-gray-700"></i>
+                                        <span
+                                            class="font-semibold text-gray-900">Déclaration
+                                            manifestation</span>
+                                    </div>
+                                    
+                                </a>
+                                <a href="#"
+                                    class="bg-gray-50 hover:bg-gray-100 p-5 rounded-lg transition cursor-pointer flex items-center justify-between">
+                                    <div class="flex items-center gap-3">
+                                        <i
+                                            class="ri-briefcase-line text-xl text-gray-700"></i>
+                                        <span
+                                            class="font-semibold text-gray-900">Création
+                                            entreprise</span>
+                                    </div>
+                                    
+                                </a>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-3 mb-6">
+                                <div
+                                    class="w-12 h-12 flex items-center justify-center bg-purple-100 rounded-lg">
+                                    <i
+                                        class="ri-team-line text-2xl text-purple-600"></i>
+                                </div>
+                                <h3 class="text-2xl font-bold text-gray-900">Vie
+                                    Associative</h3>
+                            </div>
+                            <div
+                                class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                                <a href="#"
+                                    class="bg-gray-50 hover:bg-gray-100 p-5 rounded-lg transition cursor-pointer flex items-center justify-between">
+                                    <div class="flex items-center gap-3">
+                                        <i
+                                            class="ri-user-add-line text-xl text-gray-700"></i>
+                                        <span
+                                            class="font-semibold text-gray-900">Création
+                                            association</span>
+                                    </div>
+                                    
+                                </a>
+                                <a href="#"
+                                    class="bg-gray-50 hover:bg-gray-100 p-5 rounded-lg transition cursor-pointer flex items-center justify-between">
+                                    <div class="flex items-center gap-3">
+                                        <i
+                                            class="ri-edit-line text-xl text-gray-700"></i>
+                                        <span
+                                            class="font-semibold text-gray-900">Modification
+                                            statuts</span>
+                                    </div>
+                                    
+                                </a>
+                                <a href="#"
+                                    class="bg-gray-50 hover:bg-gray-100 p-5 rounded-lg transition cursor-pointer flex items-center justify-between">
+                                    <div class="flex items-center gap-3">
+                                        <i
+                                            class="ri-hand-coin-line text-xl text-gray-700"></i>
+                                        <span
+                                            class="font-semibold text-gray-900">Demande
+                                            de subvention</span>
+                                    </div>
+                                    
+                                </a>
+                                <a href="#"
+                                    class="bg-gray-50 hover:bg-gray-100 p-5 rounded-lg transition cursor-pointer flex items-center justify-between">
+                                    <div class="flex items-center gap-3">
+                                        <i
+                                            class="ri-home-heart-line text-xl text-gray-700"></i>
+                                        <span
+                                            class="font-semibold text-gray-900">Réservation
+                                            salle municipale</span>
+                                    </div>
+                                    
+                                </a>
+                                <a href="#"
+                                    class="bg-gray-50 hover:bg-gray-100 p-5 rounded-lg transition cursor-pointer flex items-center justify-between">
+                                    <div class="flex items-center gap-3">
+                                        <i
+                                            class="ri-award-line text-xl text-gray-700"></i>
+                                        <span
+                                            class="font-semibold text-gray-900">Agrément
+                                            association</span>
+                                    </div>
+                                    
+                                </a>
+                                <a href="#"
+                                    class="bg-gray-50 hover:bg-gray-100 p-5 rounded-lg transition cursor-pointer flex items-center justify-between">
+                                    <div class="flex items-center gap-3">
+                                        <i
+                                            class="ri-file-list-3-line text-xl text-gray-700"></i>
+                                        <span
+                                            class="font-semibold text-gray-900">Récépissé
+                                            déclaration</span>
+                                    </div>
+                                    
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="py-16 bg-gradient-to-br from-purple-50 to-blue-50">
+                <div class="max-w-7xl mx-auto px-6">
+                    <div class="text-center mb-12">
+                        <h2
+                            class="text-3xl font-bold text-gray-900 mb-4">Comment
+                            Effectuer une Démarche en Ligne ?</h2>
+                        <p class="text-gray-600 max-w-2xl mx-auto">Suivez ces
+                            étapes simples pour réaliser votre démarche
+                            administrative</p>
+                    </div>
+                    <div class="grid md:grid-cols-4 gap-8">
+                        <div class="text-center">
+                            <div
+                                class="w-20 h-20 flex items-center justify-center bg-primary text-white rounded-full text-3xl font-bold mx-auto mb-6">1</div>
+                            <h3
+                                class="text-lg font-bold text-gray-900 mb-3">Créez
+                                votre Compte</h3>
+                            <p class="text-gray-600">Inscrivez-vous gratuitement
+                                avec votre email et vos informations
+                                personnelles</p>
+                        </div>
+                        <div class="text-center">
+                            <div
+                                class="w-20 h-20 flex items-center justify-center bg-primary text-white rounded-full text-3xl font-bold mx-auto mb-6">2</div>
+                            <h3
+                                class="text-lg font-bold text-gray-900 mb-3">Choisissez
+                                la Démarche</h3>
+                            <p class="text-gray-600">Sélectionnez la démarche
+                                dont vous avez besoin dans le catalogue</p>
+                        </div>
+                        <div class="text-center">
+                            <div
+                                class="w-20 h-20 flex items-center justify-center bg-primary text-white rounded-full text-3xl font-bold mx-auto mb-6">3</div>
+                            <h3
+                                class="text-lg font-bold text-gray-900 mb-3">Remplissez
+                                le Formulaire</h3>
+                            <p class="text-gray-600">Complétez le formulaire en
+                                ligne et joignez les documents nécessaires</p>
+                        </div>
+                        <div class="text-center">
+                            <div
+                                class="w-20 h-20 flex items-center justify-center bg-primary text-white rounded-full text-3xl font-bold mx-auto mb-6">4</div>
+                            <h3
+                                class="text-lg font-bold text-gray-900 mb-3">Suivez
+                                votre Demande</h3>
+                            <p class="text-gray-600">Recevez des notifications
+                                et suivez l'avancement de votre dossier</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="py-16 bg-white">
+                <div class="max-w-7xl mx-auto px-6">
+                    <div
+                        class="bg-gradient-to-br from-primary to-green-700 text-white rounded-2xl p-12">
+                        <div class="max-w-3xl mx-auto text-center">
+                            <div
+                                class="w-20 h-20 flex items-center justify-center bg-white/20 rounded-full mx-auto mb-6">
+                                <i
+                                    class="ri-customer-service-line text-4xl"></i>
+                            </div>
+                            <h2 class="text-3xl font-bold mb-4">Besoin d'Aide
+                                pour Votre Démarche ?</h2>
+                            <p class="text-xl text-white/90 mb-8">Notre équipe
+                                est à votre disposition pour vous
+                                accompagner</p>
+                            <div class="flex flex-wrap gap-4 justify-center">
+                                <button
+                                    class="px-8 py-4 bg-white text-primary font-semibold hover:bg-gray-100 transition !rounded-button whitespace-nowrap cursor-pointer flex items-center gap-3">
+                                    <i class="ri-phone-line text-xl"></i>
+                                    Nous appeler
+                                </button>
+                                <button
+                                    class="px-8 py-4 bg-transparent text-white border-2 border-white font-semibold hover:bg-white/10 transition !rounded-button whitespace-nowrap cursor-pointer flex items-center gap-3">
+                                    <i class="ri-chat-1-line text-xl"></i>
+                                    Chat en direct
+                                </button>
+                                <button
+                                    class="px-8 py-4 bg-transparent text-white border-2 border-white font-semibold hover:bg-white/10 transition !rounded-button whitespace-nowrap cursor-pointer flex items-center gap-3">
+                                    <i
+                                        class="ri-question-answer-line text-xl"></i>
+                                    FAQ
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <footer class="bg-gray-900 text-white pt-16 pb-8">
+                <div class="max-w-7xl mx-auto px-6">
+                    <div
+                        class="grid md:grid-cols-2 lg:grid-cols-5 gap-12 mb-12">
+                        <div>
+                            <h4 class="text-lg font-bold mb-6">À Propos</h4>
+                            <ul class="space-y-3">
+                                <li><a href="#"
+                                        class="text-gray-400 hover:text-white transition cursor-pointer">Présentation</a></li>
+                                <li><a href="#"
+                                        class="text-gray-400 hover:text-white transition cursor-pointer">Mission
+                                        et valeurs</a></li>
+                                <li><a href="#"
+                                        class="text-gray-400 hover:text-white transition cursor-pointer">Organisation</a></li>
+                                <li><a href="#"
+                                        class="text-gray-400 hover:text-white transition cursor-pointer">Charte
+                                        de qualité</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold mb-6">Services</h4>
+                            <ul class="space-y-3">
+                                <li><a href="#"
+                                        class="text-gray-400 hover:text-white transition cursor-pointer">Démarches
+                                        en ligne</a></li>
+                                <li><a href="#"
+                                        class="text-gray-400 hover:text-white transition cursor-pointer">Suivi
+                                        de projets</a></li>
+                                <li><a href="#"
+                                        class="text-gray-400 hover:text-white transition cursor-pointer">Signalements</a></li>
+                                <li><a href="#"
+                                        class="text-gray-400 hover:text-white transition cursor-pointer">Aides
+                                        et subventions</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold mb-6">Ressources</h4>
+                            <ul class="space-y-3">
+                                <li><a href="#"
+                                        class="text-gray-400 hover:text-white transition cursor-pointer">Centre
+                                        d'aide</a></li>
+                                <li><a href="#"
+                                        class="text-gray-400 hover:text-white transition cursor-pointer">Guides
+                                        pratiques</a></li>
+                                <li><a href="#"
+                                        class="text-gray-400 hover:text-white transition cursor-pointer">FAQ</a></li>
+                                <li><a href="#"
+                                        class="text-gray-400 hover:text- white transition cursor-pointer">Tutoriels
+                                        vidéo</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold mb-6">Informations
+                                Légales</h4>
+                            <ul class="space-y-3">
+                                <li><a href="#"
+                                        class="text-gray-400 hover:text-white transition cursor-pointer">Mentions
+                                        légales</a></li>
+                                <li><a href="#"
+                                        class="text-gray-400 hover:text-white transition cursor-pointer">Politique
+                                        de confidentialité</a></li>
+                                <li><a href="#"
+                                        class="text-gray-400 hover:text-white transition cursor-pointer">Accessibilité</a></li>
+                                <li><a href="#"
+                                        class="text-gray-400 hover:text-white transition cursor-pointer">Conditions
+                                        d'utilisation</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold mb-6">Contact</h4>
+                            <ul class="space-y-3 text-gray-400">
+                                <li class="flex items-start gap-3">
+                                    <i
+                                        class="ri-map-pin-line text-lg flex-shrink-0 mt-1"></i>
+                                    <span>Avenue Léopold Sédar Senghor<br>Dakar,
+                                        Sénégal</span>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <i class="ri-phone-line text-lg"></i>
+                                    <span>+221 33 823 45 67</span>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <i class="ri-mail-line text-lg"></i>
+                                    <span>contact@eadmin.sn</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="border-t border-gray-800 pt-8">
+                        <div
+                            class="flex flex-col md:flex-row items-center justify-between gap-6">
+                            <div class="flex items-center gap-6">
+                                <a href="#"
+                                    class="w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-primary rounded-full transition cursor-pointer">
+                                    <i class="ri-facebook-fill text-xl"></i>
+                                </a>
+                                <a href="#"
+                                    class="w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-primary rounded-full transition cursor-pointer">
+                                    <i class="ri-twitter-x-fill text-xl"></i>
+                                </a>
+                                <a href="#"
+                                    class="w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-primary rounded-full transition cursor-pointer">
+                                    <i class="ri-linkedin-fill text-xl"></i>
+                                </a>
+                                <a href="#"
+                                    class="w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-primary rounded-full transition cursor-pointer">
+                                    <i class="ri-youtube-fill text-xl"></i>
+                                </a>
+                                <a href="#"
+                                    class="w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-primary rounded-full transition cursor-pointer">
+                                    <i class="ri-instagram-fill text-xl"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="text-center text-gray-500 text-sm mt-8">
+                            © 2025 République du Sénégal - E-Administration
+                            Territoriale. Tous droits réservés.
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </body>
+</html>
+---

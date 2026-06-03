@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Projets Publics - E-Administration Territoriale</title>
+        <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Pacifico&family=Inter:wght@300;400;500;600;700&display=swap"
+            rel="stylesheet">
+        <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css"
+            rel="stylesheet">
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
+        <script>
+tailwind.config = {
+theme: {
+extend: {
+colors: {
+primary: '#00853F',
+secondary: '#FDEF42',
+accent: '#E31B23'
+},
+borderRadius: {
+'none': '0px',
+'sm': '4px',
+DEFAULT: '8px',
+'md': '12px',
+'lg': '16px',
+'xl': '20px',
+'2xl': '24px',
+'3xl': '32px',
+'full': '9999px',
+'button': '8px'
+},
+fontFamily: {
+'sans': ['Inter', 'sans-serif']
+}
+}
+}
+}
+</script>
+        <style>
+:where([class^="ri-"])::before {
+content: "\f3c2";
+}
+body {
+font-family: 'Inter', sans-serif;
+}
+.progress-bar {
+transition: width 0.3s ease;
+}
+</style>
+    </head>
+    <body class="bg-white">
+        <nav class="fixed top-0 left-0 right-0 bg-white shadow-sm z-50">
+            <div class="max-w-7xl mx-auto px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 flex items-center justify-center">
+                            <i
+                                class="ri-government-line text-4xl text-primary"></i>
+                        </div>
+                        <div>
+                            <div
+                                class="text-sm font-semibold text-primary">République
+                                du Sénégal</div>
+                            <div
+                                class="text-lg font-bold text-gray-900">E-Administration
+                                Territoriale</div>
+                        </div>
+                    </div>
+                                        <div class="hidden lg:flex items-center gap-8">
+                        <a href="index.html"
+                            class="text-gray-700 hover:text-primary transition cursor-pointer">Accueil</a>
+                        <a href="actualites.html"
+                            class="text-gray-700 hover:text-primary transition cursor-pointer">Actualités</a>
+                        <a href="projets.html"
+                            class="text-gray-900 font-medium hover:text-primary transition cursor-pointer">Projets</a>
+                        <a href="demarches.html"
+                            class="text-gray-700 hover:text-primary transition cursor-pointer">Démarches</a>
+                        <a href="alertes.html"
+                            class="text-gray-700 hover:text-primary transition cursor-pointer">Alertes</a>
+                        <a href="contact.html"
+                            class="text-gray-700 hover:text-primary transition cursor-pointer">Contact</a>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <a href="connexion.html"
+                            class="px-5 py-2.5 text-primary border border-primary hover:bg-primary hover:text-white transition !rounded-button whitespace-nowrap flex items-center gap-2 cursor-pointer">
+                            <i class="ri-login-box-line text-lg"></i>
+                            Se connecter
+                        </a>
+                        <a href="inscription.html"
+                            class="px-5 py-2.5 bg-primary text-white hover:bg-green-700 transition !rounded-button whitespace-nowrap flex items-center gap-2 cursor-pointer">
+                            <i class="ri-user-add-line text-lg"></i>
+                            S'inscrire
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div class="pt-24">
+            <section
+                class="bg-gradient-to-br from-primary to-green-700 text-white py-20">
+                <div class="max-w-7xl mx-auto px-6">
+                    <div class="max-w-4xl">
+                        <h1 class="text-5xl font-bold mb-6">Projets Publics :
+                            Transparence et Suivi en Temps Réel</h1>
+                        <p class="text-xl text-white/90 mb-8">Suivez
+                            l'avancement des projets d'infrastructure et de
+                            développement qui transforment votre territoire.
+                            Accédez aux budgets, plannings et résultats en toute
+                            transparence.</p>
+                        <div class="flex items-center gap-6">
+                            <div class="flex items-center gap-2 text-white/90">
+                                <i class="ri-building-2-line text-2xl"></i>
+                                <div>
+                                    <div class="text-3xl font-bold">156</div>
+                                    <div class="text-sm">Projets actifs</div>
+                                </div>
+                            </div>
+                            <div class="w-px h-12 bg-white/30"></div>
+                            <div class="flex items-center gap-2 text-white/90">
+                                <i
+                                    class="ri-money-dollar-circle-line text-2xl"></i>
+                                <div>
+                                    <div class="text-3xl font-bold">847
+                                        Mds</div>
+                                    <div class="text-sm">Budget total FCFA</div>
+                                </div>
+                            </div>
+                            <div class="w-px h-12 bg-white/30"></div>
+                            <div class="flex items-center gap-2 text-white/90">
+                                <i class="ri-map-pin-line text-2xl"></i>
+                                <div>
+                                    <div class="text-3xl font-bold">45</div>
+                                    <div class="text-sm">Territoires
+                                        couverts</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="py-12 bg-gray-50 border-b border-gray-200">
+                <div class="max-w-7xl mx-auto px-6">
+                    <div
+                        class="flex flex-wrap items-center justify-between gap-6">
+                        <div class="flex items-center gap-3">
+                            <span class="text-gray-700 font-semibold">Filtrer
+                                par :</span>
+                            <button
+                                class="px-4 py-2 bg-primary text-white hover:bg-green-700 transition !rounded-button whitespace-nowrap cursor-pointer">Tous</button>
+                            <button
+                                class="px-4 py-2 bg-white text-gray-700 hover:bg-gray-100 transition !rounded-button whitespace-nowrap cursor-pointer">En
+                                cours</button>
+                            <button
+                                class="px-4 py-2 bg-white text-gray-700 hover:bg-gray-100 transition !rounded-button whitespace-nowrap cursor-pointer">Planifié</button>
+                            <button
+                                class="px-4 py-2 bg-white text-gray-700 hover:bg-gray-100 transition !rounded-button whitespace-nowrap cursor-pointer">Terminé</button>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <button
+                                class="px-4 py-2 bg-white text-gray-700 border border-gray-300 hover:bg-gray-50 transition !rounded-button whitespace-nowrap cursor-pointer flex items-center gap-2">
+                                <i class="ri-map-pin-line"></i>
+                                Toutes les régions
+                                <i class="ri-arrow-down-s-line"></i>
+                            </button>
+                            <div class="relative">
+                                <input type="text"
+                                    placeholder="Rechercher un projet..."
+                                    class="w-80 pl-11 pr-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-sm">
+                                <i
+                                    class="ri-search-line absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-lg"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="py-16 bg-white">
+                <div class="max-w-7xl mx-auto px-6">
+                    <div class="grid lg:grid-cols-3 gap-8 mb-16">
+                        <div
+                            class="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-xl">
+                            <div class="flex items-center justify-between mb-4">
+                                <div
+                                    class="w-14 h-14 flex items-center justify-center bg-blue-500 rounded-lg">
+                                    <i
+                                        class="ri-play-circle-line text-3xl text-white"></i>
+                                </div>
+                                <div class="text-right">
+                                    <div
+                                        class="text-4xl font-bold text-blue-900">98</div>
+                                    <div
+                                        class="text-sm text-blue-700">projets</div>
+                                </div>
+                            </div>
+                            <div class="text-lg font-bold text-blue-900">Projets
+                                En Cours</div>
+                            <div class="text-sm text-blue-700">Avancement moyen
+                                : 54%</div>
+                        </div>
+                        <div
+                            class="bg-gradient-to-br from-yellow-50 to-yellow-100 p-8 rounded-xl">
+                            <div class="flex items-center justify-between mb-4">
+                                <div
+                                    class="w-14 h-14 flex items-center justify-center bg-yellow-500 rounded-lg">
+                                    <i
+                                        class="ri-calendar-line text-3xl text-white"></i>
+                                </div>
+                                <div class="text-right">
+                                    <div
+                                        class="text-4xl font-bold text-yellow-900">42</div>
+                                    <div
+                                        class="text-sm text-yellow-700">projets</div>
+                                </div>
+                            </div>
+                            <div
+                                class="text-lg font-bold text-yellow-900">Projets
+                                Planifiés</div>
+                            <div class="text-sm text-yellow-700">Démarrage prévu
+                                2025-2026</div>
+                        </div>
+                        <div
+                            class="bg-gradient-to-br from-green-50 to-green-100 p-8 rounded-xl">
+                            <div class="flex items-center justify-between mb-4">
+                                <div
+                                    class="w-14 h-14 flex items-center justify-center bg-green-500 rounded-lg">
+                                    <i
+                                        class="ri-checkbox-circle-line text-3xl text-white"></i>
+                                </div>
+                                <div class="text-right">
+                                    <div
+                                        class="text-4xl font-bold text-green-900">16</div>
+                                    <div
+                                        class="text-sm text-green-700">projets</div>
+                                </div>
+                            </div>
+                            <div
+                                class="text-lg font-bold text-green-900">Projets
+                                Terminés</div>
+                            <div class="text-sm text-green-700">Livrés en
+                                2024-2025</div>
+                        </div>
+                    </div>
+                    <div class="mb-12">
+                        <h2
+                            class="text-3xl font-bold text-gray-900 mb-2">Projets
+                            Majeurs</h2>
+                        <p class="text-gray-600">Les grands projets structurants
+                            pour le développement territorial</p>
+                    </div>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div
+                            class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition cursor-pointer">
+                            <img
+                                src="https://readdy.ai/api/search-image?query=Large%20modern%20hospital%20complex%20construction%20in%20Senegal%20medical%20facility%20architecture%20contemporary%20healthcare%20building%20workers%20and%20construction%20equipment%20African%20urban%20development%20professional%20photography%20bright%20daylight&width=800&height=500&seq=project201&orientation=landscape"
+                                alt="Projet"
+                                class="w-full h-48 object-cover object-top">
+                            <div class="p-6">
+                                <div
+                                    class="flex items-center gap-2 text-gray-600 mb-3">
+                                    <i class="ri-map-pin-line text-lg"></i>
+                                    <span class="text-sm font-medium">Dakar,
+                                        Plateau</span>
+                                </div>
+                                <h3
+                                    class="text-xl font-bold text-gray-900 mb-4">Centre
+                                    Hospitalier Universitaire de Dakar</h3>
+                                <div class="mb-4">
+                                    <div
+                                        class="flex items-center justify-between text-sm mb-2">
+                                        <span
+                                            class="text-gray-600">Avancement</span>
+                                        <span
+                                            class="font-bold text-primary">68%</span>
+                                    </div>
+                                    <div
+                                        class="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
+                                        <div
+                                            class="progress-bar bg-primary h-full rounded-full"
+                                            style="width: 68%"></div>
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-2 gap-4 mb-4">
+                                    <div>
+                                        <div
+                                            class="text-sm text-gray-600 mb-1">Budget
+                                            alloué</div>
+                                        <div
+                                            class="text-lg font-bold text-gray-900">45
+                                            Mds FCFA</div>
+                                    </div>
+                                    <div>
+                                        <div
+                                            class="text-sm text-gray-600 mb-1">Budget
+                                            utilisé</div>
+                                        <div
+                                            class="text-lg font-bold text-gray-900">30.6
+                                            Mds FCFA</div>
+                                    </div>
+                                </div>
+                                <div
+                                    class="flex items-center justify-between mb-4">
+                                    <span
+                                        class="px-3 py-1 bg-blue-100 text-blue-600 text-sm font-semibold rounded-full">En
+                                        cours</span>
+                                    <span
+                                        class="text-sm text-gray-600">Livraison
+                                        : Déc 2025</span>
+                                </div>
+                                <button
+                                    class="w-full px-5 py-2.5 bg-primary text-white hover:bg-green-700 transition !rounded-button whitespace-nowrap text-sm font-semibold cursor-pointer">
+                                    Voir les détails
+                                </button>
+                            </div>
+                        </div>
+                        <div
+                            class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition cursor-pointer">
+                            <img
+                                src="https://readdy.ai/api/search-image?query=Highway%20motorway%20construction%20in%20Senegal%20modern%20road%20infrastructure%20asphalt%20paving%20heavy%20machinery%20workers%20African%20transportation%20development%20wide%20angle%20professional%20photography%20sunny%20day&width=800&height=500&seq=project202&orientation=landscape"
+                                alt="Projet"
+                                class="w-full h-48 object-cover object-top">
+                            <div class="p-6">
+                                <div
+                                    class="flex items-center gap-2 text-gray-600 mb-3">
+                                    <i class="ri-map-pin-line text-lg"></i>
+                                    <span class="text-sm font-medium">Thiès -
+                                        Kaolack</span>
+                                </div>
+                                <h3
+                                    class="text-xl font-bold text-gray-900 mb-4">Modernisation
+                                    Autoroute Thiès-Kaolack</h3>
+                                <div class="mb-4">
+                                    <div
+                                        class="flex items-center justify-between text-sm mb-2">
+                                        <span
+                                            class="text-gray-600">Avancement</span>
+                                        <span
+                                            class="font-bold text-primary">42%</span>
+                                    </div>
+                                    <div
+                                        class="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
+                                        <div
+                                            class="progress-bar bg-primary h-full rounded-full"
+                                            style="width: 42%"></div>
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-2 gap-4 mb-4">
+                                    <div>
+                                        <div
+                                            class="text-sm text-gray-600 mb-1">Budget
+                                            alloué</div>
+                                        <div
+                                            class="text-lg font-bold text-gray-900">82
+                                            Mds FCFA</div>
+                                    </div>
+                                    <div>
+                                        <div
+                                            class="text-sm text-gray-600 mb-1">Budget
+                                            utilisé</div>
+                                        <div
+                                            class="text-lg font-bold text-gray-900">34.4
+                                            Mds FCFA</div>
+                                    </div>
+                                </div>
+                                <div
+                                    class="flex items-center justify-between mb-4">
+                                    <span
+                                        class="px-3 py-1 bg-blue-100 text-blue-600 text-sm font-semibold rounded-full">En
+                                        cours</span>
+                                    <span
+                                        class="text-sm text-gray-600">Livraison
+                                        : Juin 2026</span>
+                                </div>
+                                <button
+                                    class="w-full px-5 py-2.5 bg-primary text-white hover:bg-green-700 transition !rounded-button whitespace-nowrap text-sm font-semibold cursor-pointer">
+                                    Voir les détails
+                                </button>
+                            </div>
+                        </div>
+                        <div
+                            class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition cursor-pointer">
+                            <img
+                                src="https://readdy.ai/api/search-image?query=Modern%20school%20educational%20complex%20in%20Senegal%20contemporary%20architecture%20large%20windows%20bright%20classrooms%20students%20and%20teachers%20African%20educational%20facility%20construction%20professional%20photography&width=800&height=500&seq=project203&orientation=landscape"
+                                alt="Projet"
+                                class="w-full h-48 object-cover object-top">
+                            <div class="p-6">
+                                <div
+                                    class="flex items-center gap-2 text-gray-600 mb-3">
+                                    <i class="ri-map-pin-line text-lg"></i>
+                                    <span
+                                        class="text-sm font-medium">Saint-Louis</span>
+                                </div>
+                                <h3
+                                    class="text-xl font-bold text-gray-900 mb-4">Complexe
+                                    Scolaire Moderne de Saint-Louis</h3>
+                                <div class="mb-4">
+                                    <div
+                                        class="flex items-center justify-between text-sm mb-2">
+                                        <span
+                                            class="text-gray-600">Avancement</span>
+                                        <span
+                                            class="font-bold text-yellow-600">15%</span>
+                                    </div>
+                                    <div
+                                        class="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
+                                        <div
+                                            class="progress-bar bg-yellow-500 h-full rounded-full"
+                                            style="width: 15%"></div>
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-2 gap-4 mb-4">
+                                    <div>
+                                        <div
+                                            class="text-sm text-gray-600 mb-1">Budget
+                                            alloué</div>
+                                        <div
+                                            class="text-lg font-bold text-gray-900">18
+                                            Mds FCFA</div>
+                                    </div>
+                                    <div>
+                                        <div
+                                            class="text-sm text-gray-600 mb-1">Budget
+                                            utilisé</div>
+                                        <div
+                                            class="text-lg font-bold text-gray-900">2.7
+                                            Mds FCFA</div>
+                                    </div>
+                                </div>
+                                <div
+                                    class="flex items-center justify-between mb-4">
+                                    <span
+                                        class="px-3 py-1 bg-yellow-100 text-yellow-700 text-sm font-semibold rounded-full">Planifié</span>
+                                    <span
+                                        class="text-sm text-gray-600">Livraison
+                                        : Mar 2026</span>
+                                </div>
+                                <button
+                                    class="w-full px-5 py-2.5 bg-primary text-white hover:bg-green-700 transition !rounded-button whitespace-nowrap text-sm font-semibold cursor-pointer">
+                                    Voir les détails
+                                </button>
+                            </div>
+                        </div>
+                        <div
+                            class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition cursor-pointer">
+                            <img
+                                src="https://readdy.ai/api/search-image?query=Water%20treatment%20plant%20construction%20in%20Senegal%20modern%20infrastructure%20clean%20water%20facility%20pipes%20and%20tanks%20African%20development%20sustainable%20water%20supply%20professional%20photography%20bright%20daylight&width=800&height=500&seq=project204&orientation=landscape"
+                                alt="Projet"
+                                class="w-full h-48 object-cover object-top">
+                            <div class="p-6">
+                                <div
+                                    class="flex items-center gap-2 text-gray-600 mb-3">
+                                    <i class="ri-map-pin-line text-lg"></i>
+                                    <span
+                                        class="text-sm font-medium">Ziguinchor</span>
+                                </div>
+                                <h3
+                                    class="text-xl font-bold text-gray-900 mb-4">Station
+                                    de Traitement d'Eau Potable</h3>
+                                <div class="mb-4">
+                                    <div
+                                        class="flex items-center justify-between text-sm mb-2">
+                                        <span
+                                            class="text-gray-600">Avancement</span>
+                                        <span
+                                            class="font-bold text-primary">81%</span>
+                                    </div>
+                                    <div
+                                        class="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
+                                        <div
+                                            class="progress-bar bg-primary h-full rounded-full"
+                                            style="width: 81%"></div>
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-2 gap-4 mb-4">
+                                    <div>
+                                        <div
+                                            class="text-sm text-gray-600 mb-1">Budget
+                                            alloué</div>
+                                        <div
+                                            class="text-lg font-bold text-gray-900">22
+                                            Mds FCFA</div>
+                                    </div>
+                                    <div>
+                                        <div
+                                            class="text-sm text-gray-600 mb-1">Budget
+                                            utilisé</div>
+                                        <div
+                                            class="text-lg font-bold text-gray-900">17.8
+                                            Mds FCFA</div>
+                                    </div>
+                                </div>
+                                <div
+                                    class="flex items-center justify-between mb-4">
+                                    <span
+                                        class="px-3 py-1 bg-blue-100 text-blue-600 text-sm font-semibold rounded-full">En
+                                        cours</span>
+                                    <span
+                                        class="text-sm text-gray-600">Livraison
+                                        : Juil 2025</span>
+                                </div>
+                                <button
+                                    class="w-full px-5 py-2.5 bg-primary text-white hover:bg-green-700 transition !rounded-button whitespace-nowrap text-sm font-semibold cursor-pointer">
+                                    Voir les détails
+                                </button>
+                            </div>
+                        </div>
+                        <div
+                            class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition cursor-pointer">
+                            <img
+                                src="https://readdy.ai/api/search-image?query=Solar%20energy%20park%20installation%20in%20Senegal%20large%20scale%20renewable%20energy%20project%20solar%20panels%20field%20African%20green%20energy%20development%20workers%20and%20equipment%20professional%20photography%20sunny%20day&width=800&height=500&seq=project205&orientation=landscape"
+                                alt="Projet"
+                                class="w-full h-48 object-cover object-top">
+                            <div class="p-6">
+                                <div
+                                    class="flex items-center gap-2 text-gray-600 mb-3">
+                                    <i class="ri-map-pin-line text-lg"></i>
+                                    <span
+                                        class="text-sm font-medium">Louga</span>
+                                </div>
+                                <h3
+                                    class="text-xl font-bold text-gray-900 mb-4">Parc
+                                    Solaire Photovoltaïque de Louga</h3>
+                                <div class="mb-4">
+                                    <div
+                                        class="flex items-center justify-between text-sm mb-2">
+                                        <span
+                                            class="text-gray-600">Avancement</span>
+                                        <span
+                                            class="font-bold text-green-600">100%</span>
+                                    </div>
+                                    <div
+                                        class="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
+                                        <div
+                                            class="progress-bar bg-green-500 h-full rounded-full"
+                                            style="width: 100%"></div>
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-2 gap-4 mb-4">
+                                    <div>
+                                        <div
+                                            class="text-sm text-gray-600 mb-1">Budget
+                                            alloué</div>
+                                        <div
+                                            class="text-lg font-bold text-gray-900">35
+                                            Mds FCFA</div>
+                                    </div>
+                                    <div>
+                                        <div
+                                            class="text-sm text-gray-600 mb-1">Budget
+                                            utilisé</div>
+                                        <div
+                                            class="text-lg font-bold text-gray-900">35
+                                            Mds FCFA</div>
+                                    </div>
+                                </div>
+                                <div
+                                    class="flex items-center justify-between mb-4">
+                                    <span
+                                        class="px-3 py-1 bg-green-100 text-green-700 text-sm font-semibold rounded-full">Terminé</span>
+                                    <span
+                                        class="text-sm text-gray-600">Livraison
+                                        : Fév 2025</span>
+                                </div>
+                                <button
+                                    class="w-full px-5 py-2.5 bg-primary text-white hover:bg-green-700 transition !rounded-button whitespace-nowrap text-sm font-semibold cursor-pointer">
+                                    Voir les détails
+                                </button>
+                            </div>
+                        </div>
+                        <div
+                            class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition cursor-pointer">
+                            <img
+                                src="https://readdy.ai/api/search-image?query=Sports%20stadium%20construction%20in%20Senegal%20modern%20athletic%20facility%20contemporary%20architecture%20seating%20and%20field%20African%20sports%20development%20professional%20photography%20aerial%20view%20bright%20daylight&width=800&height=500&seq=project206&orientation=landscape"
+                                alt="Projet"
+                                class="w-full h-48 object-cover object-top">
+                            <div class="p-6">
+                                <div
+                                    class="flex items-center gap-2 text-gray-600 mb-3">
+                                    <i class="ri-map-pin-line text-lg"></i>
+                                    <span
+                                        class="text-sm font-medium">Diourbel</span>
+                                </div>
+                                <h3
+                                    class="text-xl font-bold text-gray-900 mb-4">Stade
+                                    Omnisports Régional de Diourbel</h3>
+                                <div class="mb-4">
+                                    <div
+                                        class="flex items-center justify-between text-sm mb-2">
+                                        <span
+                                            class="text-gray-600">Avancement</span>
+                                        <span
+                                            class="font-bold text-primary">56%</span>
+                                    </div>
+                                    <div
+                                        class="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
+                                        <div
+                                            class="progress-bar bg-primary h-full rounded-full"
+                                            style="width: 56%"></div>
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-2 gap-4 mb-4">
+                                    <div>
+                                        <div
+                                            class="text-sm text-gray-600 mb-1">Budget
+                                            alloué</div>
+                                        <div
+                                            class="text-lg font-bold text-gray-900">28
+                                            Mds FCFA</div>
+                                    </div>
+                                    <div>
+                                        <div
+                                            class="text-sm text-gray-600 mb-1">Budget
+                                            utilisé</div>
+                                        <div
+                                            class="text-lg font-bold text-gray-900">15.7
+                                            Mds FCFA</div>
+                                    </div>
+                                </div>
+                                <div
+                                    class="flex items-center justify-between mb-4">
+                                    <span
+                                        class="px-3 py-1 bg-blue-100 text-blue-600 text-sm font-semibold rounded-full">En
+                                        cours</span>
+                                    <span
+                                        class="text-sm text-gray-600">Livraison
+                                        : Nov 2025</span>
+                                </div>
+                                <button
+                                    class="w-full px-5 py-2.5 bg-primary text-white hover:bg-green-700 transition !rounded-button whitespace-nowrap text-sm font-semibold cursor-pointer">
+                                    Voir les détails
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="py-16 bg-gray-50">
+                <div class="max-w-7xl mx-auto px-6">
+                    <div class="mb-12">
+                        <h2
+                            class="text-3xl font-bold text-gray-900 mb-2">Répartition
+                            des Projets par Secteur</h2>
+                        <p class="text-gray-600">Visualisez l'investissement
+                            public dans chaque domaine</p>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-md p-8">
+                        <div class="grid lg:grid-cols-2 gap-12">
+                            <div>
+                                <div id="sectorChart"
+                                    style="width: 100%; height: 400px;"></div>
+                            </div>
+                            <div class="space-y-4">
+                                <div
+                                    class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-4 h-4 rounded-full"
+                                            style="background-color: rgba(87, 181, 231, 1);"></div>
+                                        <span
+                                            class="font-semibold text-gray-900">Infrastructure</span>
+                                    </div>
+                                    <div class="text-right">
+                                        <div class="font-bold text-gray-900">45
+                                            projets</div>
+                                        <div class="text-sm text-gray-600">312
+                                            Mds FCFA</div>
+                                    </div>
+                                </div>
+                                <div
+                                    class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-4 h-4 rounded-full"
+                                            style="background-color: rgba(141, 211, 199, 1);"></div>
+                                        <span
+                                            class="font-semibold text-gray-900">Santé</span>
+                                    </div>
+                                    <div class="text-right">
+                                        <div class="font-bold text-gray-900">28
+                                            projets</div>
+                                        <div class="text-sm text-gray-600">189
+                                            Mds FCFA</div>
+                                    </div>
+                                </div>
+                                <div
+                                    class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-4 h-4 rounded-full"
+                                            style="background-color: rgba(251, 191, 114, 1);"></div>
+                                        <span
+                                            class="font-semibold text-gray-900">Éducation</span>
+                                    </div>
+                                    <div class="text-right">
+                                        <div class="font-bold text-gray-900">38
+                                            projets</div>
+                                        <div class="text-sm text-gray-600">156
+                                            Mds FCFA</div>
+                                    </div>
+                                </div>
+                                <div
+                                    class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-4 h-4 rounded-full"
+                                            style="background-color: rgba(252, 141, 98, 1);"></div>
+                                        <span
+                                            class="font-semibold text-gray-900">Énergie</span>
+                                    </div>
+                                    <div class="text-right">
+                                        <div class="font-bold text-gray-900">24
+                                            projets</div>
+                                        <div class="text-sm text-gray-600">134
+                                            Mds FCFA</div>
+                                    </div>
+                                </div>
+                                <div
+                                    class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                                    <div class="flex items-center gap-3">
+                                        <div
+                                            class="w-4 h-4 rounded-full bg-gray-400"></div>
+                                        <span
+                                            class="font-semibold text-gray-900">Autres</span>
+                                    </div>
+                                    <div class="text-right">
+                                        <div class="font-bold text-gray-900">21
+                                            projets</div>
+                                        <div class="text-sm text-gray-600">56
+                                            Mds FCFA</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="py-16 bg-white">
+                <div class="max-w-7xl mx-auto px-6">
+                    <div class="mb-12">
+                        <h2
+                            class="text-3xl font-bold text-gray-900 mb-2">Évolution
+                            Budgétaire Mensuelle</h2>
+                        <p class="text-gray-600">Suivi de l'exécution budgétaire
+                            sur les 12 derniers mois</p>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-md p-8">
+                        <div id="budgetChart"
+                            style="width: 100%; height: 400px;"></div>
+                    </div>
+                </div>
+            </section>
+            <section class="py-16 bg-gray-50">
+                <div class="max-w-7xl mx-auto px-6">
+                    <div
+                        class="bg-gradient-to-br from-primary to-green-700 text-white rounded-2xl p-12 text-center">
+                        <div
+                            class="w-20 h-20 flex items-center justify-center bg-white/20 rounded-full mx-auto mb-6">
+                            <i class="ri-eye-line text-4xl"></i>
+                        </div>
+                        <h2 class="text-3xl font-bold mb-4">Suivez Tous les
+                            Projets sur la Carte Interactive</h2>
+                        <p
+                            class="text-xl text-white/90 mb-8 max-w-2xl mx-auto">Explorez
+                            la carte interactive pour découvrir tous les projets
+                            géolocalisés dans votre région</p>
+                        <button
+                            class="px-8 py-4 bg-white text-primary font-semibold hover:bg-gray-100 transition !rounded-button whitespace-nowrap cursor-pointer flex items-center gap-3 mx-auto">
+                            <i class="ri-map-2-line text-xl"></i>
+                            Ouvrir la carte interactive
+                        </button>
+                    </div>
+                </div>
+            </section>
+            <footer class="bg-gray-900 text-white pt-16 pb-8">
+                <div class="max-w-7xl mx-auto px-6">
+                    <div
+                        class="grid md:grid-cols-2 lg:grid-cols-5 gap-12 mb-12">
+                        <div>
+                            <h4 class="text-lg font-bold mb-6">À Propos</h4>
+                            <ul class="space-y-3">
+                                <li><a href="#"
+                                        class="text-gray-400 hover:text-white transition cursor-pointer">Présentation</a></li>
+                                <li><a href="#"
+                                        class="text-gray-400 hover:text-white transition cursor-pointer">Mission
+                                        et valeurs</a></li>
+                                <li><a href="#"
+                                        class="text-gray-400 hover:text-white transition cursor-pointer">Organisation</a></li>
+                                <li><a href="#"
+                                        class="text-gray-400 hover:text-white transition cursor-pointer">Charte
+                                        de qualité</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold mb-6">Services</h4>
+                            <ul class="space-y-3">
+                                <li><a href="#"
+                                        class="text-gray-400 hover:text-white transition cursor-pointer">Démarches
+                                        en ligne</a></li>
+                                <li><a href="#"
+                                        class="text-gray-400 hover:text-white transition cursor-pointer">Suivi
+                                        de projets</a></li>
+                                <li><a href="#"
+                                        class="text-gray-400 hover:text-white transition cursor-pointer">Signalements</a></li>
+                                <li><a href="#"
+                                        class="text-gray-400 hover:text-white transition cursor-pointer">Aides
+                                        et subventions</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold mb-6">Ressources</h4>
+                            <ul class="space-y-3">
+                                <li><a href="#"
+                                        class="text-gray-400 hover:text-white transition cursor-pointer">Centre
+                                        d'aide</a></li>
+                                <li><a href="#"
+                                        class="text-gray-400 hover:text-white transition cursor-pointer">Guides
+                                        pratiques</a></li>
+                                <li><a href="#"
+                                        class="text-gray-400 hover:text-white transition cursor-pointer">FAQ</a></li>
+                                <li><a href="#"
+                                        class="text-gray-400 hover:text-white transition cursor-pointer">Tutoriels
+                                        vidéo</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold mb-6">Informations
+                                Légales</h4>
+                            <ul class="space-y-3">
+                                <li><a href="#"
+                                        class="text-gray-400 hover:text-white transition cursor-pointer">Mentions
+                                        légales</a></li>
+                                <li><a href="#"
+                                        class="text-gray-400 hover:text-white transition cursor-pointer">Politique
+                                        de confidentialité</a></li>
+                                <li><a href="#"
+                                        class="text-gray-400 hover:text-white transition cursor-pointer">Accessibilité</a></li>
+                                <li><a href="#"
+                                        class="text-gray-400 hover:text-white transition cursor-pointer">Conditions
+                                        d'utilisation</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold mb-6">Contact</h4>
+                            <ul class="space-y-3 text-gray-400">
+                                <li class="flex items-start gap-3">
+                                    <i
+                                        class="ri-map-pin-line text-lg flex-shrink-0 mt-1"></i>
+                                    <span>Avenue Léopold Sédar Senghor<br>Dakar,
+                                        Sénégal</span>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <i class="ri-phone-line text-lg"></i>
+                                    <span>+221 33 823 45 67</span>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <i class="ri-mail-line text-lg"></i>
+                                    <span>contact@eadmin.sn</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="border-t border-gray-800 pt-8">
+                        <div
+                            class="flex flex-col md:flex-row items-center justify-between gap-6">
+                            <div class="flex items-center gap-6">
+                                <a href="#"
+                                    class="w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-primary rounded-full transition cursor-pointer">
+                                    <i class="ri-facebook-fill text-xl"></i>
+                                </a>
+                                <a href="#"
+                                    class="w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-primary rounded-full transition cursor-pointer">
+                                    <i class="ri-twitter-x-fill text-xl"></i>
+                                </a>
+                                <a href="#"
+                                    class="w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-primary rounded-full transition cursor-pointer">
+                                    <i class="ri-linkedin-fill text-xl"></i>
+                                </a>
+                                <a href="#"
+                                    class="w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-primary rounded-full transition cursor-pointer">
+                                    <i class="ri-youtube-fill text-xl"></i>
+                                </a>
+                                <a href="#"
+                                    class="w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-primary rounded-full transition cursor-pointer">
+                                    <i class="ri-instagram-fill text-xl"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="text-center text-gray-500 text-sm mt-8">
+                            © 2025 République du Sénégal - E-Administration
+                            Territoriale. Tous droits réservés.
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <script id="chart-sector">
+document.addEventListener('DOMContentLoaded', function() {
+const sectorChart = echarts.init(document.getElementById('sectorChart'));
+const sectorOption = {
+animation: false,
+tooltip: {
+trigger: 'item',
+backgroundColor: 'rgba(255, 255, 255, 0.9)',
+borderColor: '#ddd',
+borderWidth: 1,
+textStyle: {
+color: '#1f2937'
+}
+},
+legend: {
+orient: 'vertical',
+left: 'left',
+textStyle: {
+color: '#1f2937'
+}
+},
+series: [{
+name: 'Secteur',
+type: 'pie',
+radius: ['40%', '70%'],
+avoidLabelOverlap: false,
+itemStyle: {
+borderRadius: 8,
+borderColor: '#fff',
+borderWidth: 2
+},
+label: {
+show: false,
+position: 'center'
+},
+emphasis: {
+label: {
+show: true,
+fontSize: 20,
+fontWeight: 'bold',
+color: '#1f2937'
+}
+},
+labelLine: {
+show: false
+},
+data: [
+{ value: 312, name: 'Infrastructure', itemStyle: { color: 'rgba(87, 181, 231, 1)' } },
+{ value: 189, name: 'Santé', itemStyle: { color: 'rgba(141, 211, 199, 1)' } },
+{ value: 156, name: 'Éducation', itemStyle: { color: 'rgba(251, 191, 114, 1)' } },
+{ value: 134, name: 'Énergie', itemStyle: { color: 'rgba(252, 141, 98, 1)' } },
+{ value: 56, name: 'Autres', itemStyle: { color: '#9ca3af' } }
+]
+}]
+};
+sectorChart.setOption(sectorOption);
+});
+</script>
+            <script id="chart-budget">
+document.addEventListener('DOMContentLoaded', function() {
+const budgetChart = echarts.init(document.getElementById('budgetChart'));
+const budgetOption = {
+animation: false,
+tooltip: {
+trigger: 'axis',
+backgroundColor: 'rgba(255, 255, 255, 0.9)',
+borderColor: '#ddd',
+borderWidth: 1,
+textStyle: {
+color: '#1f2937'
+}
+},
+grid: {
+top: 0,
+left: 0,
+right: 0,
+bottom: 0,
+containLabel: true
+},
+xAxis: {
+type: 'category',
+boundaryGap: false,
+data: ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Juin', 'Juil', 'Août', 'Sep', 'Oct', 'Nov', 'Déc'],
+axisLine: {
+lineStyle: {
+color: '#1f2937'
+}
+}
+},
+yAxis: {
+type: 'value',
+name: 'Mds FCFA',
+axisLine: {
+lineStyle: {
+color: '#1f2937'
+}
+},
+splitLine: {
+lineStyle: {
+color: '#e5e7eb'
+}
+}
+},
+series: [{
+name: 'Budget alloué',
+type: 'line',
+smooth: true,
+lineStyle: {
+color: 'rgba(87, 181, 231, 1)',
+width: 3
+},
+areaStyle: {
+color: {
+type: 'linear',
+x: 0,
+y: 0,
+x2: 0,
+y2: 1,
+colorStops: [{
+offset: 0,
+color: 'rgba(87, 181, 231, 0.1)'
+}, {
+offset: 1,
+color: 'rgba(87, 181, 231, 0)'
+}]
+}
+},
+showSymbol: false,
+data: [45, 52, 58, 63, 68, 71, 74, 76, 78, 80, 82, 84]
+}, {
+name: 'Budget utilisé',
+type: 'line',
+smooth: true,
+lineStyle: {
+color: 'rgba(141, 211, 199, 1)',
+width: 3
+},
+areaStyle: {
+color: {
+type: 'linear',
+x: 0,
+y: 0,
+x2: 0,
+y2: 1,
+colorStops: [{
+offset: 0,
+color: 'rgba(141, 211, 199, 0.1)'
+}, {
+offset: 1,
+color: 'rgba(141, 211, 199, 0)'
+}]
+}
+},
+showSymbol: false,
+data: [38, 44, 49, 54, 58, 61, 64, 66, 68, 70, 71, 73]
+}]
+};
+budgetChart.setOption(budgetOption);
+});
+</script>
+        </div>
+    </body>
+</html>
+---

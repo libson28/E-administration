@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head><script src="https://static.readdy.ai/static/e.js"></script>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Alertes - E-Administration Territoriale</title>
+        <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Pacifico&family=Inter:wght@300;400;500;600;700&display=swap"
+            rel="stylesheet">
+        <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css"
+            rel="stylesheet">
+        <script>
+tailwind.config = {
+theme: {
+extend: {
+colors: {
+primary: '#00853F',
+secondary: '#FDEF42',
+accent: '#E31B23'
+},
+borderRadius: {
+'none': '0px',
+'sm': '4px',
+DEFAULT: '8px',
+'md': '12px',
+'lg': '16px',
+'xl': '20px',
+'2xl': '24px',
+'3xl': '32px',
+'full': '9999px',
+'button': '8px'
+},
+fontFamily: {
+'sans': ['Inter', 'sans-serif']
+}
+}
+}
+}
+</script>
+        <style>
+:where([class^="ri-"])::before {
+content: "\f3c2";
+}
+body {
+font-family: 'Inter', sans-serif;
+}
+</style>
+    </head>
+    <body class="bg-white">
+        <nav class="fixed top-0 left-0 right-0 bg-white shadow-sm z-50">
+            <div class="max-w-7xl mx-auto px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 flex items-center justify-center">
+                            <i
+                                class="ri-government-line text-4xl text-primary"></i>
+                        </div>
+                        <div>
+                            <div
+                                class="text-sm font-semibold text-primary">République
+                                du Sénégal</div>
+                            <div
+                                class="text-lg font-bold text-gray-900">E-Administration
+                                Territoriale</div>
+                        </div>
+                    </div>
+                                        <div class="hidden lg:flex items-center gap-8">
+                        <a href="index.html"
+                            class="text-gray-700 hover:text-primary transition cursor-pointer">Accueil</a>
+                        <a href="actualites.html"
+                            class="text-gray-700 hover:text-primary transition cursor-pointer">Actualités</a>
+                        <a href="projets.html"
+                            class="text-gray-700 hover:text-primary transition cursor-pointer">Projets</a>
+                        <a href="demarches.html"
+                            class="text-gray-700 hover:text-primary transition cursor-pointer">Démarches</a>
+                        <a href="alertes.html"
+                            class="text-gray-900 font-medium hover:text-primary transition cursor-pointer">Alertes</a>
+                        <a href="contact.html"
+                            class="text-gray-700 hover:text-primary transition cursor-pointer">Contact</a>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <a href="connexion.html"
+                            class="px-5 py-2.5 text-primary border border-primary hover:bg-primary hover:text-white transition !rounded-button whitespace-nowrap flex items-center gap-2 cursor-pointer">
+                            <i class="ri-login-box-line text-lg"></i>
+                            Se connecter
+                        </a>
+                        <a href="inscription.html"
+                            class="px-5 py-2.5 bg-primary text-white hover:bg-green-700 transition !rounded-button whitespace-nowrap flex items-center gap-2 cursor-pointer">
+                            <i class="ri-user-add-line text-lg"></i>
+                            S'inscrire
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div class="pt-24">
+            <section
+                class="bg-gradient-to-br from-accent to-red-700 text-white py-20">
+                <div class="max-w-7xl mx-auto px-6">
+                    <div class="max-w-4xl">
+                        <h1 class="text-5xl font-bold mb-6">Alertes et
+                            Notifications Importantes</h1>
+                        <p class="text-xl text-white/90 mb-8">Restez informé en
+                            temps réel des alertes, urgences et informations
+                            critiques concernant votre territoire. Votre
+                            sécurité est notre priorité.</p>
+                        <div class="flex items-center gap-6">
+                            <div class="flex items-center gap-2 text-white/90">
+                                <i class="ri-alarm-warning-line text-2xl"></i>
+                                <div>
+                                    <div class="text-3xl font-bold">12</div>
+                                    <div class="text-sm">Alertes actives</div>
+                                </div>
+                            </div>
+                            <div class="w-px h-12 bg-white/30"></div>
+                            <div class="flex items-center gap-2 text-white/90">
+                                <i class="ri-notification-3-line text-2xl"></i>
+                                <div>
+                                    <div class="text-3xl font-bold">348</div>
+                                    <div class="text-sm">Notifications cette
+                                        semaine</div>
+                                </div>
+                            </div>
+                            <div class="w-px h-12 bg-white/30"></div>
+                            <div class="flex items-center gap-2 text-white/90">
+                                <i class="ri-user-follow-line text-2xl"></i>
+                                <div>
+                                    <div class="text-3xl font-bold">126K</div>
+                                    <div class="text-sm">Abonnés aux
+                                        alertes</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="py-12 bg-white border-b border-gray-200">
+                <div class="max-w-7xl mx-auto px-6">
+                    <div
+                        class="flex flex-wrap items-center justify-between gap-6">
+                        <div class="flex items-center gap-3">
+                            <span class="text-gray-700 font-semibold">Filtrer
+                                par :</span>
+                            <button
+                                class="px-4 py-2 bg-accent text-white hover:bg-red-700 transition !rounded-button whitespace-nowrap cursor-pointer">Toutes</button>
+                            <button
+                                class="px-4 py-2 bg-white text-gray-700 hover:bg-gray-100 transition !rounded-button whitespace-nowrap cursor-pointer">Urgences</button>
+                            <button
+                                class="px-4 py-2 bg-white text-gray-700 hover:bg-gray-100 transition !rounded-button whitespace-nowrap cursor-pointer">Sécurité</button>
+                            <button
+                                class="px-4 py-2 bg-white text-gray-700 hover:bg-gray-100 transition !rounded-button whitespace-nowrap cursor-pointer">Travaux</button>
+                            <button
+                                class="px-4 py-2 bg-white text-gray-700 hover:bg-gray-100 transition !rounded-button whitespace-nowrap cursor-pointer">Météo</button>
+                            <button
+                                class="px-4 py-2 bg-white text-gray-700 hover:bg-gray-100 transition !rounded-button whitespace-nowrap cursor-pointer">Santé</button>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <button
+                                class="px-4 py-2 bg-white text-gray-700 border border-gray-300 hover:bg-gray-50 transition !rounded-button whitespace-nowrap cursor-pointer flex items-center gap-2">
+                                <i class="ri-map-pin-line"></i>
+                                Ma région
+                                <i class="ri-arrow-down-s-line"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="py-16 bg-gray-50">
+                <div class="max-w-7xl mx-auto px-6">
+                    <div class="mb-12">
+                        <h2
+                            class="text-3xl font-bold text-gray-900 mb-2">Alertes
+                            Actives</h2>
+                        <p class="text-gray-600">Alertes en cours nécessitant
+                            votre attention immédiate</p>
+                    </div>
+                    <div class="space-y-4">
+                        <div
+                            class="bg-white border-l-4 border-red-600 rounded-xl p-6 shadow-sm hover:shadow-md transition">
+                            <div class="flex items-start gap-4">
+                                <div
+                                    class="w-14 h-14 flex items-center justify-center bg-red-100 rounded-lg flex-shrink-0">
+                                    <i
+                                        class="ri-error-warning-line text-3xl text-red-600"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <div class="flex items-center gap-3 mb-3">
+                                        <span
+                                            class="px-3 py-1 bg-red-600 text-white text-sm font-bold rounded-full">URGENT</span>
+                                        <span class="text-sm text-gray-500">Il y
+                                            a 25 minutes</span>
+                                    </div>
+                                    <h3
+                                        class="text-xl font-bold text-gray-900 mb-2">Risque
+                                        d'Inondation - Alerte Rouge Dakar
+                                        Plateau</h3>
+                                    <p class="text-gray-600 mb-4">Fortes pluies
+                                        attendues dans les prochaines 6 heures.
+                                        Risque élevé d'inondation dans les zones
+                                        basses. Les résidents sont invités à
+                                        prendre des précautions et à éviter les
+                                        déplacements non essentiels.</p>
+                                    <div class="flex items-center gap-4">
+                                        <div
+                                            class="flex items-center gap-2 text-sm text-gray-600">
+                                            <i class="ri-map-pin-line"></i>
+                                            <span>Dakar, Plateau</span>
+                                        </div>
+                                        <div
+                                            class="flex items-center gap-2 text-sm text-gray-600">
+                                            <i class="ri-time-line"></i>
+                                            <span>Valide jusqu'à 22h00</span>
+                                        </div>
+                                        <button
+                                            class="ml-auto px-5 py-2 bg-red-600 text-white hover:bg-red-700 transition !rounded-button text-sm font-semibold cursor-pointer">
+                                            Plus d'infos
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="bg-white border-l-4 border-orange-500 rounded-xl p-6 shadow-sm hover:shadow-md transition">
+                            <div class="flex items-start gap-4">
+                                <div
+                                    class="w-14 h-14 flex items-center justify-center bg-orange-100 rounded-lg flex-shrink-0">
+                                    <i
+                                        class="ri-roadster-line text-3xl text-orange-600"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <div class="flex items-center gap-3 mb-3">
+                                        <span
+                                            class="px-3 py-1 bg-orange-500 text-white text-sm font-bold rounded-full">IMPORTANT</span>
+                                        <span class="text-sm text-gray-500">Il y
+                                            a 2 heures</span>
+                                    </div>
+                                    <h3
+                                        class="text-xl font-bold text-gray-900 mb-2">Fermeture
+                                        Temporaire Autoroute à Péage
+                                        Thiès-Dakar</h3>
+                                    <p class="text-gray-600 mb-4">Travaux de
+                                        réparation d'urgence sur l'autoroute
+                                        entre 23h00 et 5h00 du matin. Déviation
+                                        mise en place via la nationale N1.
+                                        Prévoyez 30 minutes supplémentaires pour
+                                        vos trajets.</p>
+                                    <div class="flex items-center gap-4">
+                                        <div
+                                            class="flex items-center gap-2 text-sm text-gray-600">
+                                            <i class="ri-map-pin-line"></i>
+                                            <span>Autoroute Thiès-Dakar</span>
+                                        </div>
+                                        <div
+                                            class="flex items-center gap-2 text-sm text-gray-600">
+                                            <i class="ri-time-line"></i>
+                                            <span>23h00 - 05h00</span>
+                                        </div>
+                                        <button
+                                            class="ml-auto px-5 py-2 bg-orange-500 text-white hover:bg-orange-600 transition !rounded-button text-sm font-semibold cursor-pointer">
+                                            Plus d'infos
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="bg-white border-l-4 border-yellow-500 rounded-xl p-6 shadow-sm hover:shadow-md transition">
+                            <div class="flex items-start gap-4">
+                                <div
+                                    class="w-14 h-14 flex items-center justify-center bg-yellow-100 rounded-lg flex-shrink-0">
+                                    <i
+                                        class="ri-flashlight-line text-3xl text-yellow-600"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <div class="flex items-center gap-3 mb-3">
+                                        <span
+                                            class="px-3 py-1 bg-yellow-500 text-white text-sm font-bold rounded-full">ALERTE</span>
+                                        <span class="text-sm text-gray-500">Il y
+                                            a 4 heures</span>
+                                    </div>
+                                    <h3
+                                        class="text-xl font-bold text-gray-900 mb-2">Coupure
+                                        Électricité Programmée Saint-Louis
+                                        Centre</h3>
+                                    <p class="text-gray-600 mb-4">Maintenance du
+                                        réseau électrique demain de 8h00 à
+                                        16h00. Les quartiers de Sor, Ndar Toute
+                                        et Île Nord seront concernés. Prévoyez
+                                        des solutions alternatives.</p>
+                                    <div class="flex items-center gap-4">
+                                        <div
+                                            class="flex items-center gap-2 text-sm text-gray-600">
+                                            <i class="ri-map-pin-line"></i>
+                                            <span>Saint-Louis Centre</span>
+                                        </div>
+                                        <div
+                                            class="flex items-center gap-2 text-sm text-gray-600">
+                                            <i class="ri-time-line"></i>
+                                            <span>Demain 08h00 - 16h00</span>
+                                        </div>
+                                        <button
+                                            class="ml-auto px-5 py-2 bg-yellow-500 text-white hover:bg-yellow-600 transition !rounded-button text-sm font-semibold cursor-pointer">
+                                            Plus d'infos
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="py-16 bg-white">
+                <div class="max-w-7xl mx-auto px-6">
+                    <div class="mb-12">
+                        <h2 class="text-3xl font-bold text-gray-900 mb-2">Toutes
+                            les Notifications</h2>
+                        <p class="text-gray-600">Historique complet des alertes
+                            et informations</p>
+                    </div>
+                    <div class="space-y-3">
+                        <div
+                            class="bg-gray-50 hover:bg-gray-100 rounded-lg p-5 transition cursor-pointer flex items-start gap-4">
+                            <div
+                                class="w-10 h-10 flex items-center justify-center bg-blue-100 rounded-lg flex-shrink-0">
+                                <i
+                                    class="ri-information-line text-xl text-blue-600"></i>
+                            </div>
+                            <div class="flex-1">
+                                <div
+                                    class="flex items-center justify-between mb-2">
+                                    <h4 class="font-bold text-gray-900">Campagne
+                                        de Vaccination Gratuite - Tous
+                                        Quartiers</h4>
+                                    <span class="text-sm text-gray-500">Il y a 6
+                                        heures</span>
+                                </div>
+                                <p class="text-gray-600 text-sm mb-2">Campagne
+                                    de vaccination contre la grippe saisonnière
+                                    dans tous les centres de santé du 20 au 30
+                                    mai. Gratuit pour les personnes de plus de
+                                    65 ans.</p>
+                                <div
+                                    class="flex items-center gap-2 text-sm text-gray-500">
+                                    <i class="ri-map-pin-line"></i>
+                                    <span>Toutes les régions</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="bg-gray-50 hover:bg-gray-100 rounded-lg p-5 transition cursor-pointer flex items-start gap-4">
+                            <div
+                                class="w-10 h-10 flex items-center justify-center bg-green-100 rounded-lg flex-shrink-0">
+                                <i
+                                    class="ri-leaf-line text-xl text-green-600"></i>
+                            </div>
+                            <div class="flex-1">
+                                <div
+                                    class="flex items-center justify-between mb-2">
+                                    <h4 class="font-bold text-gray-900">Journée
+                                        Citoyenne de Nettoyage - Inscription
+                                        Ouverte</h4>
+                                    <span class="text-sm text-gray-500">Il y a 1
+                                        jour</span>
+                                </div>
+                                <p class="text-gray-600 text-sm mb-2">Participez
+                                    à la grande journée de nettoyage de votre
+                                    quartier le samedi 25 mai. Matériel fourni.
+                                    Inscription obligatoire avant le 22 mai.</p>
+                                <div
+                                    class="flex items-center gap-2 text-sm text-gray-500">
+                                    <i class="ri-map-pin-line"></i>
+                                    <span>Kaolack, Médina</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="bg-gray-50 hover:bg-gray-100 rounded-lg p-5 transition cursor-pointer flex items-start gap-4">
+                            <div
+                                class="w-10 h-10 flex items-center justify-center bg-purple-100 rounded-lg flex-shrink-0">
+                                <i
+                                    class="ri-calendar-event-line text-xl text-purple-600"></i>
+                            </div>
+                            <div class="flex-1">
+                                <div
+                                    class="flex items-center justify-between mb-2">
+                                    <h4 class="font-bold text-gray-900">Réunion
+                                        Publique Aménagement Place Centrale</h4>
+                                    <span class="text-sm text-gray-500">Il y a 1
+                                        jour</span>
+                                </div>
+                                <p
+                                    class="text-gray-600 text-sm mb-2">Consultation
+                                    citoyenne sur le projet de réaménagement de
+                                    la place centrale. Venez donner votre avis
+                                    le 23 mai à 18h00 à la mairie.</p>
+                                <div
+                                    class="flex items-center gap-2 text-sm text-gray-500">
+                                    <i class="ri-map-pin-line"></i>
+                                    <span>Ziguinchor Centre</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="bg-gray-50 hover:bg-gray-100 rounded-lg p-5 transition cursor-pointer flex items-start gap-4">
+                            <div
+                                class="w-10 h-10 flex items-center justify-center bg-red-100 rounded-lg flex-shrink-0">
+                                <i
+                                    class="ri-fire-line text-xl text-red-600"></i>
+                            </div>
+                            <div class="flex-1">
+                                <div
+                                    class="flex items-center justify-between mb-2">
+                                    <h4
+                                        class="font-bold text-gray-900">Interdiction
+                                        Feux de Brousse - Période Sèche</h4>
+                                    <span class="text-sm text-gray-500">Il y a 2
+                                        jours</span>
+                                </div>
+                                <p class="text-gray-600 text-sm mb-2">En raison
+                                    de la sécheresse, interdiction stricte de
+                                    tout feu de brousse jusqu'au 15 juin.
+                                    Amendes en cas de non-respect.</p>
+                                <div
+                                    class="flex items-center gap-2 text-sm text-gray-500">
+                                    <i class="ri-map-pin-line"></i>
+                                    <span>Région de Tambacounda</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="bg-gray-50 hover:bg-gray-100 rounded-lg p-5 transition cursor-pointer flex items-start gap-4">
+                            <div
+                                class="w-10 h-10 flex items-center justify-center bg-cyan-100 rounded-lg flex-shrink-0">
+                                <i
+                                    class="ri-drop-line text-xl text-cyan-600"></i>
+                            </div>
+                            <div class="flex-1">
+                                <div
+                                    class="flex items-center justify-between mb-2">
+                                    <h4
+                                        class="font-bold text-gray-900">Restriction
+                                        Usage Eau Potable - Appel Économie</h4>
+                                    <span class="text-sm text-gray-500">Il y a 3
+                                        jours</span>
+                                </div>
+                                <p class="text-gray-600 text-sm mb-2">En raison
+                                    du niveau bas des réservoirs, appel à la
+                                    modération dans l'utilisation de l'eau
+                                    potable. Évitez le gaspillage.</p>
+                                <div
+                                    class="flex items-center gap-2 text-sm text-gray-500">
+                                    <i class="ri-map-pin-line"></i>
+                                    <span>Louga et environs</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="bg-gray-50 hover:bg-gray-100 rounded-lg p-5 transition cursor-pointer flex items-start gap-4">
+                            <div
+                                class="w-10 h-10 flex items-center justify-center bg-indigo-100 rounded-lg flex-shrink-0">
+                                <i
+                                    class="ri-bookmark-line text-xl text-indigo-600"></i>
+                            </div>
+                            <div class="flex-1">
+                                <div
+                                    class="flex items-center justify-between mb-2">
+                                    <h4
+                                        class="font-bold text-gray-900">Ouverture
+                                        Inscriptions Rentrée Scolaire
+                                        2025-2026</h4>
+                                    <span class="text-sm text-gray-500">Il y a 4
+                                        jours</span>
+                                </div>
+                                <p class="text-gray-600 text-sm mb-2">Les
+                                    inscriptions pour la rentrée scolaire
+                                    2025-2026 sont ouvertes en ligne. Période
+                                    d'inscription du 20 mai au 15 juillet.</p>
+                                <div
+                                    class="flex items-center gap-2 text-sm text-gray-500">
+                                    <i class="ri-map-pin-line"></i>
+                                    <span>Toutes les régions</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="bg-gray-50 hover:bg-gray-100 rounded-lg p-5 transition cursor-pointer flex items-start gap-4">
+                            <div
+                                class="w-10 h-10 flex items-center justify-center bg-pink-100 rounded-lg flex-shrink-0">
+                                <i
+                                    class="ri-heart-pulse-line text-xl text-pink-600"></i>
+                            </div>
+                            <div class="flex-1">
+                                <div
+                                    class="flex items-center justify-between mb-2">
+                                    <h4 class="font-bold text-gray-900">Don du
+                                        Sang Urgent - Banque Sang Régionale</h4>
+                                    <span class="text-sm text-gray-500">Il y a 5
+                                        jours</span>
+                                </div>
+                                <p class="text-gray-600 text-sm mb-2">Appel
+                                    urgent aux donneurs de sang. Stocks
+                                    critiquement bas pour les groupes O- et AB+.
+                                    Centre de don ouvert tous les jours de 8h à
+                                    18h.</p>
+                                <div
+                                    class="flex items-center gap-2 text-sm text-gray-500">
+                                    <i class="ri-map-pin-line"></i>
+                                    <span>Diourbel, Hôpital Régional</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="bg-gray-50 hover:bg-gray-100 rounded-lg p-5 transition cursor-pointer flex items-start gap-4">
+                            <div
+                                class="w-10 h-10 flex items-center justify-center bg-teal-100 rounded-lg flex-shrink-0">
+                                <i
+                                    class="ri-bus-line text-xl text-teal-600"></i>
+                            </div>
+                            <div class="flex-1">
+                                <div
+                                    class="flex items-center justify-between mb-2">
+                                    <h4 class="font-bold text-gray-900">Nouveau
+                                        Tracé Ligne Bus 14 - En Service
+                                        Lundi</h4>
+                                    <span class="text-sm text-gray-500">Il y a 6
+                                        jours</span>
+                                </div>
+                                <p class="text-gray-600 text-sm mb-2">La ligne
+                                    de bus 14 emprunte un nouveau tracé à partir
+                                    du lundi 20 mai pour mieux desservir les
+                                    nouveaux quartiers. Consultez le plan.</p>
+                                <div
+                                    class="flex items-center gap-2 text-sm text-gray-500">
+                                    <i class="ri-map-pin-line"></i>
+                                    <span>Dakar Métropole</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-8 flex justify-center">
+                        <button
+                            class="px-8 py-3 bg-white text-gray-700 border border-gray-300 hover:bg-gray-50 transition !rounded-button font-semibold cursor-pointer">
+                            Charger plus de notifications
+                        </button>
+                    </div>
+                </div>
+            </section>
+            <section class="py-16 bg-gradient-to-br from-primary to-green-700">
+                <div class="max-w-7xl mx-auto px-6">
+                    <div class="max-w-3xl mx-auto text-center text-white">
+                        <div
+                            class="w-20 h-20 flex items-center justify-center bg-white/20 rounded-full mx-auto mb-6">
+                            <i class="ri-notification-badge-line text-4xl"></i>
+                        </div>
+                        <h2 class="text-3xl font-bold mb-4">Configurez Vos
+                            Alertes Personnalisées</h2>
+                        <p class="text-xl text-white/90 mb-8">Recevez uniquement
+                            les notifications qui vous concernent selon vos
+                            préférences et votre localisation</p>
+                        <button
+                            class="px-8 py-4 bg-white text-primary font-semibold hover:bg-gray-100 transition !rounded-button whitespace-nowrap cursor-pointer flex items-center gap-3 mx-auto">
+                            <i class="ri-settings-3-line text-xl"></i>
+                            Configurer mes alertes
+                        </button>
+                    </div>
+                </div>
+            </section>
+            <footer class="bg-gray-900 text-white pt-16 pb-8">
+                <div class="max-w-7xl mx-auto px-6">
+                    <div
+                        class="grid md:grid-cols-2 lg:grid-cols-5 gap-12 mb-12">
+                        <div>
+                            <h4 class="text-lg font-bold mb-6">À Propos</h4>
+                            <ul class="space-y-3">
+                                <li><a href="#"
+                                        class="text-gray-400 hover:text-white transition cursor-pointer">Présentation</a></li>
+                                <li><a href="#"
+                                        class="text-gray-400 hover:text-white transition cursor-pointer">Mission
+                                        et valeurs</a></li>
+                                <li><a href="#"
+                                        class="text-gray-400 hover:text-white transition cursor-pointer">Organisation</a></li>
+                                <li><a href="#"
+                                        class="text-gray-400 hover:text-white transition cursor-pointer">Charte
+                                        de qualité</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold mb-6">Services</h4>
+                            <ul class="space-y-3">
+                                <li><a href="#"
+                                        class="text-gray-400 hover:text-white transition cursor-pointer">Démarches
+                                        en ligne</a></li>
+                                <li><a href="#"
+                                        class="text-gray-400 hover:text-white transition cursor-pointer">Suivi
+                                        de projets</a></li>
+                                <li><a href="#"
+                                        class="text-gray-400 hover:text-white transition cursor-pointer">Signalements</a></li>
+                                <li><a href="#"
+                                        class="text-gray-400 hover:text-white transition cursor-pointer">Aides
+                                        et subventions</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold mb-6">Ressources</h4>
+                            <ul class="space-y-3">
+                                <li><a href="#"
+                                        class="text-gray-400 hover:text-white transition cursor-pointer">Centre
+                                        d'aide</a></li>
+                                <li><a href="#"
+                                        class="text-gray-400 hover:text-white transition cursor-pointer">Guides
+                                        pratiques</a></li>
+                                <li><a href="#"
+                                        class="text-gray-400 hover:text-white transition cursor-pointer">FAQ</a></li>
+                                <li><a href="#"
+                                        class="text-gray-400 hover:text-white transition cursor-pointer">Tutoriels
+                                        vidéo</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold mb-6">Informations
+                                Légales</h4>
+                            <ul class="space-y-3">
+                                <li><a href="#"
+                                        class="text-gray-400 hover:text-white transition cursor-pointer">Mentions
+                                        légales</a></li>
+                                <li><a href="#"
+                                        class="text-gray-400 hover:text-white transition cursor-pointer">Politique
+                                        de confidentialité</a></li>
+                                <li><a href="#"
+                                        class="text-gray-400 hover:text-white transition cursor-pointer">Accessibilité</a></li>
+                                <li><a href="#"
+                                        class="text-gray-400 hover:text-white transition cursor-pointer">Conditions
+                                        d'utilisation</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold mb-6">Contact</h4>
+                            <ul class="space-y-3 text-gray-400">
+                                <li class="flex items-start gap-3">
+                                    <i
+                                        class="ri-map-pin-line text-lg flex-shrink-0 mt-1"></i>
+                                    <span>Avenue Léopold Sédar Senghor<br>Dakar,
+                                        Sénégal</span>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <i class="ri-phone-line text-lg"></i>
+                                    <span>+221 33 823 45 67</span>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <i class="ri-mail-line text-lg"></i>
+                                    <span>contact@eadmin.sn</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="border-t border-gray-800 pt-8">
+                        <div
+                            class="flex flex-col md:flex-row items-center justify-between gap-6">
+                            <div class="flex items-center gap-6">
+                                <a href="#"
+                                    class="w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-primary rounded-full transition cursor-pointer">
+                                    <i class="ri-facebook-fill text-xl"></i>
+                                </a>
+                                <a href="#"
+                                    class="w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-primary rounded-full transition cursor-pointer">
+                                    <i class="ri-twitter-x-fill text-xl"></i>
+                                </a>
+                                <a href="#"
+                                    class="w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-primary rounded-full transition cursor-pointer">
+                                    <i class="ri-linkedin-fill text-xl"></i>
+                                </a>
+                                <a href="#"
+                                    class="w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-primary rounded-full transition cursor-pointer">
+                                    <i class="ri-youtube-fill text-xl"></i>
+                                </a>
+                                <a href="#"
+                                    class="w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-primary rounded-full transition cursor-pointer">
+                                    <i class="ri-instagram-fill text-xl"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="text-center text-gray-500 text-sm mt-8">
+                            © 2025 République du Sénégal - E-Administration
+                            Territoriale. Tous droits réservés.
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </body>
+</html>

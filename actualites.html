@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Actualités - E-Administration Territoriale</title>
+        <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Pacifico&family=Inter:wght@300;400;500;600;700&display=swap"
+            rel="stylesheet">
+        <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css"
+            rel="stylesheet">
+        <script>
+tailwind.config = {
+theme: {
+extend: {
+colors: {
+primary: '#00853F',
+secondary: '#FDEF42',
+accent: '#E31B23'
+},
+borderRadius: {
+'none': '0px',
+'sm': '4px',
+DEFAULT: '8px',
+'md': '12px',
+'lg': '16px',
+'xl': '20px',
+'2xl': '24px',
+'3xl': '32px',
+'full': '9999px',
+'button': '8px'
+},
+fontFamily: {
+'sans': ['Inter', 'sans-serif']
+}
+}
+}
+}
+</script>
+        <style>
+:where([class^="ri-"])::before {
+content: "\f3c2";
+}
+body {
+font-family: 'Inter', sans-serif;
+}
+</style>
+    </head>
+    <body class="bg-white">
+        <nav class="fixed top-0 left-0 right-0 bg-white shadow-sm z-50">
+            <div class="max-w-7xl mx-auto px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 flex items-center justify-center">
+                            <i
+                                class="ri-government-line text-4xl text-primary"></i>
+                        </div>
+                        <div>
+                            <div
+                                class="text-sm font-semibold text-primary">République
+                                du Sénégal</div>
+                            <div
+                                class="text-lg font-bold text-gray-900">E-Administration
+                                Territoriale</div>
+                        </div>
+                    </div>
+                                        <div class="hidden lg:flex items-center gap-8">
+                        <a href="index.html"
+                            class="text-gray-700 hover:text-primary transition cursor-pointer">Accueil</a>
+                        <a href="actualites.html"
+                            class="text-gray-900 font-medium hover:text-primary transition cursor-pointer">Actualités</a>
+                        <a href="projets.html"
+                            class="text-gray-700 hover:text-primary transition cursor-pointer">Projets</a>
+                        <a href="demarches.html"
+                            class="text-gray-700 hover:text-primary transition cursor-pointer">Démarches</a>
+                        <a href="alertes.html"
+                            class="text-gray-700 hover:text-primary transition cursor-pointer">Alertes</a>
+                        <a href="contact.html"
+                            class="text-gray-700 hover:text-primary transition cursor-pointer">Contact</a>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <a href="connexion.html"
+                            class="px-5 py-2.5 text-primary border border-primary hover:bg-primary hover:text-white transition !rounded-button whitespace-nowrap flex items-center gap-2 cursor-pointer">
+                            <i class="ri-login-box-line text-lg"></i>
+                            Se connecter
+                        </a>
+                        <a href="inscription.html"
+                            class="px-5 py-2.5 bg-primary text-white hover:bg-green-700 transition !rounded-button whitespace-nowrap flex items-center gap-2 cursor-pointer">
+                            <i class="ri-user-add-line text-lg"></i>
+                            S'inscrire
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div class="pt-24">
+            <section
+                class="bg-gradient-to-br from-primary to-green-700 text-white py-20">
+                <div class="max-w-7xl mx-auto px-6">
+                    <div class="max-w-4xl">
+                        <h1 class="text-5xl font-bold mb-6">Actualités de Vos
+                            Territoires</h1>
+                        <p class="text-xl text-white/90 mb-8">Restez informé des
+                            dernières nouvelles, projets et décisions qui
+                            impactent votre quotidien et façonnent l'avenir de
+                            votre territoire.</p>
+                        <div class="flex items-center gap-4">
+                            <div class="flex items-center gap-2 text-white/80">
+                                <i class="ri-time-line text-xl"></i>
+                                <span>Mise à jour quotidienne</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-white/80">
+                                <i class="ri-article-line text-xl"></i>
+                                <span>2 847 articles publiés</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="py-12 bg-gray-50 border-b border-gray-200">
+                <div class="max-w-7xl mx-auto px-6">
+                    <div
+                        class="flex flex-wrap items-center justify-between gap-6">
+                        <div class="flex items-center gap-3">
+                            <span class="text-gray-700 font-semibold">Filtrer
+                                par :</span>
+                            <button
+                                class="px-4 py-2 bg-primary text-white hover:bg-green-700 transition !rounded-button whitespace-nowrap cursor-pointer">Toutes</button>
+                            <button
+                                class="px-4 py-2 bg-white text-gray-700 hover:bg-gray-100 transition !rounded-button whitespace-nowrap cursor-pointer">Infrastructure</button>
+                            <button
+                                class="px-4 py-2 bg-white text-gray-700 hover:bg-gray-100 transition !rounded-button whitespace-nowrap cursor-pointer">Formation</button>
+                            <button
+                                class="px-4 py-2 bg-white text-gray-700 hover:bg-gray-100 transition !rounded-button whitespace-nowrap cursor-pointer">Participation</button>
+                            <button
+                                class="px-4 py-2 bg-white text-gray-700 hover:bg-gray-100 transition !rounded-button whitespace-nowrap cursor-pointer">Santé</button>
+                            <button
+                                class="px-4 py-2 bg-white text-gray-700 hover:bg-gray-100 transition !rounded-button whitespace-nowrap cursor-pointer">Éducation</button>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="relative">
+                                <input type="text"
+                                    placeholder="Rechercher une actualité..."
+                                    class="w-80 pl-11 pr-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-sm">
+                                <i
+                                    class="ri-search-line absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-lg"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="py-16 bg-white">
+                <div class="max-w-7xl mx-auto px-6">
+                    <div class="mb-12">
+                        <h2 class="text-3xl font-bold text-gray-900 mb-2">À la
+                            Une</h2>
+                        <p class="text-gray-600">Les actualités les plus
+                            importantes de cette semaine</p>
+                    </div>
+                    <div class="grid lg:grid-cols-2 gap-8 mb-16">
+                        <article
+                            class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition cursor-pointer">
+                            <img
+                                src="https://readdy.ai/api/search-image?query=Major%20infrastructure%20inauguration%20ceremony%20in%20Senegal%20with%20government%20officials%20and%20citizens%20celebrating%20new%20modern%20building%20facility%20opening%20ribbon%20cutting%20event%20professional%20photography%20vibrant%20atmosphere%20African%20context%20daytime%20celebration&width=1200&height=700&seq=featured001&orientation=landscape"
+                                alt="Actualité"
+                                class="w-full h-80 object-cover object-top">
+                            <div class="p-8">
+                                <div class="flex items-center gap-3 mb-4">
+                                    <span
+                                        class="px-3 py-1 bg-primary/10 text-primary text-sm font-semibold rounded-full">Infrastructure</span>
+                                    <span class="text-sm text-gray-500">15 mai
+                                        2025</span>
+                                    <span
+                                        class="text-sm text-gray-500 flex items-center gap-1">
+                                        <i class="ri-eye-line"></i>
+                                        12 847 vues
+                                    </span>
+                                </div>
+                                <h3
+                                    class="text-2xl font-bold text-gray-900 mb-4">Inauguration
+                                    du nouveau centre administratif moderne de
+                                    Thiès</h3>
+                                <p class="text-gray-600 mb-6 leading-relaxed">Le
+                                    nouveau centre administratif de Thiès, d'une
+                                    superficie de 8 500 m², accueillera les
+                                    citoyens dès le 1er juin avec des services
+                                    100% numériques. Ce projet de 12 milliards
+                                    de FCFA représente une avancée majeure dans
+                                    la modernisation de l'administration
+                                    territoriale sénégalaise.</p>
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center gap-3">
+                                        <img
+                                            src="https://readdy.ai/api/search-image?query=Professional%20African%20woman%20official%20portrait%20government%20administrator%20headshot%20formal%20business%20attire%20confident%20expression%20modern%20office%20background&width=100&height=100&seq=author001&orientation=squarish"
+                                            alt="Auteur"
+                                            class="w-10 h-10 rounded-full object-cover">
+                                        <div>
+                                            <div
+                                                class="text-sm font-semibold text-gray-900">Fatou
+                                                Diop</div>
+                                            <div
+                                                class="text-xs text-gray-500">Journaliste
+                                                politique</div>
+                                        </div>
+                                    </div>
+                                    <button
+                                        class="px-6 py-2.5 bg-primary text-white hover:bg-green-700 transition !rounded-button whitespace-nowrap cursor-pointer">
+                                        Lire l'article
+                                    </button>
+                                </div>
+                            </div>
+                        </article>
+                        <div class="space-y-6">
+                            <article
+                                class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition cursor-pointer flex gap-6 p-6">
+                                <img
+                                    src="https://readdy.ai/api/search-image?query=Digital%20transformation%20training%20session%20in%20Senegal%20modern%20classroom%20technology%20education%20African%20professionals%20learning%20computers%20tablets%20collaborative%20environment%20bright%20lighting%20professional%20photography&width=400&height=300&seq=thumb001&orientation=landscape"
+                                    alt="Actualité"
+                                    class="w-48 h-36 object-cover object-top rounded-lg flex-shrink-0">
+                                <div class="flex-1">
+                                    <div class="flex items-center gap-3 mb-3">
+                                        <span
+                                            class="px-3 py-1 bg-blue-100 text-blue-600 text-sm font-semibold rounded-full">Formation</span>
+                                        <span class="text-sm text-gray-500">12
+                                            mai 2025</span>
+                                    </div>
+                                    <h3
+                                        class="text-lg font-bold text-gray-900 mb-2">Programme
+                                        de formation numérique pour 500 agents
+                                        territoriaux</h3>
+                                    <p class="text-gray-600 text-sm mb-3">Plus
+                                        de 500 agents administratifs ont été
+                                        formés aux nouveaux outils digitaux pour
+                                        améliorer la qualité du service aux
+                                        citoyens.</p>
+                                    <div
+                                        class="flex items-center gap-2 text-sm text-gray-500">
+                                        <i class="ri-eye-line"></i>
+                                        <span>8 234 vues</span>
+                                    </div>
+                                </div>
+                            </article>
+                            <article
+                                class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition cursor-pointer flex gap-6 p-6">
+                                <img
+                                    src="https://readdy.ai/api/search-image?query=Community%20town%20hall%20meeting%20in%20Senegal%20citizens%20and%20officials%20discussing%20urban%20planning%20diverse%20people%20engaged%20conversation%20participatory%20democracy%20African%20context%20modern%20civic%20engagement%20professional%20photography&width=400&height=300&seq=thumb002&orientation=landscape"
+                                    alt="Actualité"
+                                    class="w-48 h-36 object-cover object-top rounded-lg flex-shrink-0">
+                                <div class="flex-1">
+                                    <div class="flex items-center gap-3 mb-3">
+                                        <span
+                                            class="px-3 py-1 bg-purple-100 text-purple-600 text-sm font-semibold rounded-full">Participation</span>
+                                        <span class="text-sm text-gray-500">8
+                                            mai 2025</span>
+                                    </div>
+                                    <h3
+                                        class="text-lg font-bold text-gray-900 mb-2">Consultation
+                                        citoyenne sur l'aménagement urbain de
+                                        Dakar</h3>
+                                    <p class="text-gray-600 text-sm mb-3">Les
+                                        habitants du quartier de Plateau sont
+                                        invités à donner leur avis sur le projet
+                                        d'aménagement urbain jusqu'au 30
+                                        mai.</p>
+                                    <div
+                                        class="flex items-center gap-2 text-sm text-gray-500">
+                                        <i class="ri-eye-line"></i>
+                                        <span>6 891 vues</span>
+                                    </div>
+                                </div>
+                            </article>
+                            <article
+                                class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition cursor-pointer flex gap-6 p-6">
+                                <img
+                                    src="https://readdy.ai/api/search-image?query=Modern%20hospital%20healthcare%20facility%20in%20Senegal%20medical%20professionals%20doctors%20and%20nurses%20working%20contemporary%20medical%20equipment%20bright%20clean%20environment%20African%20healthcare%20system%20professional%20photography&width=400&height=300&seq=thumb003&orientation=landscape"
+                                    alt="Actualité"
+                                    class="w-48 h-36 object-cover object-top rounded-lg flex-shrink-0">
+                                <div class="flex-1">
+                                    <div class="flex items-center gap-3 mb-3">
+                                        <span
+                                            class="px-3 py-1 bg-red-100 text-red-600 text-sm font-semibold rounded-full">Santé</span>
+                                        <span class="text-sm text-gray-500">5
+                                            mai 2025</span>
+                                    </div>
+                                    <h3
+                                        class="text-lg font-bold text-gray-900 mb-2">Extension
+                                        du réseau de centres de santé
+                                        communautaires</h3>
+                                    <p class="text-gray-600 text-sm mb-3">15
+                                        nouveaux centres de santé seront
+                                        inaugurés dans les zones rurales pour
+                                        améliorer l'accès aux soins.</p>
+                                    <div
+                                        class="flex items-center gap-2 text-sm text-gray-500">
+                                        <i class="ri-eye-line"></i>
+                                        <span>5 472 vues</span>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="py-16 bg-gray-50">
+                <div class="max-w-7xl mx-auto px-6">
+                    <div class="flex items-center justify-between mb-12">
+                        <div>
+                            <h2
+                                class="text-3xl font-bold text-gray-900 mb-2">Dernières
+                                Actualités</h2>
+                            <p class="text-gray-600">Toutes les nouvelles de vos
+                                territoires</p>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <button
+                                class="px-4 py-2 bg-white text-gray-700 border border-gray-300 hover:bg-gray-50 transition !rounded-button whitespace-nowrap cursor-pointer flex items-center gap-2">
+                                <i class="ri-calendar-line"></i>
+                                Plus récent
+                                <i class="ri-arrow-down-s-line"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <article
+                            class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition cursor-pointer">
+                            <img
+                                src="https://readdy.ai/api/search-image?query=Solar%20energy%20installation%20project%20in%20Senegal%20renewable%20energy%20solar%20panels%20rural%20electrification%20African%20sustainable%20development%20bright%20sunlight%20workers%20installing%20equipment%20modern%20green%20technology&width=800&height=500&seq=news101&orientation=landscape"
+                                alt="Actualité"
+                                class="w-full h-52 object-cover object-top">
+                            <div class="p-6">
+                                <div class="flex items-center gap-3 mb-3">
+                                    <span
+                                        class="px-3 py-1 bg-green-100 text-green-600 text-sm font-semibold rounded-full">Environnement</span>
+                                    <span class="text-sm text-gray-500">18 mai
+                                        2025</span>
+                                </div>
+                                <h3
+                                    class="text-xl font-bold text-gray-900 mb-3">Lancement
+                                    du projet d'électrification solaire
+                                    rurale</h3>
+                                <p class="text-gray-600 mb-4">35 villages
+                                    bénéficieront d'un accès à l'électricité
+                                    grâce à l'installation de panneaux solaires
+                                    dans le cadre du programme national
+                                    d'énergies renouvelables.</p>
+                                <div class="flex items-center justify-between">
+                                    <div
+                                        class="flex items-center gap-2 text-sm text-gray-500">
+                                        <i class="ri-eye-line"></i>
+                                        <span>4 234 vues</span>
+                                    </div>
+                                    <button
+                                        class="text-primary font-semibold hover:underline flex items-center gap-2 cursor-pointer">
+                                        Lire plus
+                                        <i class="ri-arrow-right-line"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </article>
+                        <article
+                            class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition cursor-pointer">
+                            <img
+                                src="https://readdy.ai/api/search-image?query=School%20children%20in%20modern%20classroom%20Senegal%20educational%20facility%20bright%20learning%20environment%20African%20students%20studying%20contemporary%20teaching%20methods%20happy%20engaged%20pupils%20professional%20photography&width=800&height=500&seq=news102&orientation=landscape"
+                                alt="Actualité"
+                                class="w-full h-52 object-cover object-top">
+                            <div class="p-6">
+                                <div class="flex items-center gap-3 mb-3">
+                                    <span
+                                        class="px-3 py-1 bg-orange-100 text-orange-600 text-sm font-semibold rounded-full">Éducation</span>
+                                    <span class="text-sm text-gray-500">17 mai
+                                        2025</span>
+                                </div>
+                                <h3
+                                    class="text-xl font-bold text-gray-900 mb-3">Distribution
+                                    de 50 000 tablettes aux élèves du
+                                    primaire</h3>
+                                <p class="text-gray-600 mb-4">Le gouvernement
+                                    lance une initiative majeure pour
+                                    digitaliser l'enseignement avec la
+                                    distribution de tablettes éducatives dans
+                                    250 écoles.</p>
+                                <div class="flex items-center justify-between">
+                                    <div
+                                        class="flex items-center gap-2 text-sm text-gray-500">
+                                        <i class="ri-eye-line"></i>
+                                        <span>7 891 vues</span>
+                                    </div>
+                                    <button
+                                        class="text-primary font-semibold hover:underline flex items-center gap-2 cursor-pointer">
+                                        Lire plus
+                                        <i class="ri-arrow-right-line"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </article>
+                        <article
+                            class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition cursor-pointer">
+                            <img
+                                src="https://readdy.ai/api/search-image?query=Agricultural%20modernization%20project%20in%20Senegal%20farmers%20using%20modern%20equipment%20irrigation%20system%20crop%20cultivation%20African%20agriculture%20development%20rural%20prosperity%20professional%20photography%20bright%20daylight&width=800&height=500&seq=news103&orientation=landscape"
+                                alt="Actualité"
+                                class="w-full h-52 object-cover object-top">
+                            <div class="p-6">
+                                <div class="flex items-center gap-3 mb-3">
+                                    <span
+                                        class="px-3 py-1 bg-yellow-100 text-yellow-700 text-sm font-semibold rounded-full">Agriculture</span>
+                                    <span class="text-sm text-gray-500">16 mai
+                                        2025</span>
+                                </div>
+                                <h3
+                                    class="text-xl font-bold text-gray-900 mb-3">Programme
+                                    d'irrigation pour 10 000 hectares
+                                    agricoles</h3>
+                                <p class="text-gray-600 mb-4">Un investissement
+                                    de 8 milliards de FCFA pour moderniser les
+                                    infrastructures agricoles et soutenir 5 000
+                                    exploitants dans la vallée du fleuve
+                                    Sénégal.</p>
+                                <div class="flex items-center justify-between">
+                                    <div
+                                        class="flex items-center gap-2 text-sm text-gray-500">
+                                        <i class="ri-eye-line"></i>
+                                        <span>3 672 vues</span>
+                                    </div>
+                                    <button
+                                        class="text-primary font-semibold hover:underline flex items-center gap-2 cursor-pointer">
+                                        Lire plus
+                                        <i class="ri-arrow-right-line"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </article>
+                        <article
+                            class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition cursor-pointer">
+                            <img
+                                src="https://readdy.ai/api/search-image?query=Youth%20entrepreneurship%20program%20in%20Senegal%20young%20African%20entrepreneurs%20business%20training%20startup%20incubator%20modern%20workspace%20collaborative%20environment%20success%20and%20innovation%20professional%20photography&width=800&height=500&seq=news104&orientation=landscape"
+                                alt="Actualité"
+                                class="w-full h-52 object-cover object-top">
+                            <div class="p-6">
+                                <div class="flex items-center gap-3 mb-3">
+                                    <span
+                                        class="px-3 py-1 bg-indigo-100 text-indigo-600 text-sm font-semibold rounded-full">Entrepreneuriat</span>
+                                    <span class="text-sm text-gray-500">14 mai
+                                        2025</span>
+                                </div>
+                                <h3
+                                    class="text-xl font-bold text-gray-900 mb-3">Ouverture
+                                    de 5 incubateurs pour jeunes
+                                    entrepreneurs</h3>
+                                <p class="text-gray-600 mb-4">Dakar, Thiès,
+                                    Kaolack, Saint-Louis et Ziguinchor
+                                    accueillent de nouveaux espaces
+                                    d'accompagnement pour les startups et PME
+                                    innovantes.</p>
+                                <div class="flex items-center justify-between">
+                                    <div
+                                        class="flex items-center gap-2 text-sm text-gray-500">
+                                        <i class="ri-eye-line"></i>
+                                        <span>5 128 vues</span>
+                                    </div>
+                                    <button
+                                        class="text-primary font-semibold hover:underline flex items-center gap-2 cursor-pointer">
+                                        Lire plus
+                                        <i class="ri-arrow-right-line"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </article>
+                        <article
+                            class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition cursor-pointer">
+                            <img
+                                src="https://readdy.ai/api/search-image?query=Water%20distribution%20infrastructure%20project%20in%20Senegal%20clean%20water%20access%20modern%20pipes%20and%20reservoirs%20construction%20workers%20African%20development%20safe%20drinking%20water%20professional%20photography&width=800&height=500&seq=news105&orientation=landscape"
+                                alt="Actualité"
+                                class="w-full h-52 object-cover object-top">
+                            <div class="p-6">
+                                <div class="flex items-center gap-3 mb-3">
+                                    <span
+                                        class="px-3 py-1 bg-cyan-100 text-cyan-600 text-sm font-semibold rounded-full">Eau
+                                        et Assainissement</span>
+                                    <span class="text-sm text-gray-500">13 mai
+                                        2025</span>
+                                </div>
+                                <h3
+                                    class="text-xl font-bold text-gray-900 mb-3">Amélioration
+                                    de l'accès à l'eau potable dans 80
+                                    communes</h3>
+                                <p class="text-gray-600 mb-4">Le projet vise à
+                                    fournir un accès à l'eau potable à 250 000
+                                    habitants supplémentaires d'ici fin 2025
+                                    avec la construction de 45 forages.</p>
+                                <div class="flex items-center justify-between">
+                                    <div
+                                        class="flex items-center gap-2 text-sm text-gray-500">
+                                        <i class="ri-eye-line"></i>
+                                        <span>4 567 vues</span>
+                                    </div>
+                                    <button
+                                        class="text-primary font-semibold hover:underline flex items-center gap-2 cursor-pointer">
+                                        Lire plus
+                                        <i class="ri-arrow-right-line"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </article>
+                        <article
+                            class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition cursor-pointer">
+                            <img
+                                src="https://readdy.ai/api/search-image?query=Public%20transport%20bus%20rapid%20transit%20system%20in%20Senegal%20modern%20buses%20urban%20mobility%20infrastructure%20African%20city%20transportation%20development%20passengers%20commuters%20professional%20photography&width=800&height=500&seq=news106&orientation=landscape"
+                                alt="Actualité"
+                                class="w-full h-52 object-cover object-top">
+                            <div class="p-6">
+                                <div class="flex items-center gap-3 mb-3">
+                                    <span
+                                        class="px-3 py-1 bg-blue-100 text-blue-600 text-sm font-semibold rounded-full">Transport</span>
+                                    <span class="text-sm text-gray-500">11 mai
+                                        2025</span>
+                                </div>
+                                <h3
+                                    class="text-xl font-bold text-gray-900 mb-3">Extension
+                                    du réseau BRT à 3 nouvelles lignes à
+                                    Dakar</h3>
+                                <p class="text-gray-600 mb-4">Le système de
+                                    transport rapide par bus s'étend avec 3
+                                    nouvelles lignes desservant les banlieues de
+                                    la capitale pour réduire les
+                                    embouteillages.</p>
+                                <div class="flex items-center justify-between">
+                                    <div
+                                        class="flex items-center gap-2 text-sm text-gray-500">
+                                        <i class="ri-eye-line"></i>
+                                        <span>9 234 vues</span>
+                                    </div>
+                                    <button
+                                        class="text-primary font-semibold hover:underline flex items-center gap-2 cursor-pointer">
+                                        Lire plus
+                                        <i class="ri-arrow-right-line"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </article>
+                        <article
+                            class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition cursor-pointer">
+                            <img
+                                src="https://readdy.ai/api/search-image?query=Cultural%20festival%20celebration%20in%20Senegal%20traditional%20music%20dance%20performers%20colorful%20costumes%20African%20heritage%20cultural%20preservation%20joyful%20community%20gathering%20professional%20photography%20vibrant%20colors&width=800&height=500&seq=news107&orientation=landscape"
+                                alt="Actualité"
+                                class="w-full h-52 object-cover object-top">
+                            <div class="p-6">
+                                <div class="flex items-center gap-3 mb-3">
+                                    <span
+                                        class="px-3 py-1 bg-pink-100 text-pink-600 text-sm font-semibold rounded-full">Culture</span>
+                                    <span class="text-sm text-gray-500">10 mai
+                                        2025</span>
+                                </div>
+                                <h3
+                                    class="text-xl font-bold text-gray-900 mb-3">Festival
+                                    national des cultures territoriales du 1er
+                                    au 15 juin</h3>
+                                <p class="text-gray-600 mb-4">Toutes les régions
+                                    du Sénégal seront représentées lors de ce
+                                    grand événement célébrant la richesse
+                                    culturelle du pays avec concerts et
+                                    expositions.</p>
+                                <div class="flex items-center justify-between">
+                                    <div
+                                        class="flex items-center gap-2 text-sm text-gray-500">
+                                        <i class="ri-eye-line"></i>
+                                        <span>6 789 vues</span>
+                                    </div>
+                                    <button
+                                        class="text-primary font-semibold hover:underline flex items-center gap-2 cursor-pointer">
+                                        Lire plus
+                                        <i class="ri-arrow-right-line"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </article>
+                        <article
+                            class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition cursor-pointer">
+                            <img
+                                src="https://readdy.ai/api/search-image?query=Digital%20government%20services%20platform%20in%20Senegal%20citizens%20using%20online%20administrative%20services%20computers%20and%20smartphones%20modern%20e-government%20African%20digital%20transformation%20professional%20photography&width=800&height=500&seq=news108&orientation=landscape"
+                                alt="Actualité"
+                                class="w-full h-52 object-cover object-top">
+                            <div class="p-6">
+                                <div class="flex items-center gap-3 mb-3">
+                                    <span
+                                        class="px-3 py-1 bg-purple-100 text-purple-600 text-sm font-semibold rounded-full">Digital</span>
+                                    <span class="text-sm text-gray-500">9 mai
+                                        2025</span>
+                                </div>
+                                <h3
+                                    class="text-xl font-bold text-gray-900 mb-3">Lancement
+                                    de l'application mobile E-Admin pour
+                                    smartphone</h3>
+                                <p class="text-gray-600 mb-4">Les citoyens
+                                    peuvent désormais effectuer toutes leurs
+                                    démarches administratives directement depuis
+                                    leur téléphone avec la nouvelle
+                                    application.</p>
+                                <div class="flex items-center justify-between">
+                                    <div
+                                        class="flex items-center gap-2 text-sm text-gray-500">
+                                        <i class="ri-eye-line"></i>
+                                        <span>11 456 vues</span>
+                                    </div>
+                                    <button
+                                        class="text-primary font-semibold hover:underline flex items-center gap-2 cursor-pointer">
+                                        Lire plus
+                                        <i class="ri-arrow-right-line"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </article>
+                        <article
+                            class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition cursor-pointer">
+                            <img
+                                src="https://readdy.ai/api/search-image?query=Sports%20facilities%20stadium%20construction%20in%20Senegal%20modern%20athletic%20infrastructure%20youth%20sports%20development%20African%20athletes%20training%20contemporary%20architecture%20professional%20photography%20bright%20daylight&width=800&height=500&seq=news109&orientation=landscape"
+                                alt="Actualité"
+                                class="w-full h-52 object-cover object-top">
+                            <div class="p-6">
+                                <div class="flex items-center gap-3 mb-3">
+                                    <span
+                                        class="px-3 py-1 bg-teal-100 text-teal-600 text-sm font-semibold rounded-full">Sport</span>
+                                    <span class="text-sm text-gray-500">7 mai
+                                        2025</span>
+                                </div>
+                                <h3
+                                    class="text-xl font-bold text-gray-900 mb-3">Construction
+                                    de 12 complexes sportifs de proximité</h3>
+                                <p class="text-gray-600 mb-4">Des
+                                    infrastructures sportives modernes seront
+                                    accessibles dans les quartiers pour
+                                    encourager la pratique sportive des jeunes
+                                    et réduire l'inactivité.</p>
+                                <div class="flex items-center justify-between">
+                                    <div
+                                        class="flex items-center gap-2 text-sm text-gray-500">
+                                        <i class="ri-eye-line"></i>
+                                        <span>5 891 vues</span>
+                                    </div>
+                                    <button
+                                        class="text-primary font-semibold hover:underline flex items-center gap-2 cursor-pointer">
+                                        Lire plus
+                                        <i class="ri-arrow-right-line"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="mt-12 flex justify-center">
+                        <div class="flex items-center gap-2">
+                            <button
+                                class="w-10 h-10 flex items-center justify-center border border-gray-300 rounded-lg hover:bg-gray-50 transition cursor-pointer">
+                                <i class="ri-arrow-left-s-line text-xl"></i>
+                            </button>
+                            <button
+                                class="w-10 h-10 flex items-center justify-center bg-primary text-white rounded-lg cursor-pointer">1</button>
+                            <button
+                                class="w-10 h-10 flex items-center justify-center border border-gray-300 rounded-lg hover:bg-gray-50 transition cursor-pointer">2</button>
+                            <button
+                                class="w-10 h-10 flex items-center justify-center border border-gray-300 rounded-lg hover:bg-gray-50 transition cursor-pointer">3</button>
+                            <button
+                                class="w-10 h-10 flex items-center justify-center border border-gray-300 rounded-lg hover:bg-gray-50 transition cursor-pointer">4</button>
+                            <span class="px-3">...</span>
+                            <button
+                                class="w-10 h-10 flex items-center justify-center border border-gray-300 rounded-lg hover:bg-gray-50 transition cursor-pointer">12</button>
+                            <button
+                                class="w-10 h-10 flex items-center justify-center border border-gray-300 rounded-lg hover:bg-gray-50 transition cursor-pointer">
+                                <i class="ri-arrow-right-s-line text-xl"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="py-16 bg-white">
+                <div class="max-w-7xl mx-auto px-6">
+                    <div
+                        class="bg-gradient-to-br from-primary to-green-700 text-white rounded-2xl p-12 text-center">
+                        <div
+                            class="w-20 h-20 flex items-center justify-center bg-white/20 rounded-full mx-auto mb-6">
+                            <i class="ri-notification-3-line text-4xl"></i>
+                        </div>
+                        <h2 class="text-3xl font-bold mb-4">Ne Manquez Plus
+                            Aucune Actualité</h2>
+                        <p
+                            class="text-xl text-white/90 mb-8 max-w-2xl mx-auto">Recevez
+                            les dernières nouvelles de votre territoire
+                            directement dans votre boîte mail</p>
+                        <div class="flex gap-4 max-w-xl mx-auto">
+                            <input type="email"
+                                placeholder="Votre adresse email"
+                                class="flex-1 px-6 py-4 rounded-lg border-none focus:outline-none focus:ring-2 focus:ring-white text-gray-900">
+                            <button
+                                class="px-8 py-4 bg-white text-primary font-semibold hover:bg-gray-100 transition !rounded-button whitespace-nowrap cursor-pointer">
+                                S'abonner
+                            </button>
+                        </div>
+                        <p class="text-sm text-white/70 mt-4">Plus de 45 000
+                            abonnés reçoivent déjà notre newsletter
+                            hebdomadaire</p>
+                    </div>
+                </div>
+            </section>
+            <footer class="bg-gray-900 text-white pt-16 pb-8">
+                <div class="max-w-7xl mx-auto px-6">
+                    <div
+                        class="grid md:grid-cols-2 lg:grid-cols-5 gap-12 mb-12">
+                        <div>
+                            <h4 class="text-lg font-bold mb-6">À Propos</h4>
+                            <ul class="space-y-3">
+                                <li><a href="#"
+                                        class="text-gray-400 hover:text-white transition cursor-pointer">Présentation</a></li>
+                                <li><a href="#"
+                                        class="text-gray-400 hover:text-white transition cursor-pointer">Mission
+                                        et valeurs</a></li>
+                                <li><a href="#"
+                                        class="text-gray-400 hover:text-white transition cursor-pointer">Organisation</a></li>
+                                <li><a href="#"
+                                        class="text-gray-400 hover:text-white transition cursor-pointer">Charte
+                                        de qualité</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold mb-6">Services</h4>
+                            <ul class="space-y-3">
+                                <li><a href="#"
+                                        class="text-gray-400 hover:text-white transition cursor-pointer">Démarches
+                                        en ligne</a></li>
+                                <li><a href="#"
+                                        class="text-gray-400 hover:text-white transition cursor-pointer">Suivi
+                                        de projets</a></li>
+                                <li><a href="#"
+                                        class="text-gray-400 hover:text-white transition cursor-pointer">Signalements</a></li>
+                                <li><a href="#"
+                                        class="text-gray-400 hover:text-white transition cursor-pointer">Aides
+                                        et subventions</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold mb-6">Ressources</h4>
+                            <ul class="space-y-3">
+                                <li><a href="#"
+                                        class="text-gray-400 hover:text-white transition cursor-pointer">Centre
+                                        d'aide</a></li>
+                                <li><a href="#"
+                                        class="text-gray-400 hover:text-white transition cursor-pointer">Guides
+                                        pratiques</a></li>
+                                <li><a href="#"
+                                        class="text-gray-400 hover:text-white transition cursor-pointer">FAQ</a></li>
+                                <li><a href="#"
+                                        class="text-gray-400 hover:text-white transition cursor-pointer">Tutoriels
+                                        vidéo</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold mb-6">Informations
+                                Légales</h4>
+                            <ul class="space-y-3">
+                                <li><a href="#"
+                                        class="text-gray-400 hover:text-white transition cursor-pointer">Mentions
+                                        légales</a></li>
+                                <li><a href="#"
+                                        class="text-gray-400 hover:text-white transition cursor-pointer">Politique
+                                        de confidentialité</a></li>
+                                <li><a href="#"
+                                        class="text-gray-400 hover:text-white transition cursor-pointer">Accessibilité</a></li>
+                                <li><a href="#"
+                                        class="text-gray-400 hover:text-white transition cursor-pointer">Conditions
+                                        d'utilisation</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold mb-6">Contact</h4>
+                            <ul class="space-y-3 text-gray-400">
+                                <li class="flex items-start gap-3">
+                                    <i
+                                        class="ri-map-pin-line text-lg flex-shrink-0 mt-1"></i>
+                                    <span>Avenue Léopold Sédar Senghor<br>Dakar,
+                                        Sénégal</span>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <i class="ri-phone-line text-lg"></i>
+                                    <span>+221 33 823 45 67</span>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <i class="ri-mail-line text-lg"></i>
+                                    <span>contact@eadmin.sn</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="border-t border-gray-800 pt-8">
+                        <div
+                            class="flex flex-col md:flex-row items-center justify-between gap-6">
+                            <div class="flex items-center gap-6">
+                                <a href="#"
+                                    class="w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-primary rounded-full transition cursor-pointer">
+                                    <i class="ri-facebook-fill text-xl"></i>
+                                </a>
+                                <a href="#"
+                                    class="w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-primary rounded-full transition cursor-pointer">
+                                    <i class="ri-twitter-x-fill text-xl"></i>
+                                </a>
+                                <a href="#"
+                                    class="w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-primary rounded-full transition cursor-pointer">
+                                    <i class="ri-linkedin-fill text-xl"></i>
+                                </a>
+                                <a href="#"
+                                    class="w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-primary rounded-full transition cursor-pointer">
+                                    <i class="ri-youtube-fill text-xl"></i>
+                                </a>
+                                <a href="#"
+                                    class="w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-primary rounded-full transition cursor-pointer">
+                                    <i class="ri-instagram-fill text-xl"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="text-center text-gray-500 text-sm mt-8">
+                            © 2025 République du Sénégal - E-Administration
+                            Territoriale. Tous droits réservés.
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </body>
+</html>
+---

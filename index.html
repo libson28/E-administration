@@ -1,0 +1,1444 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>E-Administration Territoriale - République du Sénégal</title>
+        <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Pacifico&family=Inter:wght@300;400;500;600;700&display=swap"
+            rel="stylesheet">
+        <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css"
+            rel="stylesheet">
+        <script>
+tailwind.config = {
+theme: {
+extend: {
+colors: {
+primary: '#00853F',
+secondary: '#FDEF42',
+accent: '#E31B23'
+},
+borderRadius: {
+'none': '0px',
+'sm': '4px',
+DEFAULT: '8px',
+'md': '12px',
+'lg': '16px',
+'xl': '20px',
+'2xl': '24px',
+'3xl': '32px',
+'full': '9999px',
+'button': '8px'
+},
+fontFamily: {
+'sans': ['Inter', 'sans-serif']
+}
+}
+}
+}
+</script>
+        <style>
+:where([class^="ri-"])::before {
+content: "\f3c2";
+}
+body {
+font-family: 'Inter', sans-serif;
+}
+.hero-gradient {
+background: linear-gradient(135deg, rgba(0, 133, 63, 0.95) 0%, rgba(0, 102, 153, 0.9) 100%);
+}
+.stat-number {
+font-size: 3rem;
+font-weight: 700;
+line-height: 1;
+}
+.progress-bar {
+transition: width 0.3s ease;
+}
+</style>
+    </head>
+    <body class="bg-white">
+
+        <nav class="fixed top-0 left-0 right-0 bg-white shadow-sm z-50">
+            <div class="max-w-7xl mx-auto px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 flex items-center justify-center">
+                            <i
+                                class="ri-government-line text-4xl text-primary"></i>
+                        </div>
+                        <div>
+                            <div
+                                class="text-sm font-semibold text-primary">République
+                                du Sénégal</div>
+                            <div
+                                class="text-lg font-bold text-gray-900">E-Administration
+                                Territoriale</div>
+                        </div>
+                    </div>
+                                        <div class="hidden lg:flex items-center gap-8">
+                        <a href="index.html"
+                            class="text-gray-900 font-medium hover:text-primary transition cursor-pointer">Accueil</a>
+                        <a href="actualites.html"
+                            class="text-gray-700 hover:text-primary transition cursor-pointer">Actualités</a>
+                        <a href="projets.html"
+                            class="text-gray-700 hover:text-primary transition cursor-pointer">Projets</a>
+                        <a href="demarches.html"
+                            class="text-gray-700 hover:text-primary transition cursor-pointer">Démarches</a>
+                        <a href="alertes.html"
+                            class="text-gray-700 hover:text-primary transition cursor-pointer">Alertes</a>
+                        <a href="contact.html"
+                            class="text-gray-700 hover:text-primary transition cursor-pointer">Contact</a>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <a href="connexion.html" class="px-5 py-2.5 text-primary border border-primary hover:bg-primary hover:text-white transition !rounded-button whitespace-nowrap flex items-center gap-2 cursor-pointer">
+                            <i class="ri-login-box-line text-lg"></i>
+                            Se connecter
+                        </a>
+                        <a href="inscription.html" class="px-5 py-2.5 bg-primary text-white hover:bg-green-700 transition !rounded-button whitespace-nowrap flex items-center gap-2 cursor-pointer">
+                            <i class="ri-user-add-line text-lg"></i>
+                            S'inscrire
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <div class="pt-24">
+            <section class="relative min-h-screen flex items-center"
+                style="background-image: url('https://readdy.ai/api/search-image?query=Modern%20digital%20government%20services%20illustration%20with%20Senegalese%20citizens%20using%20tablets%20and%20computers%20in%20a%20bright%20administrative%20office%2C%20clean%20white%20and%20green%20background%20blending%20seamlessly%20with%20left%20side%2C%20professional%20photography%20style%2C%20natural%20lighting%2C%20shallow%20depth%20of%20field%2C%20contemporary%20workspace%20with%20African%20cultural%20elements%2C%20people%20collaborating%20on%20digital%20platforms%2C%20transparent%20governance%20concept%2C%20wide%20angle%20view&width=1920&height=1080&seq=hero001&orientation=landscape'); background-size: cover; background-position: center;">
+                <div class="absolute inset-0 hero-gradient"></div>
+                <div class="relative max-w-7xl mx-auto px-6 py-20 w-full">
+                    <div class="max-w-2xl">
+                        <h1
+                            class="text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">Votre
+                            Administration Territoriale, Simplifiée et
+                            Accessible</h1>
+                        <p
+                            class="text-xl text-white/90 mb-10 leading-relaxed">Facilitez
+                            vos démarches administratives, suivez les projets
+                            publics en temps réel et participez activement aux
+                            décisions qui façonnent votre territoire.</p>
+                        <div class="flex flex-wrap gap-4">
+                            <button
+                                class="px-8 py-4 bg-white text-primary font-semibold hover:bg-gray-50 transition !rounded-button whitespace-nowrap flex items-center gap-3">
+                                <i class="ri-file-list-3-line text-xl"></i>
+                                Effectuer une démarche
+                            </button>
+                            <button
+                                class="px-8 py-4 bg-transparent text-white border-2 border-white font-semibold hover:bg-white/10 transition !rounded-button whitespace-nowrap flex items-center gap-3">
+                                <i class="ri-building-line text-xl"></i>
+                                Consulter les projets
+                            </button>
+                            <button
+                                class="px-8 py-4 bg-transparent text-white border-2 border-white font-semibold hover:bg-white/10 transition !rounded-button whitespace-nowrap flex items-center gap-3">
+                                <i class="ri-chat-voice-line text-xl"></i>
+                                Participer aux consultations
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="py-20 bg-gray-50">
+                <div class="max-w-7xl mx-auto px-6">
+                    <div class="text-center mb-16">
+                        <h2 class="text-4xl font-bold text-gray-900 mb-4">Une
+                            Plateforme au Service des Citoyens et des
+                            Collectivités</h2>
+                        <p class="text-xl text-gray-600 max-w-3xl mx-auto">Des
+                            services numériques innovants pour moderniser
+                            l'administration territoriale et renforcer la
+                            proximité avec les citoyens.</p>
+                    </div>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div
+                            class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition">
+                            <div
+                                class="w-14 h-14 flex items-center justify-center bg-primary/10 rounded-lg mb-6">
+                                <i
+                                    class="ri-file-text-line text-3xl text-primary"></i>
+                            </div>
+                            <h3
+                                class="text-xl font-bold text-gray-900 mb-3">Démarches
+                                Administratives</h3>
+                            <p class="text-gray-600 mb-4">Effectuez vos
+                                démarches en ligne 24h/24 : état civil,
+                                urbanisme, fiscalité locale et bien plus
+                                encore.</p>
+                            <a href="#"
+                                class="text-primary font-semibold hover:underline flex items-center gap-2">
+                                En savoir plus
+                                <i class="ri-arrow-right-line"></i>
+                            </a>
+                        </div>
+                        <div
+                            class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition">
+                            <div
+                                class="w-14 h-14 flex items-center justify-center bg-accent/10 rounded-lg mb-6">
+                                <i
+                                    class="ri-alarm-warning-line text-3xl text-accent"></i>
+                            </div>
+                            <h3
+                                class="text-xl font-bold text-gray-900 mb-3">Signalements
+                                Citoyens</h3>
+                            <p class="text-gray-600 mb-4">Signalez les problèmes
+                                de votre quartier et suivez leur résolution en
+                                temps réel.</p>
+                            <a href="#"
+                                class="text-primary font-semibold hover:underline flex items-center gap-2">
+                                En savoir plus
+                                <i class="ri-arrow-right-line"></i>
+                            </a>
+                        </div>
+                        <div
+                            class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition">
+                            <div
+                                class="w-14 h-14 flex items-center justify-center bg-blue-100 rounded-lg mb-6">
+                                <i
+                                    class="ri-building-2-line text-3xl text-blue-600"></i>
+                            </div>
+                            <h3
+                                class="text-xl font-bold text-gray-900 mb-3">Projets
+                                Publics</h3>
+                            <p class="text-gray-600 mb-4">Consultez l'avancement
+                                des projets d'infrastructure et de développement
+                                de votre territoire.</p>
+                            <a href="#"
+                                class="text-primary font-semibold hover:underline flex items-center gap-2">
+                                En savoir plus
+                                <i class="ri-arrow-right-line"></i>
+                            </a>
+                        </div>
+                        <div
+                            class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition">
+                            <div
+                                class="w-14 h-14 flex items-center justify-center bg-yellow-100 rounded-lg mb-6">
+                                <i
+                                    class="ri-hand-coin-line text-3xl text-yellow-600"></i>
+                            </div>
+                            <h3
+                                class="text-xl font-bold text-gray-900 mb-3">Aides
+                                et Subventions</h3>
+                            <p class="text-gray-600 mb-4">Découvrez les aides
+                                disponibles et déposez vos demandes de
+                                subvention en ligne.</p>
+                            <a href="#"
+                                class="text-primary font-semibold hover:underline flex items-center gap-2">
+                                En savoir plus
+                                <i class="ri-arrow-right-line"></i>
+                            </a>
+                        </div>
+                        <div
+                            class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition">
+                            <div
+                                class="w-14 h-14 flex items-center justify-center bg-purple-100 rounded-lg mb-6">
+                                <i
+                                    class="ri-group-line text-3xl text-purple-600"></i>
+                            </div>
+                            <h3
+                                class="text-xl font-bold text-gray-900 mb-3">Participation
+                                Citoyenne</h3>
+                            <p class="text-gray-600 mb-4">Exprimez votre opinion
+                                sur les décisions publiques et contribuez aux
+                                consultations.</p>
+                            <a href="#"
+                                class="text-primary font-semibold hover:underline flex items-center gap-2">
+                                En savoir plus
+                                <i class="ri-arrow-right-line"></i>
+                            </a>
+                        </div>
+                        <div
+                            class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition">
+                            <div
+                                class="w-14 h-14 flex items-center justify-center bg-red-100 rounded-lg mb-6">
+                                <i
+                                    class="ri-shield-cross-line text-3xl text-red-600"></i>
+                            </div>
+                            <h3
+                                class="text-xl font-bold text-gray-900 mb-3">Gestion
+                                des Crises</h3>
+                            <p class="text-gray-600 mb-4">Recevez des alertes en
+                                temps réel et accédez aux informations
+                                d'urgence.</p>
+                            <a href="#"
+                                class="text-primary font-semibold hover:underline flex items-center gap-2">
+                                En savoir plus
+                                <i class="ri-arrow-right-line"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="py-20 bg-white">
+                <div class="max-w-7xl mx-auto px-6">
+                    <div class="flex items-center justify-between mb-12">
+                        <h2 class="text-4xl font-bold text-gray-900">Actualités
+                            de Vos Territoires</h2>
+                        <a href="#"
+                            class="text-primary font-semibold hover:underline flex items-center gap-2">
+                            Voir toutes les actualités
+                            <i class="ri-arrow-right-line"></i>
+                        </a>
+                    </div>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <article
+                            class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition">
+                            <img
+                                src="https://readdy.ai/api/search-image?query=Modern%20infrastructure%20construction%20project%20in%20Senegal%20with%20workers%20and%20equipment%2C%20new%20road%20or%20building%20development%2C%20bright%20daylight%2C%20professional%20photography%2C%20vibrant%20colors%2C%20progress%20and%20development%20theme%2C%20African%20context&width=800&height=500&seq=news001&orientation=landscape"
+                                alt="Actualité"
+                                class="w-full h-52 object-cover object-top">
+                            <div class="p-6">
+                                <div class="flex items-center gap-3 mb-3">
+                                    <span
+                                        class="px-3 py-1 bg-primary/10 text-primary text-sm font-semibold rounded-full">Infrastructure</span>
+                                    <span class="text-sm text-gray-500">15 mai
+                                        2025</span>
+                                </div>
+                                <h3
+                                    class="text-xl font-bold text-gray-900 mb-3">Inauguration
+                                    du nouveau centre administratif de
+                                    Thiès</h3>
+                                <p class="text-gray-600 mb-4">Le nouveau centre
+                                    administratif moderne accueillera les
+                                    citoyens dès le 1er juin avec des services
+                                    numériques intégrés.</p>
+                                <a href="#"
+                                    class="text-primary font-semibold hover:underline flex items-center gap-2">
+                                    Lire la suite
+                                    <i class="ri-arrow-right-line"></i>
+                                </a>
+                            </div>
+                        </article>
+                        <article
+                            class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition">
+                            <img
+                                src="https://readdy.ai/api/search-image?query=Digital%20literacy%20training%20session%20in%20Senegal%20with%20people%20learning%20computers%20and%20tablets%2C%20community%20center%20classroom%2C%20instructor%20teaching%20citizens%2C%20modern%20educational%20environment%2C%20collaborative%20learning%2C%20African%20context&width=800&height=500&seq=news002&orientation=landscape"
+                                alt="Actualité"
+                                class="w-full h-52 object-cover object-top">
+                            <div class="p-6">
+                                <div class="flex items-center gap-3 mb-3">
+                                    <span
+                                        class="px-3 py-1 bg-blue-100 text-blue-600 text-sm font-semibold rounded-full">Formation</span>
+                                    <span class="text-sm text-gray-500">12 mai
+                                        2025</span>
+                                </div>
+                                <h3
+                                    class="text-xl font-bold text-gray-900 mb-3">Programme
+                                    de formation numérique pour les agents
+                                    territoriaux</h3>
+                                <p class="text-gray-600 mb-4">Plus de 500 agents
+                                    ont été formés aux nouveaux outils digitaux
+                                    pour améliorer le service aux citoyens.</p>
+                                <a href="#"
+                                    class="text-primary font-semibold hover:underline flex items-center gap-2">
+                                    Lire la suite
+                                    <i class="ri-arrow-right-line"></i>
+                                </a>
+                            </div>
+                        </article>
+                        <article
+                            class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition">
+                            <img
+                                src="https://readdy.ai/api/search-image?query=Community%20meeting%20in%20Senegal%20with%20citizens%20and%20local%20officials%20discussing%20projects%2C%20participatory%20democracy%2C%20town%20hall%20gathering%2C%20diverse%20people%20engaged%20in%20dialogue%2C%20modern%20civic%20engagement%2C%20African%20context&width=800&height=500&seq=news003&orientation=landscape"
+                                alt="Actualité"
+                                class="w-full h-52 object-cover object-top">
+                            <div class="p-6">
+                                <div class="flex items-center gap-3 mb-3">
+                                    <span
+                                        class="px-3 py-1 bg-purple-100 text-purple-600 text-sm font-semibold rounded-full">Participation</span>
+                                    <span class="text-sm text-gray-500">8 mai
+                                        2025</span>
+                                </div>
+                                <h3
+                                    class="text-xl font-bold text-gray-900 mb-3">Consultation
+                                    citoyenne sur l'aménagement urbain de
+                                    Dakar</h3>
+                                <p class="text-gray-600 mb-4">Les habitants sont
+                                    invités à donner leur avis sur le projet
+                                    d'aménagement du quartier de Plateau.</p>
+                                <a href="#"
+                                    class="text-primary font-semibold hover:underline flex items-center gap-2">
+                                    Lire la suite
+                                    <i class="ri-arrow-right-line"></i>
+                                </a>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section class="py-16 bg-yellow-50 border-t-4 border-secondary">
+                <div class="max-w-7xl mx-auto px-6">
+                    <div class="flex items-start gap-4 mb-8">
+                        <div
+                            class="w-12 h-12 flex items-center justify-center bg-secondary rounded-full flex-shrink-0">
+                            <i
+                                class="ri-megaphone-line text-2xl text-gray-900"></i>
+                        </div>
+                        <div>
+                            <h2
+                                class="text-3xl font-bold text-gray-900 mb-2">Communiqués
+                                et Annonces Officielles</h2>
+                            <p class="text-gray-700">Restez informé des
+                                dernières décisions et annonces des autorités
+                                territoriales.</p>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <div
+                            class="bg-white p-6 rounded-xl shadow-sm flex items-start gap-4">
+                            <div
+                                class="w-10 h-10 flex items-center justify-center bg-accent/10 rounded-lg flex-shrink-0">
+                                <i
+                                    class="ri-notification-3-line text-xl text-accent"></i>
+                            </div>
+                            <div class="flex-1">
+                                <div class="flex items-center gap-3 mb-2">
+                                    <span
+                                        class="px-3 py-1 bg-accent text-white text-xs font-bold rounded-full">URGENT</span>
+                                    <span class="text-sm text-gray-500">18 mai
+                                        2025</span>
+                                </div>
+                                <h3
+                                    class="text-lg font-bold text-gray-900 mb-2">Fermeture
+                                    exceptionnelle des services administratifs
+                                    le 20 mai</h3>
+                                <p class="text-gray-600">En raison de la fête
+                                    nationale, tous les services administratifs
+                                    seront fermés. Les services en ligne restent
+                                    accessibles.</p>
+                            </div>
+                        </div>
+                        <div
+                            class="bg-white p-6 rounded-xl shadow-sm flex items-start gap-4">
+                            <div
+                                class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-lg flex-shrink-0">
+                                <i
+                                    class="ri-information-line text-xl text-primary"></i>
+                            </div>
+                            <div class="flex-1">
+                                <div class="flex items-center gap-3 mb-2">
+                                    <span
+                                        class="px-3 py-1 bg-primary/10 text-primary text-xs font-bold rounded-full">INFO</span>
+                                    <span class="text-sm text-gray-500">16 mai
+                                        2025</span>
+                                </div>
+                                <h3
+                                    class="text-lg font-bold text-gray-900 mb-2">Nouvelle
+                                    procédure simplifiée pour les demandes de
+                                    permis de construire</h3>
+                                <p class="text-gray-600">À partir du 1er juin,
+                                    bénéficiez d'une procédure 100%
+                                    dématérialisée avec un délai de traitement
+                                    réduit de 40%.</p>
+                            </div>
+                        </div>
+                        <div
+                            class="bg-white p-6 rounded-xl shadow-sm flex items-start gap-4">
+                            <div
+                                class="w-10 h-10 flex items-center justify-center bg-blue-100 rounded-lg flex-shrink-0">
+                                <i
+                                    class="ri-calendar-event-line text-xl text-blue-600"></i>
+                            </div>
+                            <div class="flex-1">
+                                <div class="flex items-center gap-3 mb-2">
+                                    <span
+                                        class="px-3 py-1 bg-blue-100 text-blue-600 text-xs font-bold rounded-full">ÉVÉNEMENT</span>
+                                    <span class="text-sm text-gray-500">14 mai
+                                        2025</span>
+                                </div>
+                                <h3
+                                    class="text-lg font-bold text-gray-900 mb-2">Forum
+                                    national de l'innovation territoriale - 25
+                                    juin à Dakar</h3>
+                                <p class="text-gray-600">Participez au grand
+                                    rendez-vous annuel des acteurs de la
+                                    transformation numérique des
+                                    territoires.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-8 text-center">
+                        <a href="#"
+                            class="text-primary font-semibold hover:underline flex items-center justify-center gap-2">
+                            Accéder à tous les communiqués
+                            <i class="ri-arrow-right-line"></i>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="py-20 bg-white">
+                <div class="max-w-7xl mx-auto px-6">
+                    <div class="text-center mb-16">
+                        <h2
+                            class="text-4xl font-bold text-gray-900 mb-4">Projets
+                            Publics : Transparence et Suivi en Temps Réel</h2>
+                        <p
+                            class="text-xl text-gray-600 max-w-3xl mx-auto">Suivez
+                            l'avancement des projets d'infrastructure et de
+                            développement qui transforment votre territoire.</p>
+                    </div>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                        <div
+                            class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition">
+                            <img
+                                src="https://readdy.ai/api/search-image?query=Modern%20hospital%20construction%20site%20in%20Senegal%2C%20medical%20facility%20building%20progress%2C%20construction%20workers%20and%20equipment%2C%20contemporary%20healthcare%20architecture%2C%20bright%20daylight%2C%20professional%20photography%2C%20development%20and%20progress%20theme&width=800&height=500&seq=project001&orientation=landscape"
+                                alt="Projet"
+                                class="w-full h-48 object-cover object-top">
+                            <div class="p-6">
+                                <div
+                                    class="flex items-center gap-2 text-gray-600 mb-3">
+                                    <i class="ri-map-pin-line text-lg"></i>
+                                    <span class="text-sm font-medium">Dakar,
+                                        Plateau</span>
+                                </div>
+                                <h3
+                                    class="text-xl font-bold text-gray-900 mb-4">Construction
+                                    du Centre Hospitalier Universitaire de
+                                    Dakar</h3>
+                                <div class="mb-4">
+                                    <div
+                                        class="flex items-center justify-between text-sm mb-2">
+                                        <span
+                                            class="text-gray-600">Avancement</span>
+                                        <span
+                                            class="font-bold text-primary">68%</span>
+                                    </div>
+                                    <div
+                                        class="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
+                                        <div
+                                            class="progress-bar bg-primary h-full rounded-full"
+                                            style="width: 68%"></div>
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-2 gap-4 mb-4">
+                                    <div>
+                                        <div
+                                            class="text-sm text-gray-600 mb-1">Budget
+                                            alloué</div>
+                                        <div
+                                            class="text-lg font-bold text-gray-900">45
+                                            Mds FCFA</div>
+                                    </div>
+                                    <div>
+                                        <div
+                                            class="text-sm text-gray-600 mb-1">Budget
+                                            utilisé</div>
+                                        <div
+                                            class="text-lg font-bold text-gray-900">30.6
+                                            Mds FCFA</div>
+                                    </div>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <span
+                                        class="px-3 py-1 bg-blue-100 text-blue-600 text-sm font-semibold rounded-full">En
+                                        cours</span>
+                                    <button
+                                        class="px-5 py-2.5 bg-primary text-white hover:bg-green-700 transition !rounded-button whitespace-nowrap text-sm font-semibold">
+                                        Voir les détails
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition">
+                            <img
+                                src="https://readdy.ai/api/search-image?query=Highway%20road%20construction%20in%20Senegal%2C%20modern%20infrastructure%20project%2C%20asphalt%20paving%20work%2C%20heavy%20machinery%20and%20workers%2C%20wide%20road%20development%2C%20sunny%20day%2C%20aerial%20perspective%2C%20progress%20and%20connectivity%20theme&width=800&height=500&seq=project002&orientation=landscape"
+                                alt="Projet"
+                                class="w-full h-48 object-cover object-top">
+                            <div class="p-6">
+                                <div
+                                    class="flex items-center gap-2 text-gray-600 mb-3">
+                                    <i class="ri-map-pin-line text-lg"></i>
+                                    <span class="text-sm font-medium">Thiès -
+                                        Kaolack</span>
+                                </div>
+                                <h3
+                                    class="text-xl font-bold text-gray-900 mb-4">Modernisation
+                                    de l'autoroute Thiès-Kaolack</h3>
+                                <div class="mb-4">
+                                    <div
+                                        class="flex items-center justify-between text-sm mb-2">
+                                        <span
+                                            class="text-gray-600">Avancement</span>
+                                        <span
+                                            class="font-bold text-primary">42%</span>
+                                    </div>
+                                    <div
+                                        class="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
+                                        <div
+                                            class="progress-bar bg-primary h-full rounded-full"
+                                            style="width: 42%"></div>
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-2 gap-4 mb-4">
+                                    <div>
+                                        <div
+                                            class="text-sm text-gray-600 mb-1">Budget
+                                            alloué</div>
+                                        <div
+                                            class="text-lg font-bold text-gray-900">82
+                                            Mds FCFA</div>
+                                    </div>
+                                    <div>
+                                        <div
+                                            class="text-sm text-gray-600 mb-1">Budget
+                                            utilisé</div>
+                                        <div
+                                            class="text-lg font-bold text-gray-900">34.4
+                                            Mds FCFA</div>
+                                    </div>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <span
+                                        class="px-3 py-1 bg-blue-100 text-blue-600 text-sm font-semibold rounded-full">En
+                                        cours</span>
+                                    <button
+                                        class="px-5 py-2.5 bg-primary text-white hover:bg-green-700 transition !rounded-button whitespace-nowrap text-sm font-semibold">
+                                        Voir les détails
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition">
+                            <img
+                                src="https://readdy.ai/api/search-image?query=Modern%20school%20building%20in%20Senegal%2C%20educational%20facility%20construction%2C%20contemporary%20architecture%20with%20large%20windows%2C%20students%20and%20teachers%2C%20bright%20and%20welcoming%20environment%2C%20African%20educational%20development%2C%20sunny%20day%20photography&width=800&height=500&seq=project003&orientation=landscape"
+                                alt="Projet"
+                                class="w-full h-48 object-cover object-top">
+                            <div class="p-6">
+                                <div
+                                    class="flex items-center gap-2 text-gray-600 mb-3">
+                                    <i class="ri-map-pin-line text-lg"></i>
+                                    <span
+                                        class="text-sm font-medium">Saint-Louis</span>
+                                </div>
+                                <h3
+                                    class="text-xl font-bold text-gray-900 mb-4">Complexe
+                                    Scolaire Moderne de Saint-Louis</h3>
+                                <div class="mb-4">
+                                    <div
+                                        class="flex items-center justify-between text-sm mb-2">
+                                        <span
+                                            class="text-gray-600">Avancement</span>
+                                        <span
+                                            class="font-bold text-primary">15%</span>
+                                    </div>
+                                    <div
+                                        class="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
+                                        <div
+                                            class="progress-bar bg-primary h-full rounded-full"
+                                            style="width: 15%"></div>
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-2 gap-4 mb-4">
+                                    <div>
+                                        <div
+                                            class="text-sm text-gray-600 mb-1">Budget
+                                            alloué</div>
+                                        <div
+                                            class="text-lg font-bold text-gray-900">18
+                                            Mds FCFA</div>
+                                    </div>
+                                    <div>
+                                        <div
+                                            class="text-sm text-gray-600 mb-1">Budget
+                                            utilisé</div>
+                                        <div
+                                            class="text-lg font-bold text-gray-900">2.7
+                                            Mds FCFA</div>
+                                    </div>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <span
+                                        class="px-3 py-1 bg-yellow-100 text-yellow-700 text-sm font-semibold rounded-full">Planifié</span>
+                                    <button
+                                        class="px-5 py-2.5 bg-primary text-white hover:bg-green-700 transition !rounded-button whitespace-nowrap text-sm font-semibold">
+                                        Voir les détails
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <button
+                            class="px-8 py-4 bg-primary text-white font-semibold hover:bg-green-700 transition !rounded-button whitespace-nowrap flex items-center gap-3 mx-auto">
+                            <i class="ri-building-line text-xl"></i>
+                            Explorer tous les projets
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="py-20 bg-primary text-white">
+                <div class="max-w-7xl mx-auto px-6">
+                    <div class="text-center mb-16">
+                        <h2 class="text-4xl font-bold mb-4">Notre Impact en
+                            Chiffres</h2>
+                        <p class="text-xl text-white/90 max-w-3xl mx-auto">Des
+                            résultats concrets au service de la modernisation de
+                            l'administration territoriale.</p>
+                    </div>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div class="text-center">
+                            <div
+                                class="w-20 h-20 flex items-center justify-center bg-white/10 rounded-full mx-auto mb-6">
+                                <i class="ri-user-line text-4xl"></i>
+                            </div>
+                            <div class="stat-number mb-2">847 523</div>
+                            <div class="text-xl text-white/90">Utilisateurs
+                                inscrits</div>
+                        </div>
+                        <div class="text-center">
+                            <div
+                                class="w-20 h-20 flex items-center justify-center bg-white/10 rounded-full mx-auto mb-6">
+                                <i class="ri-file-check-line text-4xl"></i>
+                            </div>
+                            <div class="stat-number mb-2">1.2M</div>
+                            <div class="text-xl text-white/90">Démarches
+                                effectuées</div>
+                        </div>
+                        <div class="text-center">
+                            <div
+                                class="w-20 h-20 flex items-center justify-center bg-white/10 rounded-full mx-auto mb-6">
+                                <i class="ri-building-2-line text-4xl"></i>
+                            </div>
+                            <div class="stat-number mb-2">156</div>
+                            <div class="text-xl text-white/90">Projets publics
+                                actifs</div>
+                        </div>
+                        <div class="text-center">
+                            <div
+                                class="w-20 h-20 flex items-center justify-center bg-white/10 rounded-full mx-auto mb-6">
+                                <i class="ri-government-line text-4xl"></i>
+                            </div>
+                            <div class="stat-number mb-2">45</div>
+                            <div class="text-xl text-white/90">Collectivités
+                                connectées</div>
+                        </div>
+                        <div class="text-center">
+                            <div
+                                class="w-20 h-20 flex items-center justify-center bg-white/10 rounded-full mx-auto mb-6">
+                                <i class="ri-emotion-happy-line text-4xl"></i>
+                            </div>
+                            <div class="stat-number mb-2">94%</div>
+                            <div class="text-xl text-white/90">Taux de
+                                satisfaction</div>
+                        </div>
+                        <div class="text-center">
+                            <div
+                                class="w-20 h-20 flex items-center justify-center bg-white/10 rounded-full mx-auto mb-6">
+                                <i class="ri-time-line text-4xl"></i>
+                            </div>
+                            <div class="stat-number mb-2">72h</div>
+                            <div class="text-xl text-white/90">Économie de temps
+                                moyenne</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="py-20 bg-gray-50">
+                <div class="max-w-7xl mx-auto px-6">
+                    <div class="text-center mb-16">
+                        <h2 class="text-4xl font-bold text-gray-900 mb-4">Accès
+                            Rapide aux Démarches</h2>
+                        <p
+                            class="text-xl text-gray-600 max-w-3xl mx-auto">Trouvez
+                            rapidement la démarche dont vous avez besoin et
+                            effectuez-la en ligne.</p>
+                    </div>
+                    <div
+                        class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
+                        <a href="#"
+                            class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition text-center group">
+                            <div
+                                class="w-16 h-16 flex items-center justify-center bg-primary/10 rounded-lg mx-auto mb-4 group-hover:bg-primary/20 transition">
+                                <i
+                                    class="ri-user-heart-line text-3xl text-primary"></i>
+                            </div>
+                            <div class="font-semibold text-gray-900">État
+                                Civil</div>
+                        </a>
+                        <a href="#"
+                            class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition text-center group">
+                            <div
+                                class="w-16 h-16 flex items-center justify-center bg-blue-100 rounded-lg mx-auto mb-4 group-hover:bg-blue-200 transition">
+                                <i
+                                    class="ri-building-4-line text-3xl text-blue-600"></i>
+                            </div>
+                            <div
+                                class="font-semibold text-gray-900">Urbanisme</div>
+                        </a>
+                        <a href="#"
+                            class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition text-center group">
+                            <div
+                                class="w-16 h-16 flex items-center justify-center bg-yellow-100 rounded-lg mx-auto mb-4 group-hover:bg-yellow-200 transition">
+                                <i
+                                    class="ri-money-dollar-circle-line text-3xl text-yellow-600"></i>
+                            </div>
+                            <div class="font-semibold text-gray-900">Fiscalité
+                                Locale</div>
+                        </a>
+                        <a href="#"
+                            class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition text-center group">
+                            <div
+                                class="w-16 h-16 flex items-center justify-center bg-purple-100 rounded-lg mx-auto mb-4 group-hover:bg-purple-200 transition">
+                                <i
+                                    class="ri-team-line text-3xl text-purple-600"></i>
+                            </div>
+                            <div
+                                class="font-semibold text-gray-900">Associations</div>
+                        </a>
+                        <a href="#"
+                            class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition text-center group">
+                            <div
+                                class="w-16 h-16 flex items-center justify-center bg-green-100 rounded-lg mx-auto mb-4 group-hover:bg-green-200 transition">
+                                <i
+                                    class="ri-store-2-line text-3xl text-green-600"></i>
+                            </div>
+                            <div
+                                class="font-semibold text-gray-900">Commerce</div>
+                        </a>
+                        <a href="#"
+                            class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition text-center group">
+                            <div
+                                class="w-16 h-16 flex items-center justify-center bg-pink-100 rounded-lg mx-auto mb-4 group-hover:bg-pink-200 transition">
+                                <i
+                                    class="ri-parent-line text-3xl text-pink-600"></i>
+                            </div>
+                            <div
+                                class="font-semibold text-gray-900">Enfance</div>
+                        </a>
+                        <a href="#"
+                            class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition text-center group">
+                            <div
+                                class="w-16 h-16 flex items-center justify-center bg-red-100 rounded-lg mx-auto mb-4 group-hover:bg-red-200 transition">
+                                <i
+                                    class="ri-heart-line text-3xl text-red-600"></i>
+                            </div>
+                            <div
+                                class="font-semibold text-gray-900">Social</div>
+                        </a>
+                        <a href="#"
+                            class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition text-center group">
+                            <div
+                                class="w-16 h-16 flex items-center justify-center bg-teal-100 rounded-lg mx-auto mb-4 group-hover:bg-teal-200 transition">
+                                <i
+                                    class="ri-leaf-line text-3xl text-teal-600"></i>
+                            </div>
+                            <div
+                                class="font-semibold text-gray-900">Environnement</div>
+                        </a>
+                        <a href="#"
+                            class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition text-center group">
+                            <div
+                                class="w-16 h-16 flex items-center justify-center bg-indigo-100 rounded-lg mx-auto mb-4 group-hover:bg-indigo-200 transition">
+                                <i
+                                    class="ri-briefcase-line text-3xl text-indigo-600"></i>
+                            </div>
+                            <div
+                                class="font-semibold text-gray-900">Entreprises</div>
+                        </a>
+                        <a href="#"
+                            class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition text-center group">
+                            <div
+                                class="w-16 h-16 flex items-center justify-center bg-orange-100 rounded-lg mx-auto mb-4 group-hover:bg-orange-200 transition">
+                                <i
+                                    class="ri-book-open-line text-3xl text-orange-600"></i>
+                            </div>
+                            <div
+                                class="font-semibold text-gray-900">Éducation</div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="py-20 bg-white">
+                <div class="max-w-7xl mx-auto px-6">
+                    <div class="text-center mb-16">
+                        <h2
+                            class="text-4xl font-bold text-gray-900 mb-4">Visualisez
+                            Votre Territoire</h2>
+                        <p
+                            class="text-xl text-gray-600 max-w-3xl mx-auto">Explorez
+                            les projets, services et alertes géolocalisés sur
+                            l'ensemble du territoire sénégalais.</p>
+                    </div>
+                    <div class="flex gap-8">
+                        <div class="w-80 flex-shrink-0 space-y-4">
+                            <div class="bg-gray-50 p-6 rounded-xl">
+                                <h3
+                                    class="font-bold text-gray-900 mb-4">Filtres</h3>
+                                <div class="space-y-4">
+                                    <div>
+                                        <label
+                                            class="flex items-center gap-3 cursor-pointer">
+                                            <input type="checkbox" checked
+                                                class="w-5 h-5 text-primary border-gray-300 rounded focus:ring-primary">
+                                            <span class="text-gray-700">Projets
+                                                en cours</span>
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <label
+                                            class="flex items-center gap-3 cursor-pointer">
+                                            <input type="checkbox" checked
+                                                class="w-5 h-5 text-primary border-gray-300 rounded focus:ring-primary">
+                                            <span class="text-gray-700">Projets
+                                                planifiés</span>
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <label
+                                            class="flex items-center gap-3 cursor-pointer">
+                                            <input type="checkbox"
+                                                class="w-5 h-5 text-primary border-gray-300 rounded focus:ring-primary">
+                                            <span class="text-gray-700">Projets
+                                                terminés</span>
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <label
+                                            class="flex items-center gap-3 cursor-pointer">
+                                            <input type="checkbox" checked
+                                                class="w-5 h-5 text-primary border-gray-300 rounded focus:ring-primary">
+                                            <span class="text-gray-700">Services
+                                                administratifs</span>
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <label
+                                            class="flex items-center gap-3 cursor-pointer">
+                                            <input type="checkbox" checked
+                                                class="w-5 h-5 text-primary border-gray-300 rounded focus:ring-primary">
+                                            <span class="text-gray-700">Alertes
+                                                actives</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-gray-50 p-6 rounded-xl">
+                                <h3
+                                    class="font-bold text-gray-900 mb-4">Légende</h3>
+                                <div class="space-y-3">
+                                    <div class="flex items-center gap-3">
+                                        <div
+                                            class="w-4 h-4 bg-blue-500 rounded-full"></div>
+                                        <span class="text-sm text-gray-700">En
+                                            cours</span>
+                                    </div>
+                                    <div class="flex items-center gap-3">
+                                        <div
+                                            class="w-4 h-4 bg-yellow-500 rounded-full"></div>
+                                        <span
+                                            class="text-sm text-gray-700">Planifié</span>
+                                    </div>
+                                    <div class="flex items-center gap-3">
+                                        <div
+                                            class="w-4 h-4 bg-green-500 rounded-full"></div>
+                                        <span
+                                            class="text-sm text-gray-700">Terminé</span>
+                                    </div>
+                                    <div class="flex items-center gap-3">
+                                        <div
+                                            class="w-4 h-4 bg-primary rounded-full"></div>
+                                        <span
+                                            class="text-sm text-gray-700">Service</span>
+                                    </div>
+                                    <div class="flex items-center gap-3">
+                                        <div
+                                            class="w-4 h-4 bg-red-500 rounded-full"></div>
+                                        <span
+                                            class="text-sm text-gray-700">Alerte</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="flex-1 bg-gray-100 rounded-xl overflow-hidden relative"
+                            style="height: 600px; background-image: url('https://public.readdy.ai/gen_page/map_placeholder_1280x720.png'); background-size: cover; background-position: center;">
+                            <div
+                                class="absolute top-6 left-6 bg-white px-6 py-3 rounded-lg shadow-md">
+                                <div class="text-sm text-gray-600 mb-1">Projets
+                                    affichés</div>
+                                <div
+                                    class="text-2xl font-bold text-gray-900">156</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="py-20 bg-gradient-to-br from-purple-50 to-blue-50">
+                <div class="max-w-7xl mx-auto px-6">
+                    <div class="text-center mb-16">
+                        <h2 class="text-4xl font-bold text-gray-900 mb-4">Votre
+                            Voix Compte : Participez aux Décisions</h2>
+                        <p
+                            class="text-xl text-gray-600 max-w-3xl mx-auto">Exprimez
+                            votre opinion et contribuez activement aux projets
+                            qui façonnent votre territoire.</p>
+                    </div>
+                    <div class="grid lg:grid-cols-2 gap-8">
+                        <div>
+                            <h3
+                                class="text-2xl font-bold text-gray-900 mb-6">Consultations
+                                Publiques Ouvertes</h3>
+                            <div class="space-y-4">
+                                <div
+                                    class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition">
+                                    <div
+                                        class="flex items-start justify-between mb-3">
+                                        <h4
+                                            class="text-lg font-bold text-gray-900 flex-1">Aménagement
+                                            du Parc Urbain de Rufisque</h4>
+                                        <span
+                                            class="px-3 py-1 bg-green-100 text-green-700 text-xs font-semibold rounded-full whitespace-nowrap ml-4">Ouvert</span>
+                                    </div>
+                                    <p class="text-gray-600 mb-4">Donnez votre
+                                        avis sur le projet d'aménagement du
+                                        nouveau parc urbain et ses
+                                        équipements.</p>
+                                    <div
+                                        class="flex items-center justify-between text-sm">
+                                        <div
+                                            class="flex items-center gap-2 text-gray-600">
+                                            <i class="ri-calendar-line"></i>
+                                            <span>Date limite : 30 mai
+                                                2025</span>
+                                        </div>
+                                        <div
+                                            class="flex items-center gap-2 text-primary font-semibold">
+                                            <i class="ri-user-line"></i>
+                                            <span>2 847 participants</span>
+                                        </div>
+                                    </div>
+                                    <button
+                                        class="mt-4 w-full px-5 py-3 bg-primary text-white font-semibold hover:bg-green-700 transition !rounded-button whitespace-nowrap">
+                                        Participer maintenant
+                                    </button>
+                                </div>
+                                <div
+                                    class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition">
+                                    <div
+                                        class="flex items-start justify-between mb-3">
+                                        <h4
+                                            class="text-lg font-bold text-gray-900 flex-1">Plan
+                                            de Mobilité Urbaine de Dakar</h4>
+                                        <span
+                                            class="px-3 py-1 bg-green-100 text-green-700 text-xs font-semibold rounded-full whitespace-nowrap ml-4">Ouvert</span>
+                                    </div>
+                                    <p class="text-gray-600 mb-4">Partagez vos
+                                        idées pour améliorer les transports et
+                                        la circulation dans la capitale.</p>
+                                    <div
+                                        class="flex items-center justify-between text-sm">
+                                        <div
+                                            class="flex items-center gap-2 text-gray-600">
+                                            <i class="ri-calendar-line"></i>
+                                            <span>Date limite : 15 juin
+                                                2025</span>
+                                        </div>
+                                        <div
+                                            class="flex items-center gap-2 text-primary font-semibold">
+                                            <i class="ri-user-line"></i>
+                                            <span>5 192 participants</span>
+                                        </div>
+                                    </div>
+                                    <button
+                                        class="mt-4 w-full px-5 py-3 bg-primary text-white font-semibold hover:bg-green-700 transition !rounded-button whitespace-nowrap">
+                                        Participer maintenant
+                                    </button>
+                                </div>
+                                <div
+                                    class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition">
+                                    <div
+                                        class="flex items-start justify-between mb-3">
+                                        <h4
+                                            class="text-lg font-bold text-gray-900 flex-1">Budget
+                                            Participatif 2026 - Kaolack</h4>
+                                        <span
+                                            class="px-3 py-1 bg-green-100 text-green-700 text-xs font-semibold rounded-full whitespace-nowrap ml-4">Ouvert</span>
+                                    </div>
+                                    <p class="text-gray-600 mb-4">Votez pour les
+                                        projets prioritaires à financer avec le
+                                        budget participatif de votre ville.</p>
+                                    <div
+                                        class="flex items-center justify-between text-sm">
+                                        <div
+                                            class="flex items-center gap-2 text-gray-600">
+                                            <i class="ri-calendar-line"></i>
+                                            <span>Date limite : 25 mai
+                                                2025</span>
+                                        </div>
+                                        <div
+                                            class="flex items-center gap-2 text-primary font-semibold">
+                                            <i class="ri-user-line"></i>
+                                            <span>1 634 participants</span>
+                                        </div>
+                                    </div>
+                                    <button
+                                        class="mt-4 w-full px-5 py-3 bg-primary text-white font-semibold hover:bg-green-700 transition !rounded-button whitespace-nowrap">
+                                        Participer maintenant
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <h3
+                                class="text-2xl font-bold text-gray-900 mb-6">Enquêtes
+                                et Sondages Actifs</h3>
+                            <div class="bg-white p-6 rounded-xl shadow-sm mb-4">
+                                <div class="flex items-start gap-4">
+                                    <div
+                                        class="w-12 h-12 flex items-center justify-center bg-blue-100 rounded-lg flex-shrink-0">
+                                        <i
+                                            class="ri-survey-line text-2xl text-blue-600"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <h4
+                                            class="text-lg font-bold text-gray-900 mb-2">Qualité
+                                            des Services Administratifs</h4>
+                                        <p class="text-gray-600 mb-3">Aidez-nous
+                                            à améliorer nos services en
+                                            répondant à cette enquête de
+                                            satisfaction.</p>
+                                        <div class="flex items-center gap-4">
+                                            <span
+                                                class="text-sm text-gray-600">Durée
+                                                : 5 min</span>
+                                            <a href="#"
+                                                class="text-primary font-semibold hover:underline">Répondre</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-white p-6 rounded-xl shadow-sm mb-4">
+                                <div class="flex items-start gap-4">
+                                    <div
+                                        class="w-12 h-12 flex items-center justify-center bg-purple-100 rounded-lg flex-shrink-0">
+                                        <i
+                                            class="ri-question-answer-line text-2xl text-purple-600"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <h4
+                                            class="text-lg font-bold text-gray-900 mb-2">Besoins
+                                            en Équipements Sportifs</h4>
+                                        <p class="text-gray-600 mb-3">Quels
+                                            équipements sportifs souhaitez-vous
+                                            voir dans votre quartier ?</p>
+                                        <div class="flex items-center gap-4">
+                                            <span
+                                                class="text-sm text-gray-600">Durée
+                                                : 3 min</span>
+                                            <a href="#"
+                                                class="text-primary font-semibold hover:underline">Répondre</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-white p-6 rounded-xl shadow-sm mb-4">
+                                <div class="flex items-start gap-4">
+                                    <div
+                                        class="w-12 h-12 flex items-center justify-center bg-green-100 rounded-lg flex-shrink-0">
+                                        <i
+                                            class="ri-chat-poll-line text-2xl text-green-600"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <h4
+                                            class="text-lg font-bold text-gray-900 mb-2">Transition
+                                            Écologique Locale</h4>
+                                        <p class="text-gray-600 mb-3">Partagez
+                                            vos priorités pour une ville plus
+                                            verte et durable.</p>
+                                        <div class="flex items-center gap-4">
+                                            <span
+                                                class="text-sm text-gray-600">Durée
+                                                : 4 min</span>
+                                            <a href="#"
+                                                class="text-primary font-semibold hover:underline">Répondre</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-white p-6 rounded-xl shadow-sm">
+                                <div class="flex items-start gap-4">
+                                    <div
+                                        class="w-12 h-12 flex items-center justify-center bg-yellow-100 rounded-lg flex-shrink-0">
+                                        <i
+                                            class="ri-feedback-line text-2xl text-yellow-600"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <h4
+                                            class="text-lg font-bold text-gray-900 mb-2">Sécurité
+                                            dans les Espaces Publics</h4>
+                                        <p class="text-gray-600 mb-3">Évaluez le
+                                            sentiment de sécurité dans votre
+                                            commune.</p>
+                                        <div class="flex items-center gap-4">
+                                            <span
+                                                class="text-sm text-gray-600">Durée
+                                                : 6 min</span>
+                                            <a href="#"
+                                                class="text-primary font-semibold hover:underline">Répondre</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="mt-12 flex flex-col sm:flex-row gap-4 justify-center">
+                        <button
+                            class="px-8 py-4 bg-primary text-white font-semibold hover:bg-green-700 transition !rounded-button whitespace-nowrap flex items-center justify-center gap-3">
+                            <i class="ri-eye-line text-xl"></i>
+                            Voir toutes les consultations
+                        </button>
+                        <button
+                            class="px-8 py-4 bg-white text-primary border-2 border-primary font-semibold hover:bg-primary/5 transition !rounded-button whitespace-nowrap flex items-center justify-center gap-3">
+                            <i class="ri-lightbulb-line text-xl"></i>
+                            Proposer une initiative citoyenne
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="py-16 bg-white">
+                <div class="max-w-7xl mx-auto px-6">
+                    <h3
+                        class="text-2xl font-bold text-gray-900 text-center mb-12">Nos
+                        Partenaires</h3>
+                    <div
+                        class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center">
+                        <div
+                            class="flex items-center justify-center grayscale hover:grayscale-0 transition opacity-60 hover:opacity-100">
+                            <div class="flex flex-col items-center gap-2">
+                                <i
+                                    class="ri-government-fill text-5xl text-gray-400"></i>
+                                <span
+                                    class="text-xs text-gray-600 font-medium">Ministère
+                                    Intérieur</span>
+                            </div>
+                        </div>
+                        <div
+                            class="flex items-center justify-center grayscale hover:grayscale-0 transition opacity-60 hover:opacity-100">
+                            <div class="flex flex-col items-center gap-2">
+                                <i
+                                    class="ri-building-fill text-5xl text-gray-400"></i>
+                                <span
+                                    class="text-xs text-gray-600 font-medium">Collectivités</span>
+                            </div>
+                        </div>
+                        <div
+                            class="flex items-center justify-center grayscale hover:grayscale-0 transition opacity-60 hover:opacity-100">
+                            <div class="flex flex-col items-center gap-2">
+                                <i
+                                    class="ri-global-fill text-5xl text-gray-400"></i>
+                                <span
+                                    class="text-xs text-gray-600 font-medium">PNUD</span>
+                            </div>
+                        </div>
+                        <div
+                            class="flex items-center justify-center grayscale hover:grayscale-0 transition opacity-60 hover:opacity-100">
+                            <div class="flex flex-col items-center gap-2">
+                                <i
+                                    class="ri-bank-fill text-5xl text-gray-400"></i>
+                                <span
+                                    class="text-xs text-gray-600 font-medium">Banque
+                                    Mondiale</span>
+                            </div>
+                        </div>
+                        <div
+                            class="flex items-center justify-center grayscale hover:grayscale-0 transition opacity-60 hover:opacity-100">
+                            <div class="flex flex-col items-center gap-2">
+                                <i
+                                    class="ri-earth-fill text-5xl text-gray-400"></i>
+                                <span
+                                    class="text-xs text-gray-600 font-medium">Union
+                                    Africaine</span>
+                            </div>
+                        </div>
+                        <div
+                            class="flex items-center justify-center grayscale hover:grayscale-0 transition opacity-60 hover:opacity-100">
+                            <div class="flex flex-col items-center gap-2">
+                                <i
+                                    class="ri-community-fill text-5xl text-gray-400"></i>
+                                <span
+                                    class="text-xs text-gray-600 font-medium">Union
+                                    Européenne</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <footer class="bg-gray-900 text-white pt-16 pb-8">
+                <div class="max-w-7xl mx-auto px-6">
+                    <div
+                        class="grid md:grid-cols-2 lg:grid-cols-5 gap-12 mb-12">
+                        <div>
+                            <h4 class="text-lg font-bold mb-6">À Propos</h4>
+                            <ul class="space-y-3">
+                                <li><a href="#"
+                                        class="text-gray-400 hover:text-white transition">Présentation</a></li>
+                                <li><a href="#"
+                                        class="text-gray-400 hover:text-white transition">Mission
+                                        et valeurs</a></li>
+                                <li><a href="#"
+                                        class="text-gray-400 hover:text-white transition">Organisation</a></li>
+                                <li><a href="#"
+                                        class="text-gray-400 hover:text-white transition">Charte
+                                        de qualité</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold mb-6">Services</h4>
+                            <ul class="space-y-3">
+                                <li><a href="#"
+                                        class="text-gray-400 hover:text-white transition">Démarches
+                                        en ligne</a></li>
+                                <li><a href="#"
+                                        class="text-gray-400 hover:text-white transition">Suivi
+                                        de projets</a></li>
+                                <li><a href="#"
+                                        class="text-gray-400 hover:text-white transition">Signalements</a></li>
+                                <li><a href="#"
+                                        class="text-gray-400 hover:text-white transition">Aides
+                                        et subventions</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold mb-6">Ressources</h4>
+                            <ul class="space-y-3">
+                                <li><a href="#"
+                                        class="text-gray-400 hover:text-white transition">Centre
+                                        d'aide</a></li>
+                                <li><a href="#"
+                                        class="text-gray-400 hover:text-white transition">Guides
+                                        pratiques</a></li>
+                                <li><a href="#"
+                                        class="text-gray-400 hover:text-white transition">FAQ</a></li>
+                                <li><a href="#"
+                                        class="text-gray-400 hover:text-white transition">Tutoriels
+                                        vidéo</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold mb-6">Informations
+                                Légales</h4>
+                            <ul class="space-y-3">
+                                <li><a href="#"
+                                        class="text-gray-400 hover:text-white transition">Mentions
+                                        légales</a></li>
+                                <li><a href="#"
+                                        class="text-gray-400 hover:text-white transition">Politique
+                                        de confidentialité</a></li>
+                                <li><a href="#"
+                                        class="text-gray-400 hover:text-white transition">Accessibilité</a></li>
+                                <li><a href="#"
+                                        class="text-gray-400 hover:text-white transition">Conditions
+                                        d'utilisation</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold mb-6">Contact</h4>
+                            <ul class="space-y-3 text-gray-400">
+                                <li class="flex items-start gap-3">
+                                    <i
+                                        class="ri-map-pin-line text-lg flex-shrink-0 mt-1"></i>
+                                    <span>Avenue Léopold Sédar Senghor<br>Dakar,
+                                        Sénégal</span>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <i class="ri-phone-line text-lg"></i>
+                                    <span>+221 33 823 45 67</span>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <i class="ri-mail-line text-lg"></i>
+                                    <span>contact@eadmin.sn</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i
+                                        class="ri-time-line text-lg flex-shrink-0 mt-1"></i>
+                                    <span>Lun-Ven : 8h00 - 17h00<br>Sam : 9h00 -
+                                        13h00</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="border-t border-gray-800 pt-8">
+                        <div
+                            class="flex flex-col md:flex-row items-center justify-between gap-6">
+                            <div class="flex items-center gap-6">
+                                <a href="#"
+                                    class="w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-primary rounded-full transition">
+                                    <i class="ri-facebook-fill text-xl"></i>
+                                </a>
+                                <a href="#"
+                                    class="w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-primary rounded-full transition">
+                                    <i class="ri-twitter-x-fill text-xl"></i>
+                                </a>
+                                <a href="#"
+                                    class="w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-primary rounded-full transition">
+                                    <i class="ri-linkedin-fill text-xl"></i>
+                                </a>
+                                <a href="#"
+                                    class="w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-primary rounded-full transition">
+                                    <i class="ri-youtube-fill text-xl"></i>
+                                </a>
+                                <a href="#"
+                                    class="w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-primary rounded-full transition">
+                                    <i class="ri-instagram-fill text-xl"></i>
+                                </a>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <button
+                                    class="px-4 py-2 bg-gray-800 hover:bg-gray-700 rounded-lg transition text-sm flex items-center gap-2">
+                                    <i class="ri-global-line"></i>
+                                    Français
+                                    <i class="ri-arrow-down-s-line"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="text-center text-gray-500 text-sm mt-8">
+                            © 2025 République du Sénégal - E-Administration
+                            Territoriale. Tous droits réservés.
+                        </div>
+                    </div>
+                </div>
+            </footer>
+
+            <button
+                class="fixed bottom-6 right-6 w-16 h-16 bg-primary text-white rounded-full shadow-lg hover:bg-green-700 transition flex items-center justify-center z-40">
+                <i class="ri-customer-service-2-line text-2xl"></i>
+            </button>
+
+            <div
+                class="fixed bottom-6 left-6 bg-white rounded-lg shadow-lg p-4 z-40 flex items-center gap-3">
+                <i class="ri-eye-line text-2xl text-primary"></i>
+                <button
+                    class="text-sm font-medium text-gray-700 hover:text-primary transition">Accessibilité</button>
+            </div>
+
+            <script id="checkbox-handler">
+document.addEventListener('DOMContentLoaded', function() {
+const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+checkboxes.forEach(checkbox => {
+checkbox.addEventListener('change', function() {
+console.log('Checkbox changed:', this.checked);
+});
+});
+});
+</script>
+
+        </div>
+    </body>
+</html>

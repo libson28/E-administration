@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Contact - E-Administration Territoriale</title>
+        <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Pacifico&family=Inter:wght@300;400;500;600;700&display=swap"
+            rel="stylesheet">
+        <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css"
+            rel="stylesheet">
+        <script>
+tailwind.config = {
+theme: {
+extend: {
+colors: {
+primary: '#00853F',
+secondary: '#FDEF42',
+accent: '#E31B23'
+},
+borderRadius: {
+'none': '0px',
+'sm': '4px',
+DEFAULT: '8px',
+'md': '12px',
+'lg': '16px',
+'xl': '20px',
+'2xl': '24px',
+'3xl': '32px',
+'full': '9999px',
+'button': '8px'
+},
+fontFamily: {
+'sans': ['Inter', 'sans-serif']
+}
+}
+}
+}
+</script>
+        <style>
+:where([class^="ri-"])::before {
+content: "\f3c2";
+}
+body {
+font-family: 'Inter', sans-serif;
+}
+</style>
+    </head>
+    <body class="bg-white">
+        <nav class="fixed top-0 left-0 right-0 bg-white shadow-sm z-50">
+            <div class="max-w-7xl mx-auto px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 flex items-center justify-center">
+                            <i
+                                class="ri-government-line text-4xl text-primary"></i>
+                        </div>
+                        <div>
+                            <div
+                                class="text-sm font-semibold text-primary">République
+                                du Sénégal</div>
+                            <div
+                                class="text-lg font-bold text-gray-900">E-Administration
+                                Territoriale</div>
+                        </div>
+                    </div>
+                                                            <div class="hidden lg:flex items-center gap-8">
+                        <a href="index.html"
+                            class="text-gray-700 hover:text-primary transition cursor-pointer">Accueil</a>
+                        <a href="actualites.html"
+                            class="text-gray-700 hover:text-primary transition cursor-pointer">Actualités</a>
+                        <a href="projets.html"
+                            class="text-gray-700 hover:text-primary transition cursor-pointer">Projets</a>
+                        <a href="demarches.html"
+                            class="text-gray-700 hover:text-primary transition cursor-pointer">Démarches</a>
+                        <a href="alertes.html"
+                            class="text-gray-700 hover:text-primary transition cursor-pointer">Alertes</a>
+                        <a href="contact.html"
+                            class="text-gray-900 font-medium hover:text-primary transition cursor-pointer">Contact</a>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <a href="connexion.html"
+                            class="px-5 py-2.5 text-primary border border-primary hover:bg-primary hover:text-white transition !rounded-button whitespace-nowrap flex items-center gap-2 cursor-pointer">
+                            <i class="ri-login-box-line text-lg"></i>
+                            Se connecter
+                        </a>
+                        <a href="inscription.html"
+                            class="px-5 py-2.5 bg-primary text-white hover:bg-green-700 transition !rounded-button whitespace-nowrap flex items-center gap-2 cursor-pointer">
+                            <i class="ri-user-add-line text-lg"></i>
+                            S'inscrire
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div class="pt-24">
+            <section class="bg-gradient-to-br from-primary to-green-700 text-white py-20">
+                <div class="max-w-7xl mx-auto px-6">
+                    <div class="max-w-4xl">
+                        <h1 class="text-5xl font-bold mb-6">Contactez nos services</h1>
+                        <p class="text-xl text-white/90 mb-8">Une question, un signalement ou un besoin d'accompagnement ? Les équipes de l'E-Administration Territoriale vous orientent vers le bon service.</p>
+                        <div class="flex flex-wrap items-center gap-6 text-white/85">
+                            <div class="flex items-center gap-2">
+                                <i class="ri-time-line text-xl"></i>
+                                <span>Réponse sous 48h ouvrées</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i class="ri-customer-service-2-line text-xl"></i>
+                                <span>Assistance citoyenne centralisée</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="py-16 bg-gray-50">
+                <div class="max-w-7xl mx-auto px-6">
+                    <div class="grid lg:grid-cols-3 gap-8">
+                        <div class="bg-white rounded-xl shadow-sm p-8">
+                            <div class="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-lg mb-5">
+                                <i class="ri-map-pin-line text-2xl text-primary"></i>
+                            </div>
+                            <h2 class="text-xl font-bold text-gray-900 mb-3">Adresse</h2>
+                            <p class="text-gray-600 leading-relaxed">Avenue Léopold Sédar Senghor<br>Dakar, Sénégal</p>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-sm p-8">
+                            <div class="w-12 h-12 flex items-center justify-center bg-secondary/30 rounded-lg mb-5">
+                                <i class="ri-phone-line text-2xl text-primary"></i>
+                            </div>
+                            <h2 class="text-xl font-bold text-gray-900 mb-3">Téléphone</h2>
+                            <p class="text-gray-600 leading-relaxed">+221 33 823 45 67<br>Du lundi au vendredi</p>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-sm p-8">
+                            <div class="w-12 h-12 flex items-center justify-center bg-accent/10 rounded-lg mb-5">
+                                <i class="ri-mail-line text-2xl text-accent"></i>
+                            </div>
+                            <h2 class="text-xl font-bold text-gray-900 mb-3">Email</h2>
+                            <p class="text-gray-600 leading-relaxed">contact@eadmin.sn<br>support@eadmin.sn</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="py-16 bg-white">
+                <div class="max-w-7xl mx-auto px-6">
+                    <div class="grid lg:grid-cols-5 gap-10 items-start">
+                        <div class="lg:col-span-3 bg-white rounded-xl shadow-md border border-gray-100 p-8">
+                            <div class="mb-8">
+                                <h2 class="text-3xl font-bold text-gray-900 mb-2">Envoyer un message</h2>
+                                <p class="text-gray-600">Remplissez le formulaire et sélectionnez le service concerné.</p>
+                            </div>
+                            <form class="space-y-6">
+                                <div class="grid md:grid-cols-2 gap-6">
+                                    <div>
+                                        <label for="prenom" class="block text-sm font-semibold text-gray-700 mb-2">Prénom</label>
+                                        <input id="prenom" type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Votre prénom">
+                                    </div>
+                                    <div>
+                                        <label for="nom" class="block text-sm font-semibold text-gray-700 mb-2">Nom</label>
+                                        <input id="nom" type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Votre nom">
+                                    </div>
+                                </div>
+                                <div class="grid md:grid-cols-2 gap-6">
+                                    <div>
+                                        <label for="email" class="block text-sm font-semibold text-gray-700 mb-2">Adresse email</label>
+                                        <input id="email" type="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="nom@email.com">
+                                    </div>
+                                    <div>
+                                        <label for="telephone" class="block text-sm font-semibold text-gray-700 mb-2">Téléphone</label>
+                                        <input id="telephone" type="tel" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="+221 77 000 00 00">
+                                    </div>
+                                </div>
+                                <div>
+                                    <label for="service" class="block text-sm font-semibold text-gray-700 mb-2">Service concerné</label>
+                                    <select id="service" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                                        <option>Démarches administratives</option>
+                                        <option>Suivi de projets publics</option>
+                                        <option>Alertes et notifications</option>
+                                        <option>Assistance technique</option>
+                                        <option>Autre demande</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="message" class="block text-sm font-semibold text-gray-700 mb-2">Message</label>
+                                    <textarea id="message" rows="6" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent resize-none" placeholder="Décrivez votre demande..."></textarea>
+                                </div>
+                                <button type="submit" class="px-8 py-3 bg-primary text-white font-semibold hover:bg-green-700 transition !rounded-button whitespace-nowrap flex items-center gap-3 cursor-pointer">
+                                    <i class="ri-send-plane-line text-xl"></i>
+                                    Envoyer la demande
+                                </button>
+                            </form>
+                        </div>
+                        <aside class="lg:col-span-2 space-y-6">
+                            <div class="bg-gray-50 rounded-xl p-8">
+                                <h3 class="text-2xl font-bold text-gray-900 mb-6">Horaires d'accueil</h3>
+                                <div class="space-y-4">
+                                    <div class="flex items-center justify-between border-b border-gray-200 pb-3">
+                                        <span class="text-gray-600">Lundi - Jeudi</span>
+                                        <span class="font-semibold text-gray-900">08h00 - 17h00</span>
+                                    </div>
+                                    <div class="flex items-center justify-between border-b border-gray-200 pb-3">
+                                        <span class="text-gray-600">Vendredi</span>
+                                        <span class="font-semibold text-gray-900">08h00 - 13h00</span>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-gray-600">Week-end</span>
+                                        <span class="font-semibold text-gray-900">Fermé</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-primary text-white rounded-xl p-8">
+                                <div class="w-14 h-14 flex items-center justify-center bg-white/20 rounded-lg mb-5">
+                                    <i class="ri-question-answer-line text-3xl"></i>
+                                </div>
+                                <h3 class="text-2xl font-bold mb-3">Besoin d'une réponse rapide ?</h3>
+                                <p class="text-white/85 mb-6">Consultez les démarches en ligne ou connectez-vous pour suivre vos demandes.</p>
+                                <a href="demarches.html" class="inline-flex items-center gap-2 px-6 py-3 bg-white text-primary font-semibold hover:bg-gray-100 transition !rounded-button whitespace-nowrap cursor-pointer">
+                                    Voir les démarches
+                                    <i class="ri-arrow-right-line text-lg"></i>
+                                </a>
+                            </div>
+                        </aside>
+                    </div>
+                </div>
+            </section>
+            <footer class="bg-gray-900 text-white pt-16 pb-8">
+                <div class="max-w-7xl mx-auto px-6">
+                    <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-12 mb-12">
+                        <div>
+                            <h4 class="text-lg font-bold mb-6">À Propos</h4>
+                            <ul class="space-y-3">
+                                <li><a href="#" class="text-gray-400 hover:text-white transition cursor-pointer">Présentation</a></li>
+                                <li><a href="#" class="text-gray-400 hover:text-white transition cursor-pointer">Mission et valeurs</a></li>
+                                <li><a href="#" class="text-gray-400 hover:text-white transition cursor-pointer">Organisation</a></li>
+                                <li><a href="#" class="text-gray-400 hover:text-white transition cursor-pointer">Charte de qualité</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold mb-6">Services</h4>
+                            <ul class="space-y-3">
+                                <li><a href="demarches.html" class="text-gray-400 hover:text-white transition cursor-pointer">Démarches en ligne</a></li>
+                                <li><a href="projets.html" class="text-gray-400 hover:text-white transition cursor-pointer">Suivi de projets</a></li>
+                                <li><a href="alertes.html" class="text-gray-400 hover:text-white transition cursor-pointer">Signalements</a></li>
+                                <li><a href="#" class="text-gray-400 hover:text-white transition cursor-pointer">Aides et subventions</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold mb-6">Ressources</h4>
+                            <ul class="space-y-3">
+                                <li><a href="#" class="text-gray-400 hover:text-white transition cursor-pointer">Centre d'aide</a></li>
+                                <li><a href="#" class="text-gray-400 hover:text-white transition cursor-pointer">Guides pratiques</a></li>
+                                <li><a href="#" class="text-gray-400 hover:text-white transition cursor-pointer">FAQ</a></li>
+                                <li><a href="#" class="text-gray-400 hover:text-white transition cursor-pointer">Tutoriels vidéo</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold mb-6">Informations Légales</h4>
+                            <ul class="space-y-3">
+                                <li><a href="#" class="text-gray-400 hover:text-white transition cursor-pointer">Mentions légales</a></li>
+                                <li><a href="#" class="text-gray-400 hover:text-white transition cursor-pointer">Politique de confidentialité</a></li>
+                                <li><a href="#" class="text-gray-400 hover:text-white transition cursor-pointer">Accessibilité</a></li>
+                                <li><a href="#" class="text-gray-400 hover:text-white transition cursor-pointer">Conditions d'utilisation</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold mb-6">Contact</h4>
+                            <ul class="space-y-3 text-gray-400">
+                                <li class="flex items-start gap-3"><i class="ri-map-pin-line text-lg flex-shrink-0 mt-1"></i><span>Avenue Léopold Sédar Senghor<br>Dakar, Sénégal</span></li>
+                                <li class="flex items-center gap-3"><i class="ri-phone-line text-lg"></i><span>+221 33 823 45 67</span></li>
+                                <li class="flex items-center gap-3"><i class="ri-mail-line text-lg"></i><span>contact@eadmin.sn</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="border-t border-gray-800 pt-8">
+                        <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                            <div class="flex items-center gap-6">
+                                <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-primary rounded-full transition cursor-pointer"><i class="ri-facebook-fill text-xl"></i></a>
+                                <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-primary rounded-full transition cursor-pointer"><i class="ri-twitter-x-fill text-xl"></i></a>
+                                <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-primary rounded-full transition cursor-pointer"><i class="ri-linkedin-fill text-xl"></i></a>
+                                <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-primary rounded-full transition cursor-pointer"><i class="ri-youtube-fill text-xl"></i></a>
+                                <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-primary rounded-full transition cursor-pointer"><i class="ri-instagram-fill text-xl"></i></a>
+                            </div>
+                        </div>
+                        <div class="text-center text-gray-500 text-sm mt-8">© 2025 République du Sénégal - E-Administration Territoriale. Tous droits réservés.</div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </body>
+</html>
+
