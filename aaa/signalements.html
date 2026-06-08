@@ -1,0 +1,673 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Signalements - E-Administration Territoriale</title>
+        <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+            rel="stylesheet">
+        <script>
+tailwind.config = {
+theme: {
+extend: {
+colors: {
+primary: '#00853F',
+secondary: '#475569'
+},
+borderRadius: {
+'none': '0px',
+'sm': '4px',
+DEFAULT: '8px',
+'md': '12px',
+'lg': '16px',
+'xl': '20px',
+'2xl': '24px',
+'3xl': '32px',
+'full': '9999px',
+'button': '8px'
+},
+fontFamily: {
+'inter': ['Inter', 'sans-serif']
+}
+}
+}
+}
+</script>
+        <style>
+:where([class^="ri-"])::before {
+content: "\f3c2";
+}
+body {
+font-family: 'Inter', sans-serif;
+}
+.sidebar-item {
+transition: all 300ms ease;
+}
+.sidebar-item:hover {
+background-color: #F1F5F9;
+}
+.sidebar-item.active {
+background-color: #F0F9F4;
+border-left: 3px solid #00853F;
+color: #00853F;
+}
+.kpi-card {
+transition: all 300ms ease;
+}
+.kpi-card:hover {
+transform: translateY(-2px);
+box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.notification-panel {
+transform: translateX(100%);
+transition: transform 300ms ease;
+}
+.notification-panel.open {
+transform: translateX(0);
+}
+.table-row {
+transition: background-color 300ms ease;
+}
+.table-row:hover {
+background-color: #F8FAFC;
+}
+.badge {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+padding: 0.25rem 0.75rem;
+border-radius: 9999px;
+font-size: 0.75rem;
+font-weight: 600;
+}
+.badge-blue { background-color: #DBEAFE; color: #1E40AF; }
+.badge-orange { background-color: #FEF3C7; color: #D97706; }
+.badge-green { background-color: #D1FAE5; color: #059669; }
+.badge-red { background-color: #FEE2E2; color: #DC2626; }
+.badge-gray { background-color: #F3F4F6; color: #6B7280; }
+</style>
+    </head>
+    <body class="bg-gray-50">
+        <div
+            class="fixed top-0 left-0 right-0 h-16 bg-white shadow-sm z-50 flex items-center justify-between px-6">
+            <div class="flex items-center gap-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 flex items-center justify-center">
+                        <i class="ri-government-line ri-2x text-primary"></i>
+                    </div>
+                    <div>
+                        <div class="text-sm font-bold text-primary">Republique du Senegal</div>
+                        <div class="text-xs text-secondary">E-Administration
+                            Territoriale</div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex items-center gap-2 text-sm text-secondary">
+                <span class="font-semibold text-primary">DGAT</span>
+                <i class="ri-arrow-right-s-line text-gray-400"></i>
+                <span>Region de Dakar</span>
+                <i class="ri-arrow-right-s-line text-gray-400"></i>
+                <span>Departement de Dakar</span>
+            </div>
+            <div class="flex items-center gap-4">
+                <button
+                    class="relative w-10 h-10 flex items-center justify-center hover:bg-gray-100 rounded-button transition-colors"
+                    id="notificationBtn">
+                    <i class="ri-notification-3-line ri-xl text-secondary"></i>
+                    <span
+                        class="absolute top-1 right-1 w-5 h-5 bg-red-500 text-white text-xs flex items-center justify-center rounded-full">8</span>
+                </button>
+               
+                <div
+                    class="flex items-center gap-3 pl-4 border-l border-gray-200">
+                    <img
+                        src="https://readdy.ai/api/search-image?query=professional%20male%20administrator%20portrait%20with%20formal%20attire%20on%20clean%20white%20background%2C%20high%20quality%20headshot&width=40&height=40&seq=admin-avatar-001&orientation=squarish"
+                        alt="Admin" class="w-10 h-10 rounded-full object-cover">
+                    <div>
+                        <div class="text-sm font-semibold text-gray-900">Mamadou
+                            Diallo</div>
+                        <div class="text-xs text-secondary">Administrateur
+                            DGAT</div>
+                    </div>
+                    <button
+                        class="w-8 h-8 flex items-center justify-center hover:bg-gray-100 rounded-button transition-colors">
+                        <i class="ri-arrow-down-s-line text-secondary"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div
+            class="fixed top-16 left-0 w-64 bottom-0 bg-white border-r border-gray-200 overflow-y-auto z-40">
+            <nav class="py-4 text-sm space-y-1">
+                <a href="index.html"
+                    class="sidebar-item flex items-center gap-3 px-6 py-3">
+                    <div class="w-5 h-5 flex items-center justify-center">
+                        <i class="ri-dashboard-line ri-lg"></i>
+                    </div>
+                    <span class="font-medium">Dashboard</span>
+                    
+                </a>
+                <a href="demandes.html"
+                    class="sidebar-item flex items-center gap-3 px-6 py-3">
+                    <div class="w-5 h-5 flex items-center justify-center">
+                        <i class="ri-file-list-3-line ri-lg"></i>
+                    </div>
+                    <span class="font-medium">Demarches Administratives</span>
+                    <span class="ml-auto badge badge-orange">24</span>
+                </a>
+                <a href="signalements.html"
+                    class="sidebar-item active flex items-center gap-3 px-6 py-3">
+                    <div class="w-5 h-5 flex items-center justify-center">
+                        <i class="ri-alert-line ri-lg"></i>
+                    </div>
+                    <span class="font-medium">Signalements</span>
+                    <span class="ml-auto w-2 h-2 bg-red-500 rounded-full"></span>
+                </a>
+                <a href="projets.html"
+                    class="sidebar-item flex items-center gap-3 px-6 py-3">
+                    <div class="w-5 h-5 flex items-center justify-center">
+                        <i class="ri-building-line ri-lg"></i>
+                    </div>
+                    <span class="font-medium">Projets Publics</span>
+                    
+                </a>
+                <a href="aides.html"
+                    class="sidebar-item flex items-center gap-3 px-6 py-3">
+                    <div class="w-5 h-5 flex items-center justify-center">
+                        <i class="ri-hand-heart-line ri-lg"></i>
+                    </div>
+                    <span class="font-medium">Aides Sociales</span>
+                    
+                </a>
+                <a href="crises.html"
+                    class="sidebar-item flex items-center gap-3 px-6 py-3">
+                    <div class="w-5 h-5 flex items-center justify-center">
+                        <i class="ri-alarm-warning-line ri-lg"></i>
+                    </div>
+                    <span class="font-medium">Gestion des Crises</span>
+                    <span class="ml-auto badge badge-red">3</span>
+                </a>
+                <a href="documents.html"
+                    class="sidebar-item flex items-center gap-3 px-6 py-3">
+                    <div class="w-5 h-5 flex items-center justify-center">
+                        <i class="ri-folder-line ri-lg"></i>
+                    </div>
+                    <span class="font-medium">Documents</span>
+                    
+                </a>
+                <a href="rapports.html"
+                    class="sidebar-item flex items-center gap-3 px-6 py-3">
+                    <div class="w-5 h-5 flex items-center justify-center">
+                        <i class="ri-bar-chart-box-line ri-lg"></i>
+                    </div>
+                    <span class="font-medium">Rapports</span>
+                    
+                </a>
+                <a href="utilisateurs.html"
+                    class="sidebar-item flex items-center gap-3 px-6 py-3">
+                    <div class="w-5 h-5 flex items-center justify-center">
+                        <i class="ri-group-line ri-lg"></i>
+                    </div>
+                    <span class="font-medium">Utilisateurs</span>
+                    
+                </a>
+                <a href="parametres.html"
+                    class="sidebar-item flex items-center gap-3 px-6 py-3">
+                    <div class="w-5 h-5 flex items-center justify-center">
+                        <i class="ri-settings-3-line ri-lg"></i>
+                    </div>
+                    <span class="font-medium">Parametres</span>
+                    
+                </a>
+            </nav>
+        </div>
+        <div class="ml-64 mt-16 p-8">
+<div class="mb-6">
+<h1 class="text-2xl font-bold text-gray-900 mb-2">Signalements Citoyens</h1>
+<p class="text-sm text-secondary">Suivi et traitement des signalements du territoire</p>
+</div>
+<div class="grid grid-cols-4 gap-4 mb-6">
+<div class="bg-white rounded-md p-5 shadow-sm border border-gray-100">
+<div class="flex items-center gap-3 mb-3">
+<div class="w-10 h-10 flex items-center justify-center bg-red-50 rounded-md">
+<i class="ri-alert-line ri-lg text-red-600"></i>
+</div>
+<div class="text-xs text-gray-500">Ouverts</div>
+</div>
+<div class="text-2xl font-bold text-gray-900">342</div>
+</div>
+<div class="bg-white rounded-md p-5 shadow-sm border border-gray-100">
+<div class="flex items-center gap-3 mb-3">
+<div class="w-10 h-10 flex items-center justify-center bg-orange-50 rounded-md">
+<i class="ri-time-line ri-lg text-orange-600"></i>
+</div>
+<div class="text-xs text-gray-500">En traitement</div>
+</div>
+<div class="text-2xl font-bold text-gray-900">87</div>
+</div>
+<div class="bg-white rounded-md p-5 shadow-sm border border-gray-100">
+<div class="flex items-center gap-3 mb-3">
+<div class="w-10 h-10 flex items-center justify-center bg-green-50 rounded-md">
+<i class="ri-check-line ri-lg text-green-600"></i>
+</div>
+<div class="text-xs text-gray-500">Résolus</div>
+</div>
+<div class="text-2xl font-bold text-gray-900">1 256</div>
+</div>
+<div class="bg-white rounded-md p-5 shadow-sm border border-gray-100">
+<div class="flex items-center gap-3 mb-3">
+<div class="w-10 h-10 flex items-center justify-center bg-blue-50 rounded-md">
+<i class="ri-timer-line ri-lg text-blue-600"></i>
+</div>
+<div class="text-xs text-gray-500">Délai moyen</div>
+</div>
+<div class="text-2xl font-bold text-gray-900">2,8 j</div>
+</div>
+</div>
+<div class="bg-white rounded-md shadow-sm mb-6">
+<div class="p-6 border-b border-gray-200 flex items-center justify-between">
+<h3 class="text-lg font-bold text-gray-900">Liste des signalements</h3>
+<div class="flex items-center gap-2">
+<input type="text" placeholder="Rechercher..." class="text-sm border border-gray-300 rounded-button px-4 py-2 w-64">
+<select class="text-sm border border-gray-300 rounded-button px-3 py-2">
+<option>Toutes catégories</option>
+<option>Infrastructure</option>
+<option>Environnement</option>
+<option>Sécurité</option>
+</select>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full">
+<thead class="bg-gray-50 border-b border-gray-200">
+<tr>
+<th class="px-6 py-3 text-left text-xs font-semibold text-secondary uppercase">Numéro</th>
+<th class="px-6 py-3 text-left text-xs font-semibold text-secondary uppercase">Catégorie</th>
+<th class="px-6 py-3 text-left text-xs font-semibold text-secondary uppercase">Description</th>
+<th class="px-6 py-3 text-left text-xs font-semibold text-secondary uppercase">Localisation</th>
+<th class="px-6 py-3 text-left text-xs font-semibold text-secondary uppercase">Date</th>
+<th class="px-6 py-3 text-left text-xs font-semibold text-secondary uppercase">Statut</th>
+<th class="px-6 py-3 text-left text-xs font-semibold text-secondary uppercase">Priorité</th>
+<th class="px-6 py-3 text-left text-xs font-semibold text-secondary uppercase">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-gray-200">
+<tr class="table-row">
+<td class="px-6 py-4">
+<a href="#" class="text-sm font-semibold text-primary hover:underline">SIG-2026-3421</a>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-road-line text-red-600"></i>
+</div>
+<span class="text-sm text-gray-900">Infrastructure</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-gray-900">Nid de poule dangereux</td>
+<td class="px-6 py-4 text-sm text-secondary">Avenue Cheikh Anta Diop, Dakar</td>
+<td class="px-6 py-4 text-sm text-secondary">17/05/2026</td>
+<td class="px-6 py-4">
+<span class="badge badge-red">Ouvert</span>
+</td>
+<td class="px-6 py-4">
+<span class="badge badge-red">Critique</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<button class="w-8 h-8 flex items-center justify-center hover:bg-blue-50 rounded-button transition-colors">
+<i class="ri-eye-line text-blue-600"></i>
+</button>
+<button class="w-8 h-8 flex items-center justify-center hover:bg-green-50 rounded-button transition-colors">
+<i class="ri-check-line text-green-600"></i>
+</button>
+</div>
+</td>
+</tr>
+<tr class="table-row">
+<td class="px-6 py-4">
+<a href="#" class="text-sm font-semibold text-primary hover:underline">SIG-2026-3398</a>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-leaf-line text-green-600"></i>
+</div>
+<span class="text-sm text-gray-900">Environnement</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-gray-900">Déchets non collectés</td>
+<td class="px-6 py-4 text-sm text-secondary">Rue de la République, Thies</td>
+<td class="px-6 py-4 text-sm text-secondary">17/05/2026</td>
+<td class="px-6 py-4">
+<span class="badge badge-orange">En traitement</span>
+</td>
+<td class="px-6 py-4">
+<span class="badge badge-orange">Urgent</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<button class="w-8 h-8 flex items-center justify-center hover:bg-blue-50 rounded-button transition-colors">
+<i class="ri-eye-line text-blue-600"></i>
+</button>
+<button class="w-8 h-8 flex items-center justify-center hover:bg-green-50 rounded-button transition-colors">
+<i class="ri-check-line text-green-600"></i>
+</button>
+</div>
+</td>
+</tr>
+<tr class="table-row">
+<td class="px-6 py-4">
+<a href="#" class="text-sm font-semibold text-primary hover:underline">SIG-2026-3376</a>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-lightbulb-line text-yellow-600"></i>
+</div>
+<span class="text-sm text-gray-900">Éclairage public</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-gray-900">Lampadaires en panne</td>
+<td class="px-6 py-4 text-sm text-secondary">Avenue General de Gaulle, Saint-Louis</td>
+<td class="px-6 py-4 text-sm text-secondary">16/05/2026</td>
+<td class="px-6 py-4">
+<span class="badge badge-blue">En traitement</span>
+</td>
+<td class="px-6 py-4">
+<span class="badge badge-gray">Normale</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<button class="w-8 h-8 flex items-center justify-center hover:bg-blue-50 rounded-button transition-colors">
+<i class="ri-eye-line text-blue-600"></i>
+</button>
+<button class="w-8 h-8 flex items-center justify-center hover:bg-green-50 rounded-button transition-colors">
+<i class="ri-check-line text-green-600"></i>
+</button>
+</div>
+</td>
+</tr>
+<tr class="table-row">
+<td class="px-6 py-4">
+<a href="#" class="text-sm font-semibold text-primary hover:underline">SIG-2026-3352</a>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-drop-line text-blue-600"></i>
+</div>
+<span class="text-sm text-gray-900">Eau & Assainissement</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-gray-900">Fuite d'eau importante</td>
+<td class="px-6 py-4 text-sm text-secondary">Rue du Commerce, Ziguinchor</td>
+<td class="px-6 py-4 text-sm text-secondary">16/05/2026</td>
+<td class="px-6 py-4">
+<span class="badge badge-green">Résolu</span>
+</td>
+<td class="px-6 py-4">
+<span class="badge badge-orange">Urgent</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<button class="w-8 h-8 flex items-center justify-center hover:bg-blue-50 rounded-button transition-colors">
+<i class="ri-eye-line text-blue-600"></i>
+</button>
+<button class="w-8 h-8 flex items-center justify-center hover:bg-green-50 rounded-button transition-colors">
+<i class="ri-check-line text-green-600"></i>
+</button>
+</div>
+</td>
+</tr>
+<tr class="table-row">
+<td class="px-6 py-4">
+<a href="#" class="text-sm font-semibold text-primary hover:underline">SIG-2026-3329</a>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-shield-line text-orange-600"></i>
+</div>
+<span class="text-sm text-gray-900">Sécurité</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-gray-900">Panneau de signalisation manquant</td>
+<td class="px-6 py-4 text-sm text-secondary">Carrefour Medina Baye, Kaolack</td>
+<td class="px-6 py-4 text-sm text-secondary">15/05/2026</td>
+<td class="px-6 py-4">
+<span class="badge badge-blue">En traitement</span>
+</td>
+<td class="px-6 py-4">
+<span class="badge badge-gray">Normale</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<button class="w-8 h-8 flex items-center justify-center hover:bg-blue-50 rounded-button transition-colors">
+<i class="ri-eye-line text-blue-600"></i>
+</button>
+<button class="w-8 h-8 flex items-center justify-center hover:bg-green-50 rounded-button transition-colors">
+<i class="ri-check-line text-green-600"></i>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-4 border-t border-gray-200 flex items-center justify-between">
+<div class="text-sm text-secondary">Affichage de 1 à 5 sur 342 signalements</div>
+<div class="flex items-center gap-1">
+<button class="w-8 h-8 flex items-center justify-center border border-gray-300 rounded-button hover:bg-gray-50 transition-colors">
+<i class="ri-arrow-left-s-line text-secondary"></i>
+</button>
+<button class="w-8 h-8 flex items-center justify-center bg-primary text-white rounded-button">1</button>
+<button class="w-8 h-8 flex items-center justify-center border border-gray-300 rounded-button hover:bg-gray-50 transition-colors">2</button>
+<button class="w-8 h-8 flex items-center justify-center border border-gray-300 rounded-button hover:bg-gray-50 transition-colors">
+<i class="ri-arrow-right-s-line text-secondary"></i>
+</button>
+</div>
+</div>
+</div>
+
+        <div
+            class="fixed top-0 right-0 bottom-0 w-96 bg-white shadow-2xl notification-panel z-50">
+            <div class="h-full flex flex-col">
+                <div class="p-6 border-b border-gray-200">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3
+                            class="text-lg font-bold text-gray-900">Notifications</h3>
+                        <button
+                            class="w-8 h-8 flex items-center justify-center hover:bg-gray-100 rounded-button transition-colors"
+                            id="closeNotificationBtn">
+                            <i class="ri-close-line text-secondary"></i>
+                        </button>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button
+                            class="px-4 py-2 bg-primary text-white text-sm font-medium rounded-button whitespace-nowrap">Tout
+                            (8)</button>
+                        <button
+                            class="px-4 py-2 text-sm font-medium text-secondary hover:bg-gray-100 rounded-button transition-colors whitespace-nowrap">Non
+                            lues (5)</button>
+                        <button
+                            class="px-4 py-2 text-sm font-medium text-secondary hover:bg-gray-100 rounded-button transition-colors whitespace-nowrap">Importantes
+                            (2)</button>
+                    </div>
+                </div>
+                <div class="flex-1 overflow-y-auto p-6">
+                    <div class="space-y-6">
+                        <div>
+                            <div
+                                class="text-xs font-bold text-secondary uppercase mb-3">Aujourd'hui</div>
+                            <div class="space-y-3">
+                                <div
+                                    class="flex items-start gap-3 p-3 bg-blue-50 rounded-button hover:bg-blue-100 transition-colors cursor-pointer">
+                                    <div
+                                        class="w-8 h-8 flex items-center justify-center bg-blue-600 rounded-full flex-shrink-0">
+                                        <i
+                                            class="ri-file-text-line text-white"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <div
+                                            class="text-sm font-semibold text-gray-900">Nouvelle
+                                            demande reçue</div>
+                                        <div
+                                            class="text-xs text-secondary mt-1">Demande
+                                            de permis de construire
+                                            #DPC-2026-3848</div>
+                                        <div
+                                            class="text-xs text-gray-400 mt-1">Il
+                                            y a 2 minutes</div>
+                                    </div>
+                                    <button
+                                        class="w-6 h-6 flex items-center justify-center hover:bg-blue-200 rounded-full transition-colors flex-shrink-0">
+                                        <i
+                                            class="ri-close-line text-secondary text-sm"></i>
+                                    </button>
+                                </div>
+                                <div
+                                    class="flex items-start gap-3 p-3 bg-red-50 rounded-button hover:bg-red-100 transition-colors cursor-pointer">
+                                    <div
+                                        class="w-8 h-8 flex items-center justify-center bg-red-600 rounded-full flex-shrink-0">
+                                        <i
+                                            class="ri-alarm-warning-line text-white"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <div
+                                            class="text-sm font-semibold text-gray-900">Alerte
+                                            critique</div>
+                                        <div
+                                            class="text-xs text-secondary mt-1">Inondation
+                                            à Kaffrine - Intervention
+                                            urgente</div>
+                                        <div
+                                            class="text-xs text-gray-400 mt-1">Il
+                                            y a 15 minutes</div>
+                                    </div>
+                                    <button
+                                        class="w-6 h-6 flex items-center justify-center hover:bg-red-200 rounded-full transition-colors flex-shrink-0">
+                                        <i
+                                            class="ri-close-line text-secondary text-sm"></i>
+                                    </button>
+                                </div>
+                                <div
+                                    class="flex items-start gap-3 p-3 hover:bg-gray-50 rounded-button transition-colors cursor-pointer">
+                                    <div
+                                        class="w-8 h-8 flex items-center justify-center bg-green-600 rounded-full flex-shrink-0">
+                                        <i class="ri-check-line text-white"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <div
+                                            class="text-sm font-semibold text-gray-900">Demande
+                                            validée</div>
+                                        <div
+                                            class="text-xs text-secondary mt-1">Licence
+                                            commerciale #DLC-2026-5623
+                                            approuvée</div>
+                                        <div
+                                            class="text-xs text-gray-400 mt-1">Il
+                                            y a 1 heure</div>
+                                    </div>
+                                    <button
+                                        class="w-6 h-6 flex items-center justify-center hover:bg-gray-200 rounded-full transition-colors flex-shrink-0">
+                                        <i
+                                            class="ri-close-line text-secondary text-sm"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div
+                                class="text-xs font-bold text-secondary uppercase mb-3">Hier</div>
+                            <div class="space-y-3">
+                                <div
+                                    class="flex items-start gap-3 p-3 hover:bg-gray-50 rounded-button transition-colors cursor-pointer">
+                                    <div
+                                        class="w-8 h-8 flex items-center justify-center bg-purple-600 rounded-full flex-shrink-0">
+                                        <i
+                                            class="ri-file-chart-line text-white"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <div
+                                            class="text-sm font-semibold text-gray-900">Rapport
+                                            généré</div>
+                                        <div
+                                            class="text-xs text-secondary mt-1">Rapport
+                                            mensuel de mai 2026
+                                            disponible</div>
+                                        <div
+                                            class="text-xs text-gray-400 mt-1">Hier
+                                            à 18:30</div>
+                                    </div>
+                                    <button
+                                        class="w-6 h-6 flex items-center justify-center hover:bg-gray-200 rounded-full transition-colors flex-shrink-0">
+                                        <i
+                                            class="ri-close-line text-secondary text-sm"></i>
+                                    </button>
+                                </div>
+                                <div
+                                    class="flex items-start gap-3 p-3 hover:bg-gray-50 rounded-button transition-colors cursor-pointer">
+                                    <div
+                                        class="w-8 h-8 flex items-center justify-center bg-orange-600 rounded-full flex-shrink-0">
+                                        <i class="ri-alert-line text-white"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <div
+                                            class="text-sm font-semibold text-gray-900">Signalement
+                                            urgent</div>
+                                        <div
+                                            class="text-xs text-secondary mt-1">Rupture
+                                            d'eau potable à Pikine</div>
+                                        <div
+                                            class="text-xs text-gray-400 mt-1">Hier
+                                            à 14:20</div>
+                                    </div>
+                                    <button
+                                        class="w-6 h-6 flex items-center justify-center hover:bg-gray-200 rounded-full transition-colors flex-shrink-0">
+                                        <i
+                                            class="ri-close-line text-secondary text-sm"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 border-t border-gray-200">
+                    <button
+                        class="w-full px-4 py-2 text-sm font-medium text-primary hover:bg-blue-50 rounded-button transition-colors whitespace-nowrap">
+                        Tout marquer comme lu
+                    </button>
+                </div>
+            </div>
+        </div>
+        <script>
+document.addEventListener('DOMContentLoaded', function() {
+const notificationBtn = document.getElementById('notificationBtn');
+const closeNotificationBtn = document.getElementById('closeNotificationBtn');
+const notificationPanel = document.querySelector('.notification-panel');
+const detailPanel = document.querySelector('.detail-panel');
+const closeDetailBtn = document.getElementById('closeDetailBtn');
+if (notificationBtn && notificationPanel) notificationBtn.addEventListener('click', function() { notificationPanel.classList.add('open'); if (detailPanel) detailPanel.style.transform = 'translateX(100%)'; });
+if (closeNotificationBtn && notificationPanel) closeNotificationBtn.addEventListener('click', function() { notificationPanel.classList.remove('open'); });
+document.addEventListener('click', function(e) { if (e.target.closest('.detail-btn') && detailPanel) { if (notificationPanel) notificationPanel.classList.remove('open'); detailPanel.style.transform = 'translateX(0)'; } });
+if (closeDetailBtn && detailPanel) closeDetailBtn.addEventListener('click', function() { detailPanel.style.transform = 'translateX(100%)'; });
+initCharts();
+});
+function initCharts() {
+if (typeof echarts === 'undefined') return;
+const configs = { demandesChart:{type:'line',labels:['Jan','Fev','Mar','Avr','Mai','Juin'],values:[940,1080,1195,1260,1430,1515],color:'#00853F'}, signalementsChart:{type:'bar',labels:['Dakar','Thies','Saint-Louis','Kaolack','Ziguinchor'],values:[342,215,186,144,127],color:'#E31B23'}, projetsChart:{type:'pie',labels:['Routes','Sante','Education','Hydraulique'],values:[34,22,26,18]}, performanceChart:{type:'bar',labels:['Dakar','Thies','Kaolack','Louga','Kolda'],values:[92,86,81,78,74],color:'#00853F'} };
+Object.keys(configs).forEach(function(id){ const el=document.getElementById(id); if(!el) return; const c=configs[id]; const chart=echarts.init(el); const option=c.type==='pie'?{animation:false,tooltip:{trigger:'item'},series:[{type:'pie',radius:['45%','70%'],data:c.labels.map((name,i)=>({name,value:c.values[i]}))}]}:{animation:false,grid:{top:24,right:20,bottom:36,left:48},tooltip:{trigger:'axis'},xAxis:{type:'category',data:c.labels},yAxis:{type:'value'},series:[{type:c.type,smooth:true,data:c.values,itemStyle:{color:c.color},lineStyle:{color:c.color,width:3}}]}; chart.setOption(option); window.addEventListener('resize',()=>chart.resize()); });
+}
+</script>
+    </body>
+</html>

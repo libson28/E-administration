@@ -1,0 +1,181 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><meta name="viewport"
+            content="width=device-width, initial-scale=1.0"><title>Signalements
+            - Admin</title><script
+            src="https://cdn.tailwindcss.com/3.4.16"></script><link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css"><link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+            rel="stylesheet"><link rel="stylesheet"
+            href="admin.css"><script>tailwind.config={theme:{extend:{colors:{primary:'#00853F',secondary:'#475569'},borderRadius:{button:'8px'}}}}</script></head><body
+        class="bg-gray-50">
+        <header
+            class="fixed top-0 left-0 right-0 h-16 bg-white shadow-sm z-50 flex items-center justify-between px-6"><div
+                class="flex items-center gap-3"><i
+                    class="ri-government-line text-3xl text-primary"></i><div><div
+                        class="text-sm font-bold text-primary">Republique du
+                        Senegal</div><div
+                        class="text-xs text-secondary">E-Administration
+                        Territoriale</div></div></div><div
+                class="text-sm text-secondary hidden md:block">Region de Dakar -
+                Prefecture de Dakar</div><div
+                class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold">ND</div></header>
+        <aside
+            class="fixed top-16 left-0 w-64 bottom-0 bg-white border-r border-gray-200 overflow-y-auto z-40"><nav
+                class="py-4"><a href="index.html"
+                    class="sidebar-item flex items-center gap-3 px-6 py-3"><i
+                        class="ri-dashboard-line text-lg"></i><span
+                        class="font-medium">Dashboard</span></a><a
+                    href="demarches.html"
+                    class="sidebar-item flex items-center gap-3 px-6 py-3"><i
+                        class="ri-file-list-3-line text-lg"></i><span
+                        class="font-medium">Demarches
+                        Administratives</span></a><a href="signalements.html"
+                    class="sidebar-item active flex items-center gap-3 px-6 py-3"><i
+                        class="ri-alert-line text-lg"></i><span
+                        class="font-medium">Signalements</span><span
+                        class="ml-auto w-2 h-2 bg-red-500 rounded-full"></span></a><a
+                    href="projets.html"
+                    class="sidebar-item flex items-center gap-3 px-6 py-3"><i
+                        class="ri-building-line text-lg"></i><span
+                        class="font-medium">Projets Publics</span></a><a
+                    href="aides.html"
+                    class="sidebar-item flex items-center gap-3 px-6 py-3"><i
+                        class="ri-hand-heart-line text-lg"></i><span
+                        class="font-medium">Aides Sociales</span></a><a
+                    href="crises.html"
+                    class="sidebar-item flex items-center gap-3 px-6 py-3"><i
+                        class="ri-alarm-warning-line text-lg"></i><span
+                        class="font-medium">Gestion des Crises</span><span
+                        class="ml-auto badge badge-red">3</span></a><a
+                    href="documents.html"
+                    class="sidebar-item flex items-center gap-3 px-6 py-3"><i
+                        class="ri-folder-line text-lg"></i><span
+                        class="font-medium">Documents</span></a><a
+                    href="rapports.html"
+                    class="sidebar-item flex items-center gap-3 px-6 py-3"><i
+                        class="ri-bar-chart-box-line text-lg"></i><span
+                        class="font-medium">Rapports</span></a><a
+                    href="utilisateurs.html"
+                    class="sidebar-item flex items-center gap-3 px-6 py-3"><i
+                        class="ri-group-line text-lg"></i><span
+                        class="font-medium">Utilisateurs</span></a><a
+                    href="parametres.html"
+                    class="sidebar-item flex items-center gap-3 px-6 py-3"><i
+                        class="ri-settings-3-line text-lg"></i><span
+                        class="font-medium">Parametres</span></a></nav></aside>
+        <main class="ml-64 mt-16 p-8"><div class="mb-6"><h1
+                    class="text-2xl font-bold text-gray-900">Liste des
+                    signalements</h1><p class="text-sm text-secondary">Incidents
+                    citoyens et interventions municipales.</p></div><section
+                class="bg-white rounded-md shadow-sm"><div
+                    class="overflow-x-auto"><table id="signalementsTable"
+                        data-paginated data-page-size="5"
+                        class="w-full text-sm"><thead
+                            class="bg-gray-50 text-xs uppercase text-gray-500"><tr><th
+                                    class="px-6 py-3 text-left">ID</th><th
+                                    class="px-6 py-3 text-left">Objet</th><th
+                                    class="px-6 py-3 text-left">Localite</th><th
+                                    class="px-6 py-3 text-left">Priorite</th><th
+                                    class="px-6 py-3 text-left">Statut</th><th
+                                    class="px-6 py-3 text-left">Action</th></tr></thead><tbody
+                            class="divide-y divide-gray-100">
+                            <tr class="table-row bg-primary/5"><td
+                                    class="px-6 py-4">SIG-001</td><td
+                                    class="px-6 py-4">Canal bouche apres les
+                                    pluies</td><td class="px-6 py-4">Rufisque
+                                    Est</td><td class="px-6 py-4"><span
+                                        class="badge badge-red">Urgent</span></td><td
+                                    class="px-6 py-4"><span
+                                        class="badge badge-orange">En
+                                        cours</span></td><td
+                                    class="px-6 py-4"><button
+                                        data-open-drawer="signalementDetail"
+                                        class="px-3 py-2 text-primary border border-primary rounded-button">Details</button></td></tr>
+                            <tr class="table-row"><td
+                                    class="px-6 py-4">SIG-002</td><td
+                                    class="px-6 py-4">Lampadaire
+                                    defectueux</td><td
+                                    class="px-6 py-4">Parcelles
+                                    Assainies</td><td class="px-6 py-4"><span
+                                        class="badge badge-orange">Moyen</span></td><td
+                                    class="px-6 py-4"><span
+                                        class="badge badge-gray">Recu</span></td><td
+                                    class="px-6 py-4"><button
+                                        class="px-3 py-2 text-gray-500 border rounded-button">Voir</button></td></tr>
+                            <tr class="table-row"><td
+                                    class="px-6 py-4">SIG-003</td><td
+                                    class="px-6 py-4">Depot sauvage
+                                    d'ordures</td><td
+                                    class="px-6 py-4">Guediawaye</td><td
+                                    class="px-6 py-4"><span
+                                        class="badge badge-orange">Moyen</span></td><td
+                                    class="px-6 py-4"><span
+                                        class="badge badge-green">Traite</span></td><td
+                                    class="px-6 py-4"><button
+                                        class="px-3 py-2 text-gray-500 border rounded-button">Voir</button></td></tr>
+                            <tr class="table-row"><td
+                                    class="px-6 py-4">SIG-004</td><td
+                                    class="px-6 py-4">Nid-de-poule avenue
+                                    principale</td><td class="px-6 py-4">Thies
+                                    Ouest</td><td class="px-6 py-4"><span
+                                        class="badge badge-red">Urgent</span></td><td
+                                    class="px-6 py-4"><span
+                                        class="badge badge-orange">Affecte</span></td><td
+                                    class="px-6 py-4"><button
+                                        class="px-3 py-2 text-gray-500 border rounded-button">Voir</button></td></tr>
+                            <tr class="table-row"><td
+                                    class="px-6 py-4">SIG-005</td><td
+                                    class="px-6 py-4">Poteau electrique
+                                    penche</td><td
+                                    class="px-6 py-4">Kaolack</td><td
+                                    class="px-6 py-4"><span
+                                        class="badge badge-red">Urgent</span></td><td
+                                    class="px-6 py-4"><span
+                                        class="badge badge-gray">Recu</span></td><td
+                                    class="px-6 py-4"><button
+                                        class="px-3 py-2 text-gray-500 border rounded-button">Voir</button></td></tr>
+                            <tr class="table-row"><td
+                                    class="px-6 py-4">SIG-006</td><td
+                                    class="px-6 py-4">Point d'eau hors
+                                    service</td><td
+                                    class="px-6 py-4">Tambacounda</td><td
+                                    class="px-6 py-4"><span
+                                        class="badge badge-orange">Moyen</span></td><td
+                                    class="px-6 py-4"><span
+                                        class="badge badge-orange">En
+                                        cours</span></td><td
+                                    class="px-6 py-4"><button
+                                        class="px-3 py-2 text-gray-500 border rounded-button">Voir</button></td></tr>
+                        </tbody></table></div><div
+                    data-pager-for="signalementsTable"
+                    class="p-4 border-t flex items-center justify-end gap-3"><button
+                        data-prev
+                        class="px-3 py-2 border rounded-button text-sm disabled:opacity-40">Precedent</button><span
+                        data-page-label
+                        class="text-sm text-secondary"></span><button data-next
+                        class="px-3 py-2 border rounded-button text-sm disabled:opacity-40">Suivant</button></div></section></main>
+        <div id="drawerBackdrop" class="drawer-backdrop"></div><aside
+            id="signalementDetail" class="drawer-panel left"><div
+                class="p-6 border-b flex justify-between items-center"><div><h2
+                        class="text-xl font-bold">SIG-001</h2><p
+                        class="text-sm text-secondary">Canal bouche apres les
+                        pluies</p></div><button data-close-drawer
+                    class="w-9 h-9 rounded-button hover:bg-gray-100"><i
+                        class="ri-close-line text-xl"></i></button></div><div
+                class="p-6 space-y-5"><div><div
+                        class="text-xs uppercase text-gray-500 mb-1">Declarant</div><p
+                        class="font-semibold">Moussa Ndiaye, quartier Colobane
+                        Rufisque</p></div><div><div
+                        class="text-xs uppercase text-gray-500 mb-1">Description</div><p
+                        class="text-sm text-gray-700">Le canal principal est
+                        obstrue depuis les fortes pluies. L'eau stagne devant
+                        trois concessions et bloque l'acces a l'ecole
+                        elementaire.</p></div><div
+                    class="grid grid-cols-2 gap-3 text-sm"><div
+                        class="p-3 bg-gray-50 rounded-md"><span
+                            class="text-secondary">Priorite</span><br><strong>Urgent</strong></div><div
+                        class="p-3 bg-gray-50 rounded-md"><span
+                            class="text-secondary">Equipe</span><br><strong>Assainissement</strong></div></div><button
+                    class="w-full px-4 py-3 bg-primary text-white rounded-button font-semibold">Affecter
+                    une equipe</button></div></aside><script
+            src="admin.js"></script></body></html>

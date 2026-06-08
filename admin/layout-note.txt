@@ -1,0 +1,1 @@
+Les pages admin partagent admin.css et admin.js.

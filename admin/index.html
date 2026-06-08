@@ -1,0 +1,2686 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Dashboard Administrateur - E-Administration Territoriale</title>
+        <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+            rel="stylesheet">
+        <script>
+tailwind.config = {
+theme: {
+extend: {
+colors: {
+primary: '#00853F',
+secondary: '#475569'
+},
+borderRadius: {
+'none': '0px',
+'sm': '4px',
+DEFAULT: '8px',
+'md': '12px',
+'lg': '16px',
+'xl': '20px',
+'2xl': '24px',
+'3xl': '32px',
+'full': '9999px',
+'button': '8px'
+},
+fontFamily: {
+'inter': ['Inter', 'sans-serif']
+}
+}
+}
+}
+</script>
+        <style>
+:where([class^="ri-"])::before {
+content: "\f3c2";
+}
+body {
+font-family: 'Inter', sans-serif;
+}
+.sidebar-item {
+transition: all 300ms ease;
+}
+.sidebar-item:hover {
+background-color: #F1F5F9;
+}
+.sidebar-item.active {
+background-color: #EFF6FF;
+border-left: 3px solid #1E3A8A;
+color: #1E3A8A;
+}
+.kpi-card {
+transition: all 300ms ease;
+}
+.kpi-card:hover {
+transform: translateY(-2px);
+box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.notification-panel {
+transform: translateX(100%);
+transition: transform 300ms ease;
+}
+.notification-panel.open {
+transform: translateX(0);
+}
+.table-row {
+transition: background-color 300ms ease;
+}
+.table-row:hover {
+background-color: #F8FAFC;
+}
+.badge {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+padding: 0.25rem 0.75rem;
+border-radius: 9999px;
+font-size: 0.75rem;
+font-weight: 600;
+}
+.badge-blue { background-color: #DBEAFE; color: #1E40AF; }
+.badge-orange { background-color: #FEF3C7; color: #D97706; }
+.badge-green { background-color: #D1FAE5; color: #059669; }
+.badge-red { background-color: #FEE2E2; color: #DC2626; }
+.badge-gray { background-color: #F3F4F6; color: #6B7280; }
+</style>
+    </head>
+    <body class="bg-gray-50">
+        <div
+            class="fixed top-0 left-0 right-0 h-16 bg-white shadow-sm z-50 flex items-center justify-between px-6">
+            <div class="flex items-center gap-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 flex items-center justify-center">
+                        <i class="ri-government-line ri-2x text-primary"></i>
+                    </div>
+                    <div>
+                        <div class="text-sm font-bold text-primary">République
+                            Tunisienne</div>
+                        <div class="text-xs text-secondary">E-Administration
+                            Territoriale</div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex items-center gap-2 text-sm text-secondary">
+                <span class="font-semibold text-primary">DGAT</span>
+                <i class="ri-arrow-right-s-line text-gray-400"></i>
+                <span>Région Centre</span>
+                <i class="ri-arrow-right-s-line text-gray-400"></i>
+                <span>Préfecture de Tunis</span>
+            </div>
+            <div class="flex items-center gap-4">
+                <button
+                    class="relative w-10 h-10 flex items-center justify-center hover:bg-gray-100 rounded-button transition-colors"
+                    id="notificationBtn">
+                    <i class="ri-notification-3-line ri-xl text-secondary"></i>
+                    <span
+                        class="absolute top-1 right-1 w-5 h-5 bg-red-500 text-white text-xs flex items-center justify-center rounded-full">8</span>
+                </button>
+               
+                <div
+                    class="flex items-center gap-3 pl-4 border-l border-gray-200">
+                    <img
+                        src="https://readdy.ai/api/search-image?query=professional%20male%20administrator%20portrait%20with%20formal%20attire%20on%20clean%20white%20background%2C%20high%20quality%20headshot&width=40&height=40&seq=admin-avatar-001&orientation=squarish"
+                        alt="Admin" class="w-10 h-10 rounded-full object-cover">
+                    <div>
+                        <div class="text-sm font-semibold text-gray-900">Ahmed
+                            Ben Salem</div>
+                        <div class="text-xs text-secondary">Administrateur
+                            DGAT</div>
+                    </div>
+                    <button
+                        class="w-8 h-8 flex items-center justify-center hover:bg-gray-100 rounded-button transition-colors">
+                        <i class="ri-arrow-down-s-line text-secondary"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div
+            class="fixed top-16 left-0 w-64 bottom-0 bg-white border-r border-gray-200 overflow-y-auto z-40">
+            <nav class="py-4 text-sm space-y-1">
+                <a href="#"
+                    class="sidebar-item active flex items-center gap-3 px-6 py-3">
+                    <div class="w-5 h-5 flex items-center justify-center">
+                        <i class="ri-dashboard-line ri-lg"></i>
+                    </div>
+                    <span class="font-medium ">Dashboard</span>
+                </a>
+                <a href="#"
+                    class="sidebar-item flex items-center gap-3 px-6 py-3">
+                    <div class="w-5 h-5 flex items-center justify-center">
+                        <i class="ri-file-list-3-line ri-lg"></i>
+                    </div>
+                    <span class="font-medium">Demarches Administratives</span>
+                    <span class="ml-auto badge badge-orange">24</span>
+                </a>
+                <a href="#"
+                    class="sidebar-item flex items-center gap-3 px-6 py-3">
+                    <div class="w-5 h-5 flex items-center justify-center">
+                        <i class="ri-alert-line ri-lg"></i>
+                    </div>
+                    <span class="font-medium">Signalements</span>
+                    <span
+                        class="ml-auto w-2 h-2 bg-red-500 rounded-full"></span>
+                </a>
+                <a href="#"
+                    class="sidebar-item flex items-center gap-3 px-6 py-3">
+                    <div class="w-5 h-5 flex items-center justify-center">
+                        <i class="ri-building-line ri-lg"></i>
+                    </div>
+                    <span class="font-medium">Projets Publics</span>
+                </a>
+                <a href="#"
+                    class="sidebar-item flex items-center gap-3 px-6 py-3">
+                    <div class="w-5 h-5 flex items-center justify-center">
+                        <i class="ri-hand-heart-line ri-lg"></i>
+                    </div>
+                    <span class="font-medium">Aides Sociales</span>
+                </a>
+                <a href="#"
+                    class="sidebar-item flex items-center gap-3 px-6 py-3">
+                    <div class="w-5 h-5 flex items-center justify-center">
+                        <i class="ri-alarm-warning-line ri-lg"></i>
+                    </div>
+                    <span class="font-medium">Gestion des Crises</span>
+                    <span class="ml-auto badge badge-red">3</span>
+                </a>
+                <a href="#"
+                    class="sidebar-item flex items-center gap-3 px-6 py-3">
+                    <div class="w-5 h-5 flex items-center justify-center">
+                        <i class="ri-folder-line ri-lg"></i>
+                    </div>
+                    <span class="font-medium">Documents</span>
+                </a>
+                <a href="#"
+                    class="sidebar-item flex items-center gap-3 px-6 py-3">
+                    <div class="w-5 h-5 flex items-center justify-center">
+                        <i class="ri-bar-chart-box-line ri-lg"></i>
+                    </div>
+                    <span class="font-medium">Rapports</span>
+                </a>
+                <a href="#"
+                    class="sidebar-item flex items-center gap-3 px-6 py-3">
+                    <div class="w-5 h-5 flex items-center justify-center">
+                        <i class="ri-group-line ri-lg"></i>
+                    </div>
+                    <span class="font-medium">Utilisateurs</span>
+                </a>
+                <a href="#"
+                    class="sidebar-item flex items-center gap-3 px-6 py-3">
+                    <div class="w-5 h-5 flex items-center justify-center">
+                        <i class="ri-settings-3-line ri-lg"></i>
+                    </div>
+                    <span class="font-medium">Paramètres</span>
+                </a>
+            </nav>
+        </div>
+        <div class="ml-64 mt-16 p-8">
+            <div class="grid grid-cols-4 gap-4 mb-6">
+                <div
+                    class="bg-white rounded-md p-5 shadow-sm border border-gray-100">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div
+                            class="w-10 h-10 flex items-center justify-center bg-blue-50 rounded-md">
+                            <i
+                                class="ri-file-text-line ri-lg text-blue-600"></i>
+                        </div>
+                        <div class="text-xs text-gray-500">Total Demandes</div>
+                    </div>
+                    <div class="text-2xl font-bold text-gray-900">12 458</div>
+                </div>
+                <div
+                    class="bg-white rounded-md p-5 shadow-sm border border-gray-100">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div
+                            class="w-10 h-10 flex items-center justify-center bg-orange-50 rounded-md">
+                            <i class="ri-time-line ri-lg text-orange-600"></i>
+                        </div>
+                        <div class="text-xs text-gray-500">En Attente</div>
+                    </div>
+                    <div class="text-2xl font-bold text-gray-900">1 847</div>
+                </div>
+                <div
+                    class="bg-white rounded-md p-5 shadow-sm border border-gray-100">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div
+                            class="w-10 h-10 flex items-center justify-center bg-green-50 rounded-md">
+                            <i class="ri-check-line ri-lg text-green-600"></i>
+                        </div>
+                        <div class="text-xs text-gray-500">Validées</div>
+                    </div>
+                    <div class="text-2xl font-bold text-gray-900">9 234</div>
+                </div>
+                <div
+                    class="bg-white rounded-md p-5 shadow-sm border border-gray-100">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div
+                            class="w-10 h-10 flex items-center justify-center bg-red-50 rounded-md">
+                            <i class="ri-alert-line ri-lg text-red-600"></i>
+                        </div>
+                        <div class="text-xs text-gray-500">Signalements</div>
+                    </div>
+                    <div class="text-2xl font-bold text-gray-900">342</div>
+                </div>
+            </div>
+            <div class="grid grid-cols-3 gap-4 mb-6">
+                <div
+                    class="bg-white rounded-md p-5 shadow-sm border border-gray-100">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div
+                            class="w-10 h-10 flex items-center justify-center bg-blue-50 rounded-md">
+                            <i class="ri-building-line ri-lg text-blue-600"></i>
+                        </div>
+                        <div class="text-xs text-gray-500">Projets</div>
+                    </div>
+                    <div class="text-2xl font-bold text-gray-900">127</div>
+                </div>
+                <div
+                    class="bg-white rounded-md p-5 shadow-sm border border-gray-100">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div
+                            class="w-10 h-10 flex items-center justify-center bg-green-50 rounded-md">
+                            <i
+                                class="ri-hand-heart-line ri-lg text-green-600"></i>
+                        </div>
+                        <div class="text-xs text-gray-500">Aides Sociales</div>
+                    </div>
+                    <div class="text-2xl font-bold text-gray-900">4,2M TND</div>
+                </div>
+                <div
+                    class="bg-white rounded-md p-5 shadow-sm border border-gray-100">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div
+                            class="w-10 h-10 flex items-center justify-center bg-red-50 rounded-md">
+                            <i
+                                class="ri-alarm-warning-line ri-lg text-red-600"></i>
+                        </div>
+                        <div class="text-xs text-gray-500">Crises Actives</div>
+                    </div>
+                    <div class="text-2xl font-bold text-gray-900">3</div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-6 mb-8">
+                <div class="bg-white rounded-md shadow-sm">
+                    <div
+                        class="p-6 border-b border-gray-200 flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="w-10 h-10 flex items-center justify-center bg-blue-100 rounded-md">
+                                <i
+                                    class="ri-line-chart-line ri-lg text-blue-600"></i>
+                            </div>
+                            <h3
+                                class="text-lg font-bold text-gray-900">Évolution
+                                des Demandes</h3>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <select
+                                class="text-sm border border-gray-300 rounded-button px-3 py-2">
+                                <option>12 derniers mois</option>
+                                <option>6 derniers mois</option>
+                                <option>3 derniers mois</option>
+                            </select>
+                            <button
+                                class="w-8 h-8 flex items-center justify-center hover:bg-gray-100 rounded-button transition-colors">
+                                <i class="ri-download-line text-secondary"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div id="demandesChart" class="h-80"></div>
+                </div>
+                <div class="bg-white rounded-md shadow-sm">
+                    <div
+                        class="p-6 border-b border-gray-200 flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="w-10 h-10 flex items-center justify-center bg-orange-100 rounded-md">
+                                <i
+                                    class="ri-pie-chart-line ri-lg text-orange-600"></i>
+                            </div>
+                            <h3
+                                class="text-lg font-bold text-gray-900">Répartition
+                                des Signalements</h3>
+                        </div>
+                        <button
+                            class="w-8 h-8 flex items-center justify-center hover:bg-gray-100 rounded-button transition-colors">
+                            <i class="ri-download-line text-secondary"></i>
+                        </button>
+                    </div>
+                    <div id="signalementsChart" class="h-80"></div>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 gap-6 mb-8">
+                <div class="bg-white rounded-md shadow-sm">
+                    <div
+                        class="p-6 border-b border-gray-200 flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="w-10 h-10 flex items-center justify-center bg-green-100 rounded-md">
+                                <i
+                                    class="ri-bar-chart-horizontal-line ri-lg text-green-600"></i>
+                            </div>
+                            <h3
+                                class="text-lg font-bold text-gray-900">Avancement
+                                des Projets Publics</h3>
+                        </div>
+                        <button
+                            class="w-8 h-8 flex items-center justify-center hover:bg-gray-100 rounded-button transition-colors">
+                            <i class="ri-download-line text-secondary"></i>
+                        </button>
+                    </div>
+                    <div id="projetsChart" class="h-80"></div>
+                </div>
+                <div class="bg-white rounded-md shadow-sm">
+                    <div
+                        class="p-6 border-b border-gray-200 flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="w-10 h-10 flex items-center justify-center bg-purple-100 rounded-md">
+                                <i
+                                    class="ri-radar-line ri-lg text-purple-600"></i>
+                            </div>
+                            <h3
+                                class="text-lg font-bold text-gray-900">Performance
+                                des Services</h3>
+                        </div>
+                        <button
+                            class="w-8 h-8 flex items-center justify-center hover:bg-gray-100 rounded-button transition-colors">
+                            <i class="ri-download-line text-secondary"></i>
+                        </button>
+                    </div>
+                    <div id="performanceChart" class="h-80"></div>
+                </div>
+            </div>
+            <div class="bg-white rounded-md shadow-sm mb-8">
+                <div
+                    class="p-6 border-b border-gray-200 flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                        <div
+                            class="w-10 h-10 flex items-center justify-center bg-blue-100 rounded-md">
+                            <i class="ri-map-pin-line ri-lg text-blue-600"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900">Carte
+                            Géographique Interactive</h3>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <input type="text"
+                            placeholder="Rechercher une localité..."
+                            class="text-sm border border-gray-300 rounded-button px-4 py-2 w-64">
+                        <button
+                            class="px-4 py-2 text-sm font-medium text-secondary border border-gray-300 rounded-button hover:bg-gray-50 transition-colors whitespace-nowrap">
+                            <i class="ri-filter-line"></i> Filtres
+                        </button>
+                        <button
+                            class="px-4 py-2 text-sm font-medium text-secondary border border-gray-300 rounded-button hover:bg-gray-50 transition-colors whitespace-nowrap">
+                            <i class="ri-earth-line"></i> Vue Satellite
+                        </button>
+                        <button
+                            class="w-10 h-10 flex items-center justify-center border border-gray-300 rounded-button hover:bg-gray-50 transition-colors">
+                            <i class="ri-fullscreen-line text-secondary"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="relative h-[500px]">
+                    <img
+                        src="https://public.readdy.ai/gen_page/map_placeholder_1280x720.png"
+                        alt="Carte"
+                        class="w-full h-full object-cover object-center">
+                    <div
+                        class="absolute bottom-6 left-6 bg-white rounded-md shadow-lg p-4">
+                        <div
+                            class="text-sm font-bold text-gray-900 mb-3">Légende</div>
+                        <div class="space-y-2">
+                            <div class="flex items-center gap-2">
+                                <div
+                                    class="w-3 h-3 bg-blue-500 rounded-full"></div>
+                                <span class="text-xs text-secondary">Projets
+                                    publics (127)</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <div
+                                    class="w-3 h-3 bg-orange-500 rounded-full"></div>
+                                <span
+                                    class="text-xs text-secondary">Signalements
+                                    (342)</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <div
+                                    class="w-3 h-3 bg-red-500 rounded-full"></div>
+                                <span class="text-xs text-secondary">Crises
+                                    actives (3)</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <div
+                                    class="w-3 h-3 bg-green-500 rounded-full"></div>
+                                <span class="text-xs text-secondary">Aides
+                                    sociales (2847)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 gap-6 mb-8">
+                <div class="bg-white rounded-md shadow-sm">
+                    <div
+                        class="p-6 border-b border-gray-200 flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="w-10 h-10 flex items-center justify-center bg-blue-100 rounded-md">
+                                <i
+                                    class="ri-history-line ri-lg text-blue-600"></i>
+                            </div>
+                            <h3
+                                class="text-lg font-bold text-gray-900">Activités
+                                Récentes</h3>
+                        </div>
+                        <a href="#"
+                            class="text-sm text-primary font-semibold hover:underline">Voir
+                            tout</a>
+                    </div>
+                    <div class="p-6">
+                        <div class="space-y-4">
+                            <div class="flex items-start gap-4">
+                                <img
+                                    src="https://readdy.ai/api/search-image?query=professional%20female%20administrator%20portrait%20with%20formal%20attire%20on%20clean%20white%20background%2C%20high%20quality%20headshot&width=40&height=40&seq=agent-avatar-001&orientation=squarish"
+                                    alt="Agent"
+                                    class="w-10 h-10 rounded-full object-cover flex-shrink-0">
+                                <div class="flex-1">
+                                    <div
+                                        class="text-sm font-semibold text-gray-900">Fatima
+                                        Zahra Mansouri</div>
+                                    <div class="text-xs text-secondary mt-1">A
+                                        validé la demande de permis de
+                                        construire #DPC-2024-3847</div>
+                                    <div class="text-xs text-gray-400 mt-1">Il y
+                                        a 5 minutes</div>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <img
+                                    src="https://readdy.ai/api/search-image?query=professional%20male%20administrator%20portrait%20with%20formal%20attire%20on%20clean%20white%20background%2C%20high%20quality%20headshot&width=40&height=40&seq=agent-avatar-002&orientation=squarish"
+                                    alt="Agent"
+                                    class="w-10 h-10 rounded-full object-cover flex-shrink-0">
+                                <div class="flex-1">
+                                    <div
+                                        class="text-sm font-semibold text-gray-900">Mohamed
+                                        Amine Trabelsi</div>
+                                    <div class="text-xs text-secondary mt-1">A
+                                        traité le signalement infrastructure
+                                        #SIG-2024-1256</div>
+                                    <div class="text-xs text-gray-400 mt-1">Il y
+                                        a 12 minutes</div>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <img
+                                    src="https://readdy.ai/api/search-image?query=professional%20female%20administrator%20portrait%20with%20formal%20attire%20on%20clean%20white%20background%2C%20high%20quality%20headshot&width=40&height=40&seq=agent-avatar-003&orientation=squarish"
+                                    alt="Agent"
+                                    class="w-10 h-10 rounded-full object-cover flex-shrink-0">
+                                <div class="flex-1">
+                                    <div
+                                        class="text-sm font-semibold text-gray-900">Leila
+                                        Ben Youssef</div>
+                                    <div class="text-xs text-secondary mt-1">A
+                                        mis à jour le projet Route Nationale
+                                        RN-45</div>
+                                    <div class="text-xs text-gray-400 mt-1">Il y
+                                        a 28 minutes</div>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <img
+                                    src="https://readdy.ai/api/search-image?query=professional%20male%20administrator%20portrait%20with%20formal%20attire%20on%20clean%20white%20background%2C%20high%20quality%20headshot&width=40&height=40&seq=agent-avatar-004&orientation=squarish"
+                                    alt="Agent"
+                                    class="w-10 h-10 rounded-full object-cover flex-shrink-0">
+                                <div class="flex-1">
+                                    <div
+                                        class="text-sm font-semibold text-gray-900">Karim
+                                        Bouazizi</div>
+                                    <div class="text-xs text-secondary mt-1">A
+                                        attribué une aide sociale à la famille
+                                        Hammami</div>
+                                    <div class="text-xs text-gray-400 mt-1">Il y
+                                        a 45 minutes</div>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <img
+                                    src="https://readdy.ai/api/search-image?query=professional%20female%20administrator%20portrait%20with%20formal%20attire%20on%20clean%20white%20background%2C%20high%20quality%20headshot&width=40&height=40&seq=agent-avatar-005&orientation=squarish"
+                                    alt="Agent"
+                                    class="w-10 h-10 rounded-full object-cover flex-shrink-0">
+                                <div class="flex-1">
+                                    <div
+                                        class="text-sm font-semibold text-gray-900">Sonia
+                                        Gharbi</div>
+                                    <div class="text-xs text-secondary mt-1">A
+                                        généré le rapport mensuel de janvier
+                                        2024</div>
+                                    <div class="text-xs text-gray-400 mt-1">Il y
+                                        a 1 heure</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-md shadow-sm">
+                    <div
+                        class="p-6 border-b border-gray-200 flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="w-10 h-10 flex items-center justify-center bg-red-100 rounded-md">
+                                <i
+                                    class="ri-alarm-warning-line ri-lg text-red-600"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-gray-900">Alertes
+                                Prioritaires</h3>
+                        </div>
+                        <span class="text-sm text-secondary">5 alertes
+                            actives</span>
+                    </div>
+                    <div class="p-6 space-y-4">
+                        <div
+                            class="border-l-4 border-red-500 bg-red-50 p-4 rounded-button">
+                            <div class="flex items-start justify-between mb-2">
+                                <div class="flex items-center gap-2">
+                                    <div
+                                        class="w-6 h-6 flex items-center justify-center">
+                                        <i
+                                            class="ri-error-warning-fill text-red-600"></i>
+                                    </div>
+                                    <span
+                                        class="badge badge-red">CRITIQUE</span>
+                                </div>
+                            </div>
+                            <div
+                                class="text-sm font-bold text-gray-900 mb-1">Inondation
+                                à Manouba - Intervention urgente requise</div>
+                            <div class="text-xs text-secondary mb-3">Zone
+                                résidentielle touchée, 45 familles
+                                évacuées</div>
+                            <button
+                                class="px-4 py-2 bg-red-600 text-white text-sm font-medium rounded-button hover:bg-red-700 transition-colors whitespace-nowrap">
+                                Traiter maintenant
+                            </button>
+                        </div>
+                        <div
+                            class="border-l-4 border-orange-500 bg-orange-50 p-4 rounded-button">
+                            <div class="flex items-start justify-between mb-2">
+                                <div class="flex items-center gap-2">
+                                    <div
+                                        class="w-6 h-6 flex items-center justify-center">
+                                        <i
+                                            class="ri-alert-fill text-orange-600"></i>
+                                    </div>
+                                    <span
+                                        class="badge badge-orange">URGENTE</span>
+                                </div>
+                            </div>
+                            <div
+                                class="text-sm font-bold text-gray-900 mb-1">Rupture
+                                d'eau potable à Ariana</div>
+                            <div class="text-xs text-secondary mb-3">12 000
+                                habitants affectés, réparation en cours</div>
+                            <button
+                                class="px-4 py-2 bg-orange-600 text-white text-sm font-medium rounded-button hover:bg-orange-700 transition-colors whitespace-nowrap">
+                                Traiter maintenant
+                            </button>
+                        </div>
+                        <div
+                            class="border-l-4 border-orange-500 bg-orange-50 p-4 rounded-button">
+                            <div class="flex items-start justify-between mb-2">
+                                <div class="flex items-center gap-2">
+                                    <div
+                                        class="w-6 h-6 flex items-center justify-center">
+                                        <i
+                                            class="ri-alert-fill text-orange-600"></i>
+                                    </div>
+                                    <span
+                                        class="badge badge-orange">URGENTE</span>
+                                </div>
+                            </div>
+                            <div
+                                class="text-sm font-bold text-gray-900 mb-1">Demande
+                                de permis exceptionnel en attente</div>
+                            <div class="text-xs text-secondary mb-3">Projet
+                                d'investissement stratégique - Délai expiré dans
+                                2h</div>
+                            <button
+                                class="px-4 py-2 bg-orange-600 text-white text-sm font-medium rounded-button hover:bg-orange-700 transition-colors whitespace-nowrap">
+                                Traiter maintenant
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-md shadow-sm mb-8">
+                <div
+                    class="p-6 border-b border-gray-200 flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                        <div
+                            class="w-10 h-10 flex items-center justify-center bg-blue-100 rounded-md">
+                            <i
+                                class="ri-file-list-line ri-lg text-blue-600"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-900">Demandes
+                                Récentes</h3>
+                            <p class="text-xs text-secondary">1 847 demandes en
+                                attente de traitement</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <input type="text" placeholder="Rechercher..."
+                            class="text-sm border border-gray-300 rounded-button px-4 py-2 w-64">
+                        <button
+                            class="px-4 py-2 text-sm font-medium text-secondary border border-gray-300 rounded-button hover:bg-gray-50 transition-colors whitespace-nowrap">
+                            <i class="ri-filter-line"></i> Filtres
+                        </button>
+                        <button
+                            class="px-4 py-2 text-sm font-medium text-secondary border border-gray-300 rounded-button hover:bg-gray-50 transition-colors whitespace-nowrap">
+                            <i class="ri-download-line"></i> Export
+                        </button>
+                        <button
+                            class="w-10 h-10 flex items-center justify-center border border-gray-300 rounded-button hover:bg-gray-50 transition-colors">
+                            <i class="ri-refresh-line text-secondary"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full">
+                        <thead class="bg-gray-50 border-b border-gray-200">
+                            <tr>
+                                <th
+                                    class="px-6 py-3 text-left text-xs font-semibold text-secondary uppercase">Numéro</th>
+                                <th
+                                    class="px-6 py-3 text-left text-xs font-semibold text-secondary uppercase">Type</th>
+                                <th
+                                    class="px-6 py-3 text-left text-xs font-semibold text-secondary uppercase">Demandeur</th>
+                                <th
+                                    class="px-6 py-3 text-left text-xs font-semibold text-secondary uppercase">Localité</th>
+                                <th
+                                    class="px-6 py-3 text-left text-xs font-semibold text-secondary uppercase">Date</th>
+                                <th
+                                    class="px-6 py-3 text-left text-xs font-semibold text-secondary uppercase">Statut</th>
+                                <th
+                                    class="px-6 py-3 text-left text-xs font-semibold text-secondary uppercase">Priorité</th>
+                                <th
+                                    class="px-6 py-3 text-left text-xs font-semibold text-secondary uppercase">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200">
+                            <tr class="table-row">
+                                <td class="px-6 py-4">
+                                    <a href="#"
+                                        class="text-sm font-semibold text-primary hover:underline">DPC-2024-3847</a>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center gap-2">
+                                        <div
+                                            class="w-5 h-5 flex items-center justify-center">
+                                            <i
+                                                class="ri-building-line text-blue-600"></i>
+                                        </div>
+                                        <span
+                                            class="text-sm text-gray-900">Permis
+                                            de construire</span>
+                                    </div>
+                                </td>
+                                <td
+                                    class="px-6 py-4 text-sm text-gray-900">Société
+                                    Immobilière du Sud</td>
+                                <td
+                                    class="px-6 py-4 text-sm text-secondary">Sfax</td>
+                                <td
+                                    class="px-6 py-4 text-sm text-secondary">15/01/2024</td>
+                                <td class="px-6 py-4">
+                                    <span class="badge badge-orange">En
+                                        attente</span>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center gap-1">
+                                        <i
+                                            class="ri-star-fill text-yellow-400 text-sm"></i>
+                                        <i
+                                            class="ri-star-fill text-yellow-400 text-sm"></i>
+                                        <i
+                                            class="ri-star-fill text-yellow-400 text-sm"></i>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center gap-2">
+                                        <button
+                                            class="w-8 h-8 flex items-center justify-center hover:bg-blue-50 rounded-button transition-colors"
+                                            title="Voir détails">
+                                            <i
+                                                class="ri-eye-line text-blue-600"></i>
+                                        </button>
+                                        <button
+                                            class="w-8 h-8 flex items-center justify-center hover:bg-green-50 rounded-button transition-colors"
+                                            title="Valider">
+                                            <i
+                                                class="ri-check-line text-green-600"></i>
+                                        </button>
+                                        <button
+                                            class="w-8 h-8 flex items-center justify-center hover:bg-red-50 rounded-button transition-colors"
+                                            title="Rejeter">
+                                            <i
+                                                class="ri-close-line text-red-600"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="table-row">
+                                <td class="px-6 py-4">
+                                    <a href="#"
+                                        class="text-sm font-semibold text-primary hover:underline">DAE-2024-2156</a>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center gap-2">
+                                        <div
+                                            class="w-5 h-5 flex items-center justify-center">
+                                            <i
+                                                class="ri-file-text-line text-green-600"></i>
+                                        </div>
+                                        <span
+                                            class="text-sm text-gray-900">Extrait
+                                            de naissance</span>
+                                    </div>
+                                </td>
+                                <td
+                                    class="px-6 py-4 text-sm text-gray-900">Nadia
+                                    Khelifi</td>
+                                <td
+                                    class="px-6 py-4 text-sm text-secondary">Tunis</td>
+                                <td
+                                    class="px-6 py-4 text-sm text-secondary">16/01/2024</td>
+                                <td class="px-6 py-4">
+                                    <span class="badge badge-blue">En
+                                        traitement</span>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center gap-1">
+                                        <i
+                                            class="ri-star-fill text-yellow-400 text-sm"></i>
+                                        <i
+                                            class="ri-star-fill text-yellow-400 text-sm"></i>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center gap-2">
+                                        <button
+                                            class="w-8 h-8 flex items-center justify-center hover:bg-blue-50 rounded-button transition-colors"
+                                            title="Voir détails">
+                                            <i
+                                                class="ri-eye-line text-blue-600"></i>
+                                        </button>
+                                        <button
+                                            class="w-8 h-8 flex items-center justify-center hover:bg-green-50 rounded-button transition-colors"
+                                            title="Valider">
+                                            <i
+                                                class="ri-check-line text-green-600"></i>
+                                        </button>
+                                        <button
+                                            class="w-8 h-8 flex items-center justify-center hover:bg-red-50 rounded-button transition-colors"
+                                            title="Rejeter">
+                                            <i
+                                                class="ri-close-line text-red-600"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="table-row">
+                                <td class="px-6 py-4">
+                                    <a href="#"
+                                        class="text-sm font-semibold text-primary hover:underline">DAS-2024-8934</a>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center gap-2">
+                                        <div
+                                            class="w-5 h-5 flex items-center justify-center">
+                                            <i
+                                                class="ri-hand-heart-line text-purple-600"></i>
+                                        </div>
+                                        <span class="text-sm text-gray-900">Aide
+                                            sociale</span>
+                                    </div>
+                                </td>
+                                <td
+                                    class="px-6 py-4 text-sm text-gray-900">Famille
+                                    Jebali</td>
+                                <td
+                                    class="px-6 py-4 text-sm text-secondary">Kairouan</td>
+                                <td
+                                    class="px-6 py-4 text-sm text-secondary">16/01/2024</td>
+                                <td class="px-6 py-4">
+                                    <span class="badge badge-orange">En
+                                        attente</span>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center gap-1">
+                                        <i
+                                            class="ri-star-fill text-yellow-400 text-sm"></i>
+                                        <i
+                                            class="ri-star-fill text-yellow-400 text-sm"></i>
+                                        <i
+                                            class="ri-star-fill text-yellow-400 text-sm"></i>
+                                        <i
+                                            class="ri-star-fill text-yellow-400 text-sm"></i>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center gap-2">
+                                        <button
+                                            class="w-8 h-8 flex items-center justify-center hover:bg-blue-50 rounded-button transition-colors"
+                                            title="Voir détails">
+                                            <i
+                                                class="ri-eye-line text-blue-600"></i>
+                                        </button>
+                                        <button
+                                            class="w-8 h-8 flex items-center justify-center hover:bg-green-50 rounded-button transition-colors"
+                                            title="Valider">
+                                            <i
+                                                class="ri-check-line text-green-600"></i>
+                                        </button>
+                                        <button
+                                            class="w-8 h-8 flex items-center justify-center hover:bg-red-50 rounded-button transition-colors"
+                                            title="Rejeter">
+                                            <i
+                                                class="ri-close-line text-red-600"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="table-row">
+                                <td class="px-6 py-4">
+                                    <a href="#"
+                                        class="text-sm font-semibold text-primary hover:underline">DLC-2024-5623</a>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center gap-2">
+                                        <div
+                                            class="w-5 h-5 flex items-center justify-center">
+                                            <i
+                                                class="ri-store-line text-orange-600"></i>
+                                        </div>
+                                        <span
+                                            class="text-sm text-gray-900">Licence
+                                            commerciale</span>
+                                    </div>
+                                </td>
+                                <td
+                                    class="px-6 py-4 text-sm text-gray-900">Rachid
+                                    Bouslama</td>
+                                <td
+                                    class="px-6 py-4 text-sm text-secondary">Sousse</td>
+                                <td
+                                    class="px-6 py-4 text-sm text-secondary">17/01/2024</td>
+                                <td class="px-6 py-4">
+                                    <span
+                                        class="badge badge-green">Validé</span>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center gap-1">
+                                        <i
+                                            class="ri-star-fill text-yellow-400 text-sm"></i>
+                                        <i
+                                            class="ri-star-fill text-yellow-400 text-sm"></i>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center gap-2">
+                                        <button
+                                            class="w-8 h-8 flex items-center justify-center hover:bg-blue-50 rounded-button transition-colors"
+                                            title="Voir détails">
+                                            <i
+                                                class="ri-eye-line text-blue-600"></i>
+                                        </button>
+                                        <button
+                                            class="w-8 h-8 flex items-center justify-center hover:bg-green-50 rounded-button transition-colors"
+                                            title="Valider">
+                                            <i
+                                                class="ri-check-line text-green-600"></i>
+                                        </button>
+                                        <button
+                                            class="w-8 h-8 flex items-center justify-center hover:bg-red-50 rounded-button transition-colors"
+                                            title="Rejeter">
+                                            <i
+                                                class="ri-close-line text-red-600"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="table-row">
+                                <td class="px-6 py-4">
+                                    <a href="#"
+                                        class="text-sm font-semibold text-primary hover:underline">DPC-2024-3821</a>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center gap-2">
+                                        <div
+                                            class="w-5 h-5 flex items-center justify-center">
+                                            <i
+                                                class="ri-building-line text-blue-600"></i>
+                                        </div>
+                                        <span
+                                            class="text-sm text-gray-900">Permis
+                                            de construire</span>
+                                    </div>
+                                </td>
+                                <td
+                                    class="px-6 py-4 text-sm text-gray-900">Habib
+                                    Essid</td>
+                                <td
+                                    class="px-6 py-4 text-sm text-secondary">Monastir</td>
+                                <td
+                                    class="px-6 py-4 text-sm text-secondary">17/01/2024</td>
+                                <td class="px-6 py-4">
+                                    <span class="badge badge-orange">En
+                                        attente</span>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center gap-1">
+                                        <i
+                                            class="ri-star-fill text-yellow-400 text-sm"></i>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center gap-2">
+                                        <button
+                                            class="w-8 h-8 flex items-center justify-center hover:bg-blue-50 rounded-button transition-colors"
+                                            title="Voir détails">
+                                            <i
+                                                class="ri-eye-line text-blue-600"></i>
+                                        </button>
+                                        <button
+                                            class="w-8 h-8 flex items-center justify-center hover:bg-green-50 rounded-button transition-colors"
+                                            title="Valider">
+                                            <i
+                                                class="ri-check-line text-green-600"></i>
+                                        </button>
+                                        <button
+                                            class="w-8 h-8 flex items-center justify-center hover:bg-red-50 rounded-button transition-colors"
+                                            title="Rejeter">
+                                            <i
+                                                class="ri-close-line text-red-600"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div
+                    class="p-4 border-t border-gray-200 flex items-center justify-between">
+                    <div class="text-sm text-secondary">Affichage de 1 à 5 sur 1
+                        847 demandes</div>
+                    <div class="flex items-center gap-2">
+                        <select
+                            class="text-sm border border-gray-300 rounded-button px-3 py-2">
+                            <option>10 par page</option>
+                            <option>25 par page</option>
+                            <option>50 par page</option>
+                        </select>
+                        <div class="flex items-center gap-1">
+                            <button
+                                class="w-8 h-8 flex items-center justify-center border border-gray-300 rounded-button hover:bg-gray-50 transition-colors">
+                                <i
+                                    class="ri-arrow-left-s-line text-secondary"></i>
+                            </button>
+                            <button
+                                class="w-8 h-8 flex items-center justify-center bg-primary text-white rounded-button">1</button>
+                            <button
+                                class="w-8 h-8 flex items-center justify-center border border-gray-300 rounded-button hover:bg-gray-50 transition-colors">2</button>
+                            <button
+                                class="w-8 h-8 flex items-center justify-center border border-gray-300 rounded-button hover:bg-gray-50 transition-colors">3</button>
+                            <span class="px-2 text-secondary">...</span>
+                            <button
+                                class="w-8 h-8 flex items-center justify-center border border-gray-300 rounded-button hover:bg-gray-50 transition-colors">370</button>
+                            <button
+                                class="w-8 h-8 flex items-center justify-center border border-gray-300 rounded-button hover:bg-gray-50 transition-colors">
+                                <i
+                                    class="ri-arrow-right-s-line text-secondary"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="grid grid-cols-3 gap-6 mb-8">
+                <div
+                    class="bg-white rounded-md shadow-sm p-6 hover:shadow-md transition-shadow cursor-pointer">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div
+                            class="w-12 h-12 flex items-center justify-center bg-red-100 rounded-md">
+                            <i class="ri-file-pdf-line ri-xl text-red-600"></i>
+                        </div>
+                        <div>
+                            <div class="text-sm font-bold text-gray-900">Rapport
+                                Mensuel</div>
+                            <div class="text-xs text-secondary">Janvier
+                                2024</div>
+                        </div>
+                    </div>
+                    <button
+                        class="w-full px-4 py-2 bg-primary text-white text-sm font-medium rounded-button hover:bg-blue-900 transition-colors whitespace-nowrap">
+                        <i class="ri-download-line"></i> Télécharger PDF
+                    </button>
+                </div>
+                <div
+                    class="bg-white rounded-md shadow-sm p-6 hover:shadow-md transition-shadow cursor-pointer">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div
+                            class="w-12 h-12 flex items-center justify-center bg-green-100 rounded-md">
+                            <i
+                                class="ri-file-chart-line ri-xl text-green-600"></i>
+                        </div>
+                        <div>
+                            <div class="text-sm font-bold text-gray-900">Rapport
+                                Annuel</div>
+                            <div class="text-xs text-secondary">Année 2023</div>
+                        </div>
+                    </div>
+                    <button
+                        class="w-full px-4 py-2 bg-primary text-white text-sm font-medium rounded-button hover:bg-blue-900 transition-colors whitespace-nowrap">
+                        <i class="ri-download-line"></i> Télécharger PDF
+                    </button>
+                </div>
+                <div
+                    class="bg-white rounded-md shadow-sm p-6 hover:shadow-md transition-shadow cursor-pointer">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div
+                            class="w-12 h-12 flex items-center justify-center bg-purple-100 rounded-md">
+                            <i
+                                class="ri-settings-3-line ri-xl text-purple-600"></i>
+                        </div>
+                        <div>
+                            <div class="text-sm font-bold text-gray-900">Rapport
+                                Personnalisé</div>
+                            <div class="text-xs text-secondary">Configurer les
+                                critères</div>
+                        </div>
+                    </div>
+                    <button
+                        class="w-full px-4 py-2 bg-primary text-white text-sm font-medium rounded-button hover:bg-blue-900 transition-colors whitespace-nowrap">
+                        <i class="ri-settings-line"></i> Configurer et Exporter
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div
+            class="fixed top-0 right-0 bottom-0 w-96 bg-white shadow-2xl notification-panel z-50">
+            <div class="h-full flex flex-col">
+                <div class="p-6 border-b border-gray-200">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3
+                            class="text-lg font-bold text-gray-900">Notifications</h3>
+                        <button
+                            class="w-8 h-8 flex items-center justify-center hover:bg-gray-100 rounded-button transition-colors"
+                            id="closeNotificationBtn">
+                            <i class="ri-close-line text-secondary"></i>
+                        </button>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button
+                            class="px-4 py-2 bg-primary text-white text-sm font-medium rounded-button whitespace-nowrap">Tout
+                            (8)</button>
+                        <button
+                            class="px-4 py-2 text-sm font-medium text-secondary hover:bg-gray-100 rounded-button transition-colors whitespace-nowrap">Non
+                            lues (5)</button>
+                        <button
+                            class="px-4 py-2 text-sm font-medium text-secondary hover:bg-gray-100 rounded-button transition-colors whitespace-nowrap">Importantes
+                            (2)</button>
+                    </div>
+                </div>
+                <div class="flex-1 overflow-y-auto p-6">
+                    <div class="space-y-6">
+                        <div>
+                            <div
+                                class="text-xs font-bold text-secondary uppercase mb-3">Aujourd'hui</div>
+                            <div class="space-y-3">
+                                <div
+                                    class="flex items-start gap-3 p-3 bg-blue-50 rounded-button hover:bg-blue-100 transition-colors cursor-pointer">
+                                    <div
+                                        class="w-8 h-8 flex items-center justify-center bg-blue-600 rounded-full flex-shrink-0">
+                                        <i
+                                            class="ri-file-text-line text-white"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <div
+                                            class="text-sm font-semibold text-gray-900">Nouvelle
+                                            demande reçue</div>
+                                        <div
+                                            class="text-xs text-secondary mt-1">Demande
+                                            de permis de construire
+                                            #DPC-2024-3848</div>
+                                        <div
+                                            class="text-xs text-gray-400 mt-1">Il
+                                            y a 2 minutes</div>
+                                    </div>
+                                    <button
+                                        class="w-6 h-6 flex items-center justify-center hover:bg-blue-200 rounded-full transition-colors flex-shrink-0">
+                                        <i
+                                            class="ri-close-line text-secondary text-sm"></i>
+                                    </button>
+                                </div>
+                                <div
+                                    class="flex items-start gap-3 p-3 bg-red-50 rounded-button hover:bg-red-100 transition-colors cursor-pointer">
+                                    <div
+                                        class="w-8 h-8 flex items-center justify-center bg-red-600 rounded-full flex-shrink-0">
+                                        <i
+                                            class="ri-alarm-warning-line text-white"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <div
+                                            class="text-sm font-semibold text-gray-900">Alerte
+                                            critique</div>
+                                        <div
+                                            class="text-xs text-secondary mt-1">Inondation
+                                            à Manouba - Intervention
+                                            urgente</div>
+                                        <div
+                                            class="text-xs text-gray-400 mt-1">Il
+                                            y a 15 minutes</div>
+                                    </div>
+                                    <button
+                                        class="w-6 h-6 flex items-center justify-center hover:bg-red-200 rounded-full transition-colors flex-shrink-0">
+                                        <i
+                                            class="ri-close-line text-secondary text-sm"></i>
+                                    </button>
+                                </div>
+                                <div
+                                    class="flex items-start gap-3 p-3 hover:bg-gray-50 rounded-button transition-colors cursor-pointer">
+                                    <div
+                                        class="w-8 h-8 flex items-center justify-center bg-green-600 rounded-full flex-shrink-0">
+                                        <i class="ri-check-line text-white"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <div
+                                            class="text-sm font-semibold text-gray-900">Demande
+                                            validée</div>
+                                        <div
+                                            class="text-xs text-secondary mt-1">Licence
+                                            commerciale #DLC-2024-5623
+                                            approuvée</div>
+                                        <div
+                                            class="text-xs text-gray-400 mt-1">Il
+                                            y a 1 heure</div>
+                                    </div>
+                                    <button
+                                        class="w-6 h-6 flex items-center justify-center hover:bg-gray-200 rounded-full transition-colors flex-shrink-0">
+                                        <i
+                                            class="ri-close-line text-secondary text-sm"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div
+                                class="text-xs font-bold text-secondary uppercase mb-3">Hier</div>
+                            <div class="space-y-3">
+                                <div
+                                    class="flex items-start gap-3 p-3 hover:bg-gray-50 rounded-button transition-colors cursor-pointer">
+                                    <div
+                                        class="w-8 h-8 flex items-center justify-center bg-purple-600 rounded-full flex-shrink-0">
+                                        <i
+                                            class="ri-file-chart-line text-white"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <div
+                                            class="text-sm font-semibold text-gray-900">Rapport
+                                            généré</div>
+                                        <div
+                                            class="text-xs text-secondary mt-1">Rapport
+                                            mensuel de janvier 2024
+                                            disponible</div>
+                                        <div
+                                            class="text-xs text-gray-400 mt-1">Hier
+                                            à 18:30</div>
+                                    </div>
+                                    <button
+                                        class="w-6 h-6 flex items-center justify-center hover:bg-gray-200 rounded-full transition-colors flex-shrink-0">
+                                        <i
+                                            class="ri-close-line text-secondary text-sm"></i>
+                                    </button>
+                                </div>
+                                <div
+                                    class="flex items-start gap-3 p-3 hover:bg-gray-50 rounded-button transition-colors cursor-pointer">
+                                    <div
+                                        class="w-8 h-8 flex items-center justify-center bg-orange-600 rounded-full flex-shrink-0">
+                                        <i class="ri-alert-line text-white"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <div
+                                            class="text-sm font-semibold text-gray-900">Signalement
+                                            urgent</div>
+                                        <div
+                                            class="text-xs text-secondary mt-1">Rupture
+                                            d'eau potable à Ariana</div>
+                                        <div
+                                            class="text-xs text-gray-400 mt-1">Hier
+                                            à 14:20</div>
+                                    </div>
+                                    <button
+                                        class="w-6 h-6 flex items-center justify-center hover:bg-gray-200 rounded-full transition-colors flex-shrink-0">
+                                        <i
+                                            class="ri-close-line text-secondary text-sm"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 border-t border-gray-200">
+                    <button
+                        class="w-full px-4 py-2 text-sm font-medium text-primary hover:bg-blue-50 rounded-button transition-colors whitespace-nowrap">
+                        Tout marquer comme lu
+                    </button>
+                </div>
+            </div>
+        </div>
+        <script>
+document.addEventListener('DOMContentLoaded', function() {
+const notificationBtn = document.getElementById('notificationBtn');
+const closeNotificationBtn = document.getElementById('closeNotificationBtn');
+const notificationPanel = document.querySelector('.notification-panel');
+notificationBtn.addEventListener('click', function() {
+notificationPanel.classList.add('open');
+});
+closeNotificationBtn.addEventListener('click', function() {
+notificationPanel.classList.remove('open');
+});
+const sidebarItems = document.querySelectorAll('.sidebar-item');
+const mainContent = document.querySelector('.ml-64.mt-16.p-8');
+const pages = {
+dashboard: mainContent.innerHTML,
+demandes: `
+<div class="mb-6">
+<h1 class="text-2xl font-bold text-gray-900 mb-2">Demandes Administratives</h1>
+<p class="text-sm text-secondary">Gestion centralisée de toutes les demandes citoyennes</p>
+</div>
+<div class="grid grid-cols-4 gap-6 mb-8">
+<div class="bg-white rounded-md p-6 shadow-sm">
+<div class="text-3xl font-bold text-gray-900 mb-1">1 847</div>
+<div class="text-sm text-secondary">En attente</div>
+<div class="text-xs text-orange-600 font-semibold mt-2">↑ 8%</div>
+</div>
+<div class="bg-white rounded-md p-6 shadow-sm">
+<div class="text-3xl font-bold text-gray-900 mb-1">9 234</div>
+<div class="text-sm text-secondary">Validées</div>
+<div class="text-xs text-green-600 font-semibold mt-2">↑ 15%</div>
+</div>
+<div class="bg-white rounded-md p-6 shadow-sm">
+<div class="text-3xl font-bold text-gray-900 mb-1">1 377</div>
+<div class="text-sm text-secondary">Rejetées</div>
+<div class="text-xs text-red-600 font-semibold mt-2">↓ 3%</div>
+</div>
+<div class="bg-white rounded-md p-6 shadow-sm">
+<div class="text-3xl font-bold text-gray-900 mb-1">3,2 jours</div>
+<div class="text-sm text-secondary">Délai moyen</div>
+<div class="text-xs text-green-600 font-semibold mt-2">↓ 0,4 jour</div>
+</div>
+</div>
+<div class="bg-white rounded-md shadow-sm mb-8">
+<div class="p-6 border-b border-gray-200 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<h3 class="text-lg font-bold text-gray-900">Liste des demandes</h3>
+</div>
+<div class="flex items-center gap-2">
+<input type="text" placeholder="Rechercher..." class="text-sm border border-gray-300 rounded-button px-4 py-2 w-64">
+<select class="text-sm border border-gray-300 rounded-button px-3 py-2">
+<option>Tous les types</option>
+<option>Permis de construire</option>
+<option>État civil</option>
+<option>Licences</option>
+</select>
+<select class="text-sm border border-gray-300 rounded-button px-3 py-2">
+<option>Tous les statuts</option>
+<option>En attente</option>
+<option>En traitement</option>
+<option>Validé</option>
+</select>
+<button class="px-4 py-2 bg-primary text-white text-sm font-medium rounded-button hover:bg-blue-900 transition-colors whitespace-nowrap">
+<i class="ri-add-line"></i> Nouvelle demande
+</button>
+</div>
+</div>
+<div class="p-6">
+ <section class="bg-white rounded-md shadow-sm"><div class="overflow-x-auto"><table
+                        id="demarchesTable" data-paginated data-page-size="6"
+                        class="w-full text-sm"><thead
+                            class="bg-gray-50 text-xs uppercase text-gray-500"><tr><th
+                                    class="px-6 py-3 text-left">Reference</th><th
+                                    class="px-6 py-3 text-left">Citoyen</th><th
+                                    class="px-6 py-3 text-left">Demarche</th><th
+                                    class="px-6 py-3 text-left">Departement</th><th
+                                    class="px-6 py-3 text-left">Date</th><th
+                                    class="px-6 py-3 text-left">Statut</th></tr></thead><tbody
+                            class="divide-y divide-gray-100">
+                            <tr class="table-row"><td
+                                    class="px-6 py-4">DMA-001</td><td
+                                    class="px-6 py-4">Aissatou Diop</td><td
+                                    class="px-6 py-4">Acte de naissance</td><td
+                                    class="px-6 py-4">Dakar</td><td
+                                    class="px-6 py-4">05/06/2026</td><td
+                                    class="px-6 py-4"><span
+                                        class="badge badge-green">Validee</span></td></tr>
+                            <tr class="table-row"><td
+                                    class="px-6 py-4">DMA-002</td><td
+                                    class="px-6 py-4">Mamadou Fall</td><td
+                                    class="px-6 py-4">Certificat de
+                                    residence</td><td
+                                    class="px-6 py-4">Thies</td><td
+                                    class="px-6 py-4">04/06/2026</td><td
+                                    class="px-6 py-4"><span
+                                        class="badge badge-orange">Instruction</span></td></tr>
+                            <tr class="table-row"><td
+                                    class="px-6 py-4">DMA-003</td><td
+                                    class="px-6 py-4">Khady Ndiaye</td><td
+                                    class="px-6 py-4">Carte de
+                                    commercant</td><td
+                                    class="px-6 py-4">Kaolack</td><td
+                                    class="px-6 py-4">04/06/2026</td><td
+                                    class="px-6 py-4"><span
+                                        class="badge badge-green">Validee</span></td></tr>
+                            <tr class="table-row"><td
+                                    class="px-6 py-4">DMA-004</td><td
+                                    class="px-6 py-4">Oumar Ba</td><td
+                                    class="px-6 py-4">Permis de
+                                    construire</td><td
+                                    class="px-6 py-4">Rufisque</td><td
+                                    class="px-6 py-4">03/06/2026</td><td
+                                    class="px-6 py-4"><span
+                                        class="badge badge-red">Piece
+                                        requise</span></td></tr>
+                            <tr class="table-row"><td
+                                    class="px-6 py-4">DMA-005</td><td
+                                    class="px-6 py-4">Fatou Gueye</td><td
+                                    class="px-6 py-4">Legalisation</td><td
+                                    class="px-6 py-4">Saint-Louis</td><td
+                                    class="px-6 py-4">03/06/2026</td><td
+                                    class="px-6 py-4"><span
+                                        class="badge badge-orange">En
+                                        attente</span></td></tr>
+                            <tr class="table-row"><td
+                                    class="px-6 py-4">DMA-006</td><td
+                                    class="px-6 py-4">Cheikh Sarr</td><td
+                                    class="px-6 py-4">Extrait de mariage</td><td
+                                    class="px-6 py-4">Louga</td><td
+                                    class="px-6 py-4">02/06/2026</td><td
+                                    class="px-6 py-4"><span
+                                        class="badge badge-green">Validee</span></td></tr>
+                            <tr class="table-row"><td
+                                    class="px-6 py-4">DMA-007</td><td
+                                    class="px-6 py-4">Mariama Cisse</td><td
+                                    class="px-6 py-4">Autorisation
+                                    evenement</td><td
+                                    class="px-6 py-4">Ziguinchor</td><td
+                                    class="px-6 py-4">01/06/2026</td><td
+                                    class="px-6 py-4"><span
+                                        class="badge badge-orange">Instruction</span></td></tr>
+                        </tbody></table></div><div
+                    data-pager-for="demarchesTable"
+                    class="p-4 border-t flex items-center justify-end gap-3"><button
+                        data-prev
+                        class="px-3 py-2 border rounded-button text-sm disabled:opacity-40">Precedent</button><span
+                        data-page-label
+                        class="text-sm text-secondary"></span><button data-next
+                        class="px-3 py-2 border rounded-button text-sm disabled:opacity-40">Suivant</button></div></section>
+</div>
+</div>
+`,
+signalements: `
+<div class="mb-6">
+<h1 class="text-2xl font-bold text-gray-900 mb-2">Signalements Citoyens</h1>
+<p class="text-sm text-secondary">Suivi et traitement des signalements du territoire</p>
+</div>
+<div class="grid grid-cols-4 gap-4 mb-6">
+<div class="bg-white rounded-md p-5 shadow-sm border border-gray-100">
+<div class="flex items-center gap-3 mb-3">
+<div class="w-10 h-10 flex items-center justify-center bg-red-50 rounded-md">
+<i class="ri-alert-line ri-lg text-red-600"></i>
+</div>
+<div class="text-xs text-gray-500">Ouverts</div>
+</div>
+<div class="text-2xl font-bold text-gray-900">342</div>
+</div>
+<div class="bg-white rounded-md p-5 shadow-sm border border-gray-100">
+<div class="flex items-center gap-3 mb-3">
+<div class="w-10 h-10 flex items-center justify-center bg-orange-50 rounded-md">
+<i class="ri-time-line ri-lg text-orange-600"></i>
+</div>
+<div class="text-xs text-gray-500">En traitement</div>
+</div>
+<div class="text-2xl font-bold text-gray-900">87</div>
+</div>
+<div class="bg-white rounded-md p-5 shadow-sm border border-gray-100">
+<div class="flex items-center gap-3 mb-3">
+<div class="w-10 h-10 flex items-center justify-center bg-green-50 rounded-md">
+<i class="ri-check-line ri-lg text-green-600"></i>
+</div>
+<div class="text-xs text-gray-500">Résolus</div>
+</div>
+<div class="text-2xl font-bold text-gray-900">1 256</div>
+</div>
+<div class="bg-white rounded-md p-5 shadow-sm border border-gray-100">
+<div class="flex items-center gap-3 mb-3">
+<div class="w-10 h-10 flex items-center justify-center bg-blue-50 rounded-md">
+<i class="ri-timer-line ri-lg text-blue-600"></i>
+</div>
+<div class="text-xs text-gray-500">Délai moyen</div>
+</div>
+<div class="text-2xl font-bold text-gray-900">2,8 j</div>
+</div>
+</div>
+<div class="bg-white rounded-md shadow-sm mb-6">
+<div class="p-6 border-b border-gray-200 flex items-center justify-between">
+<h3 class="text-lg font-bold text-gray-900">Liste des signalements</h3>
+<div class="flex items-center gap-2">
+<input type="text" placeholder="Rechercher..." class="text-sm border border-gray-300 rounded-button px-4 py-2 w-64">
+<select class="text-sm border border-gray-300 rounded-button px-3 py-2">
+<option>Toutes catégories</option>
+<option>Infrastructure</option>
+<option>Environnement</option>
+<option>Sécurité</option>
+</select>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full">
+<thead class="bg-gray-50 border-b border-gray-200">
+<tr>
+<th class="px-6 py-3 text-left text-xs font-semibold text-secondary uppercase">Numéro</th>
+<th class="px-6 py-3 text-left text-xs font-semibold text-secondary uppercase">Catégorie</th>
+<th class="px-6 py-3 text-left text-xs font-semibold text-secondary uppercase">Description</th>
+<th class="px-6 py-3 text-left text-xs font-semibold text-secondary uppercase">Localisation</th>
+<th class="px-6 py-3 text-left text-xs font-semibold text-secondary uppercase">Date</th>
+<th class="px-6 py-3 text-left text-xs font-semibold text-secondary uppercase">Statut</th>
+<th class="px-6 py-3 text-left text-xs font-semibold text-secondary uppercase">Priorité</th>
+<th class="px-6 py-3 text-left text-xs font-semibold text-secondary uppercase">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-gray-200">
+<tr class="table-row">
+<td class="px-6 py-4">
+<a href="#" class="text-sm font-semibold text-primary hover:underline">SIG-2024-3421</a>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-road-line text-red-600"></i>
+</div>
+<span class="text-sm text-gray-900">Infrastructure</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-gray-900">Nid de poule dangereux</td>
+<td class="px-6 py-4 text-sm text-secondary">Avenue Habib Bourguiba, Tunis</td>
+<td class="px-6 py-4 text-sm text-secondary">17/01/2024</td>
+<td class="px-6 py-4">
+<span class="badge badge-red">Ouvert</span>
+</td>
+<td class="px-6 py-4">
+<span class="badge badge-red">Critique</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<button class="w-8 h-8 flex items-center justify-center hover:bg-blue-50 rounded-button transition-colors">
+<i class="ri-eye-line text-blue-600"></i>
+</button>
+<button class="w-8 h-8 flex items-center justify-center hover:bg-green-50 rounded-button transition-colors">
+<i class="ri-check-line text-green-600"></i>
+</button>
+</div>
+</td>
+</tr>
+<tr class="table-row">
+<td class="px-6 py-4">
+<a href="#" class="text-sm font-semibold text-primary hover:underline">SIG-2024-3398</a>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-leaf-line text-green-600"></i>
+</div>
+<span class="text-sm text-gray-900">Environnement</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-gray-900">Déchets non collectés</td>
+<td class="px-6 py-4 text-sm text-secondary">Rue de la République, Sfax</td>
+<td class="px-6 py-4 text-sm text-secondary">17/01/2024</td>
+<td class="px-6 py-4">
+<span class="badge badge-orange">En traitement</span>
+</td>
+<td class="px-6 py-4">
+<span class="badge badge-orange">Urgent</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<button class="w-8 h-8 flex items-center justify-center hover:bg-blue-50 rounded-button transition-colors">
+<i class="ri-eye-line text-blue-600"></i>
+</button>
+<button class="w-8 h-8 flex items-center justify-center hover:bg-green-50 rounded-button transition-colors">
+<i class="ri-check-line text-green-600"></i>
+</button>
+</div>
+</td>
+</tr>
+<tr class="table-row">
+<td class="px-6 py-4">
+<a href="#" class="text-sm font-semibold text-primary hover:underline">SIG-2024-3376</a>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-lightbulb-line text-yellow-600"></i>
+</div>
+<span class="text-sm text-gray-900">Éclairage public</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-gray-900">Lampadaires en panne</td>
+<td class="px-6 py-4 text-sm text-secondary">Boulevard 7 Novembre, Sousse</td>
+<td class="px-6 py-4 text-sm text-secondary">16/01/2024</td>
+<td class="px-6 py-4">
+<span class="badge badge-blue">En traitement</span>
+</td>
+<td class="px-6 py-4">
+<span class="badge badge-gray">Normale</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<button class="w-8 h-8 flex items-center justify-center hover:bg-blue-50 rounded-button transition-colors">
+<i class="ri-eye-line text-blue-600"></i>
+</button>
+<button class="w-8 h-8 flex items-center justify-center hover:bg-green-50 rounded-button transition-colors">
+<i class="ri-check-line text-green-600"></i>
+</button>
+</div>
+</td>
+</tr>
+<tr class="table-row">
+<td class="px-6 py-4">
+<a href="#" class="text-sm font-semibold text-primary hover:underline">SIG-2024-3352</a>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-drop-line text-blue-600"></i>
+</div>
+<span class="text-sm text-gray-900">Eau & Assainissement</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-gray-900">Fuite d'eau importante</td>
+<td class="px-6 py-4 text-sm text-secondary">Rue Mongi Slim, Bizerte</td>
+<td class="px-6 py-4 text-sm text-secondary">16/01/2024</td>
+<td class="px-6 py-4">
+<span class="badge badge-green">Résolu</span>
+</td>
+<td class="px-6 py-4">
+<span class="badge badge-orange">Urgent</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<button class="w-8 h-8 flex items-center justify-center hover:bg-blue-50 rounded-button transition-colors">
+<i class="ri-eye-line text-blue-600"></i>
+</button>
+<button class="w-8 h-8 flex items-center justify-center hover:bg-green-50 rounded-button transition-colors">
+<i class="ri-check-line text-green-600"></i>
+</button>
+</div>
+</td>
+</tr>
+<tr class="table-row">
+<td class="px-6 py-4">
+<a href="#" class="text-sm font-semibold text-primary hover:underline">SIG-2024-3329</a>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-shield-line text-orange-600"></i>
+</div>
+<span class="text-sm text-gray-900">Sécurité</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-gray-900">Panneau de signalisation manquant</td>
+<td class="px-6 py-4 text-sm text-secondary">Carrefour Bourguiba, Nabeul</td>
+<td class="px-6 py-4 text-sm text-secondary">15/01/2024</td>
+<td class="px-6 py-4">
+<span class="badge badge-blue">En traitement</span>
+</td>
+<td class="px-6 py-4">
+<span class="badge badge-gray">Normale</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<button class="w-8 h-8 flex items-center justify-center hover:bg-blue-50 rounded-button transition-colors">
+<i class="ri-eye-line text-blue-600"></i>
+</button>
+<button class="w-8 h-8 flex items-center justify-center hover:bg-green-50 rounded-button transition-colors">
+<i class="ri-check-line text-green-600"></i>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-4 border-t border-gray-200 flex items-center justify-between">
+<div class="text-sm text-secondary">Affichage de 1 à 5 sur 342 signalements</div>
+<div class="flex items-center gap-1">
+<button class="w-8 h-8 flex items-center justify-center border border-gray-300 rounded-button hover:bg-gray-50 transition-colors">
+<i class="ri-arrow-left-s-line text-secondary"></i>
+</button>
+<button class="w-8 h-8 flex items-center justify-center bg-primary text-white rounded-button">1</button>
+<button class="w-8 h-8 flex items-center justify-center border border-gray-300 rounded-button hover:bg-gray-50 transition-colors">2</button>
+<button class="w-8 h-8 flex items-center justify-center border border-gray-300 rounded-button hover:bg-gray-50 transition-colors">
+<i class="ri-arrow-right-s-line text-secondary"></i>
+</button>
+</div>
+</div>
+</div>
+`,
+projets: `
+<div class="mb-6">
+<h1 class="text-2xl font-bold text-gray-900 mb-2">Projets Publics</h1>
+<p class="text-sm text-secondary">Suivi des projets d'infrastructure et de développement</p>
+</div>
+<div class="grid grid-cols-4 gap-6 mb-8">
+<div class="bg-white rounded-md p-6 shadow-sm">
+<div class="text-3xl font-bold text-gray-900 mb-1">127</div>
+<div class="text-sm text-secondary">Projets en cours</div>
+<div class="text-xs text-blue-600 font-semibold mt-2">68% d'avancement</div>
+</div>
+<div class="bg-white rounded-md p-6 shadow-sm">
+<div class="text-3xl font-bold text-gray-900 mb-1">45</div>
+<div class="text-sm text-secondary">Projets planifiés</div>
+<div class="text-xs text-orange-600 font-semibold mt-2">Démarrage 2024</div>
+</div>
+<div class="bg-white rounded-md p-6 shadow-sm">
+<div class="text-3xl font-bold text-gray-900 mb-1">89</div>
+<div class="text-sm text-secondary">Projets terminés</div>
+<div class="text-xs text-green-600 font-semibold mt-2">Cette année</div>
+</div>
+<div class="bg-white rounded-md p-6 shadow-sm">
+<div class="text-3xl font-bold text-gray-900 mb-1">2,4 Mds</div>
+<div class="text-sm text-secondary">Budget total TND</div>
+<div class="text-xs text-secondary mt-2">Investissements 2024</div>
+</div>
+</div>
+<div class="bg-white rounded-md shadow-sm mb-8">
+<div class="p-6 border-b border-gray-200 flex items-center justify-between">
+<h3 class="text-lg font-bold text-gray-900">Projets actifs</h3>
+<button class="px-4 py-2 bg-primary text-white text-sm font-medium rounded-button hover:bg-blue-900 transition-colors whitespace-nowrap">
+<i class="ri-add-line"></i> Nouveau projet
+</button>
+</div>
+<div class="p-6">
+<div class="grid grid-cols-3 gap-6">
+<div class="border border-gray-200 rounded-md p-4">
+<div class="flex items-center gap-3 mb-3">
+<div class="w-10 h-10 flex items-center justify-center bg-blue-100 rounded-md">
+<i class="ri-road-line text-blue-600"></i>
+</div>
+<div>
+<div class="text-sm font-bold text-gray-900">Route Nationale RN-45</div>
+<div class="text-xs text-secondary">Infrastructure</div>
+</div>
+</div>
+<div class="mb-2">
+<div class="flex items-center justify-between text-xs mb-1">
+<span class="text-secondary">Avancement</span>
+<span class="font-semibold text-gray-900">72%</span>
+</div>
+<div class="w-full bg-gray-200 rounded-full h-2">
+<div class="bg-blue-600 h-2 rounded-full" style="width: 72%"></div>
+</div>
+</div>
+<div class="flex items-center justify-between text-xs">
+<span class="text-secondary">Budget: 45M TND</span>
+<span class="badge badge-blue">En cours</span>
+</div>
+</div>
+<div class="border border-gray-200 rounded-md p-4">
+<div class="flex items-center gap-3 mb-3">
+<div class="w-10 h-10 flex items-center justify-center bg-green-100 rounded-md">
+<i class="ri-hospital-line text-green-600"></i>
+</div>
+<div>
+<div class="text-sm font-bold text-gray-900">Centre de Santé Manouba</div>
+<div class="text-xs text-secondary">Santé</div>
+</div>
+</div>
+<div class="mb-2">
+<div class="flex items-center justify-between text-xs mb-1">
+<span class="text-secondary">Avancement</span>
+<span class="font-semibold text-gray-900">45%</span>
+</div>
+<div class="w-full bg-gray-200 rounded-full h-2">
+<div class="bg-green-600 h-2 rounded-full" style="width: 45%"></div>
+</div>
+</div>
+<div class="flex items-center justify-between text-xs">
+<span class="text-secondary">Budget: 28M TND</span>
+<span class="badge badge-blue">En cours</span>
+</div>
+</div>
+<div class="border border-gray-200 rounded-md p-4">
+<div class="flex items-center gap-3 mb-3">
+<div class="w-10 h-10 flex items-center justify-center bg-orange-100 rounded-md">
+<i class="ri-building-2-line text-orange-600"></i>
+</div>
+<div>
+<div class="text-sm font-bold text-gray-900">École Primaire Ariana</div>
+<div class="text-xs text-secondary">Éducation</div>
+</div>
+</div>
+<div class="mb-2">
+<div class="flex items-center justify-between text-xs mb-1">
+<span class="text-secondary">Avancement</span>
+<span class="font-semibold text-gray-900">88%</span>
+</div>
+<div class="w-full bg-gray-200 rounded-full h-2">
+<div class="bg-orange-600 h-2 rounded-full" style="width: 88%"></div>
+</div>
+</div>
+<div class="flex items-center justify-between text-xs">
+<span class="text-secondary">Budget: 12M TND</span>
+<span class="badge badge-blue">En cours</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+`,
+aides: `
+<div class="mb-6">
+<h1 class="text-2xl font-bold text-gray-900 mb-2">Aides Sociales</h1>
+<p class="text-sm text-secondary">Gestion des programmes d'assistance sociale</p>
+</div>
+<div class="grid grid-cols-4 gap-6 mb-8">
+<div class="bg-white rounded-md p-6 shadow-sm">
+<div class="text-3xl font-bold text-gray-900 mb-1">2 847</div>
+<div class="text-sm text-secondary">Bénéficiaires actifs</div>
+</div>
+<div class="bg-white rounded-md p-6 shadow-sm">
+<div class="text-3xl font-bold text-gray-900 mb-1">4,2M TND</div>
+<div class="text-sm text-secondary">Montant distribué</div>
+</div>
+<div class="bg-white rounded-md p-6 shadow-sm">
+<div class="text-3xl font-bold text-gray-900 mb-1">158</div>
+<div class="text-sm text-secondary">Demandes en attente</div>
+</div>
+<div class="bg-white rounded-md p-6 shadow-sm">
+<div class="text-3xl font-bold text-gray-900 mb-1">92%</div>
+<div class="text-sm text-secondary">Taux d'approbation</div>
+</div>
+</div>
+<div class="bg-white rounded-md shadow-sm">
+<div class="p-6 border-b border-gray-200">
+<h3 class="text-lg font-bold text-gray-900">Programmes d'aide sociale</h3>
+</div>
+<div class="p-6">
+<div class="text-center text-secondary py-12">
+<i class="ri-hand-heart-line ri-3x mb-4"></i>
+<p>Liste des programmes et bénéficiaires</p>
+</div>
+</div>
+</div>
+`,
+crises: `
+<div class="mb-6">
+<h1 class="text-2xl font-bold text-gray-900 mb-2">Gestion des Crises</h1>
+<p class="text-sm text-secondary">Coordination des interventions d'urgence</p>
+</div>
+<div class="grid grid-cols-4 gap-6 mb-8">
+<div class="bg-white rounded-md p-6 shadow-sm border-l-4 border-red-500">
+<div class="text-3xl font-bold text-red-600 mb-1">3</div>
+<div class="text-sm text-secondary">Crises actives</div>
+<div class="text-xs text-red-600 font-semibold mt-2">Niveau élevé</div>
+</div>
+<div class="bg-white rounded-md p-6 shadow-sm">
+<div class="text-3xl font-bold text-gray-900 mb-1">12</div>
+<div class="text-sm text-secondary">Équipes mobilisées</div>
+</div>
+<div class="bg-white rounded-md p-6 shadow-sm">
+<div class="text-3xl font-bold text-gray-900 mb-1">245</div>
+<div class="text-sm text-secondary">Personnes évacuées</div>
+</div>
+<div class="bg-white rounded-md p-6 shadow-sm">
+<div class="text-3xl font-bold text-gray-900 mb-1">18</div>
+<div class="text-sm text-secondary">Zones à risque</div>
+</div>
+</div>
+<div class="bg-white rounded-md shadow-sm">
+<div class="p-6 border-b border-gray-200">
+<h3 class="text-lg font-bold text-gray-900">Situations d'urgence actives</h3>
+</div>
+<div class="p-6">
+<div class="space-y-4">
+<div class="border-l-4 border-red-500 bg-red-50 p-4 rounded-button">
+<div class="flex items-center gap-2 mb-2">
+<i class="ri-flood-line text-red-600 ri-xl"></i>
+<span class="text-sm font-bold text-gray-900">Inondation à Manouba</span>
+<span class="ml-auto badge badge-red">CRITIQUE</span>
+</div>
+<p class="text-xs text-secondary mb-3">45 familles évacuées - Intervention en cours</p>
+<div class="flex items-center gap-2">
+<button class="px-3 py-1 bg-red-600 text-white text-xs font-medium rounded-button hover:bg-red-700 transition-colors whitespace-nowrap">
+Gérer la crise
+</button>
+<span class="text-xs text-secondary">Démarrée il y a 2h</span>
+</div>
+</div>
+<div class="border-l-4 border-orange-500 bg-orange-50 p-4 rounded-button">
+<div class="flex items-center gap-2 mb-2">
+<i class="ri-drop-line text-orange-600 ri-xl"></i>
+<span class="text-sm font-bold text-gray-900">Rupture d'eau - Ariana</span>
+<span class="ml-auto badge badge-orange">URGENT</span>
+</div>
+<p class="text-xs text-secondary mb-3">12 000 habitants affectés - Réparation en cours</p>
+<div class="flex items-center gap-2">
+<button class="px-3 py-1 bg-orange-600 text-white text-xs font-medium rounded-button hover:bg-orange-700 transition-colors whitespace-nowrap">
+Suivre l'intervention
+</button>
+<span class="text-xs text-secondary">Démarrée il y a 5h</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+`,
+documents: `
+<div class="mb-6">
+<h1 class="text-2xl font-bold text-gray-900 mb-2">Gestion Documentaire</h1>
+<p class="text-sm text-secondary">Archive et gestion des documents administratifs</p>
+</div>
+<div class="grid grid-cols-4 gap-6 mb-8">
+<div class="bg-white rounded-md p-6 shadow-sm">
+<div class="text-3xl font-bold text-gray-900 mb-1">12 458</div>
+<div class="text-sm text-secondary">Documents totaux</div>
+</div>
+<div class="bg-white rounded-md p-6 shadow-sm">
+<div class="text-3xl font-bold text-gray-900 mb-1">847</div>
+<div class="text-sm text-secondary">Ajoutés ce mois</div>
+</div>
+<div class="bg-white rounded-md p-6 shadow-sm">
+<div class="text-3xl font-bold text-gray-900 mb-1">24</div>
+<div class="text-sm text-secondary">Dossiers</div>
+</div>
+<div class="bg-white rounded-md p-6 shadow-sm">
+<div class="text-3xl font-bold text-gray-900 mb-1">2,4 Go</div>
+<div class="text-sm text-secondary">Espace utilisé</div>
+</div>
+</div>
+<div class="bg-white rounded-md shadow-sm">
+<div class="p-6 border-b border-gray-200 flex items-center justify-between">
+<h3 class="text-lg font-bold text-gray-900">Bibliothèque de documents</h3>
+<button class="px-4 py-2 bg-primary text-white text-sm font-medium rounded-button hover:bg-blue-900 transition-colors whitespace-nowrap">
+<i class="ri-upload-line"></i> Importer
+</button>
+</div>
+<div class="p-6">
+<div class="text-center text-secondary py-12">
+<i class="ri-folder-open-line ri-3x mb-4"></i>
+<p>Gestionnaire de fichiers et documents</p>
+</div>
+</div>
+</div>
+`,
+rapports: `
+<div class="mb-6">
+<h1 class="text-2xl font-bold text-gray-900 mb-2">Rapports et Analyses</h1>
+<p class="text-sm text-secondary">Génération et consultation des rapports statistiques</p>
+</div>
+<div class="grid grid-cols-3 gap-6 mb-8">
+<div class="bg-white rounded-md shadow-sm p-6">
+<div class="flex items-center gap-4 mb-4">
+<div class="w-12 h-12 flex items-center justify-center bg-red-100 rounded-md">
+<i class="ri-file-pdf-line ri-xl text-red-600"></i>
+</div>
+<div>
+<div class="text-sm font-bold text-gray-900">Rapport Mensuel</div>
+<div class="text-xs text-secondary">Janvier 2024</div>
+</div>
+</div>
+<button class="w-full px-4 py-2 bg-primary text-white text-sm font-medium rounded-button hover:bg-blue-900 transition-colors whitespace-nowrap">
+<i class="ri-download-line"></i> Télécharger
+</button>
+</div>
+<div class="bg-white rounded-md shadow-sm p-6">
+<div class="flex items-center gap-4 mb-4">
+<div class="w-12 h-12 flex items-center justify-center bg-green-100 rounded-md">
+<i class="ri-file-chart-line ri-xl text-green-600"></i>
+</div>
+<div>
+<div class="text-sm font-bold text-gray-900">Rapport Annuel</div>
+<div class="text-xs text-secondary">Année 2023</div>
+</div>
+</div>
+<button class="w-full px-4 py-2 bg-primary text-white text-sm font-medium rounded-button hover:bg-blue-900 transition-colors whitespace-nowrap">
+<i class="ri-download-line"></i> Télécharger
+</button>
+</div>
+<div class="bg-white rounded-md shadow-sm p-6">
+<div class="flex items-center gap-4 mb-4">
+<div class="w-12 h-12 flex items-center justify-center bg-purple-100 rounded-md">
+<i class="ri-settings-3-line ri-xl text-purple-600"></i>
+</div>
+<div>
+<div class="text-sm font-bold text-gray-900">Personnalisé</div>
+<div class="text-xs text-secondary">Créer un rapport</div>
+</div>
+</div>
+<button class="w-full px-4 py-2 bg-primary text-white text-sm font-medium rounded-button hover:bg-blue-900 transition-colors whitespace-nowrap">
+<i class="ri-add-line"></i> Nouveau rapport
+</button>
+</div>
+</div>
+<div class="bg-white rounded-md shadow-sm">
+<div class="p-6 border-b border-gray-200">
+<h3 class="text-lg font-bold text-gray-900">Rapports disponibles</h3>
+</div>
+<div class="p-6">
+<div class="space-y-3">
+<div class="flex items-center justify-between p-4 border border-gray-200 rounded-button hover:bg-gray-50 transition-colors cursor-pointer">
+<div class="flex items-center gap-3">
+<i class="ri-file-text-line text-blue-600 ri-xl"></i>
+<div>
+<div class="text-sm font-semibold text-gray-900">Rapport mensuel des demandes - Décembre 2023</div>
+<div class="text-xs text-secondary">Généré le 05/01/2024</div>
+</div>
+</div>
+<button class="px-3 py-1 text-sm text-primary border border-primary rounded-button hover:bg-blue-50 transition-colors whitespace-nowrap">
+Télécharger
+</button>
+</div>
+<div class="flex items-center justify-between p-4 border border-gray-200 rounded-button hover:bg-gray-50 transition-colors cursor-pointer">
+<div class="flex items-center gap-3">
+<i class="ri-file-text-line text-blue-600 ri-xl"></i>
+<div>
+<div class="text-sm font-semibold text-gray-900">Statistiques des projets publics - Q4 2023</div>
+<div class="text-xs text-secondary">Généré le 28/12/2023</div>
+</div>
+</div>
+<button class="px-3 py-1 text-sm text-primary border border-primary rounded-button hover:bg-blue-50 transition-colors whitespace-nowrap">
+Télécharger
+</button>
+</div>
+</div>
+</div>
+</div>
+`,
+utilisateurs: `
+<div class="mb-6">
+<h1 class="text-2xl font-bold text-gray-900 mb-2">Gestion des Utilisateurs</h1>
+<p class="text-sm text-secondary">Administration des comptes agents et permissions</p>
+</div>
+<div class="grid grid-cols-4 gap-6 mb-8">
+<div class="bg-white rounded-md p-6 shadow-sm">
+<div class="text-3xl font-bold text-gray-900 mb-1">342</div>
+<div class="text-sm text-secondary">Utilisateurs totaux</div>
+</div>
+<div class="bg-white rounded-md p-6 shadow-sm">
+<div class="text-3xl font-bold text-gray-900 mb-1">142</div>
+<div class="text-sm text-secondary">Actifs en ligne</div>
+</div>
+<div class="bg-white rounded-md p-6 shadow-sm">
+<div class="text-3xl font-bold text-gray-900 mb-1">28</div>
+<div class="text-sm text-secondary">Nouveaux ce mois</div>
+</div>
+<div class="bg-white rounded-md p-6 shadow-sm">
+<div class="text-3xl font-bold text-gray-900 mb-1">8</div>
+<div class="text-sm text-secondary">Rôles définis</div>
+</div>
+</div>
+<div class="bg-white rounded-md shadow-sm">
+<div class="p-6 border-b border-gray-200 flex items-center justify-between">
+<h3 class="text-lg font-bold text-gray-900">Liste des utilisateurs</h3>
+<button class="px-4 py-2 bg-primary text-white text-sm font-medium rounded-button hover:bg-blue-900 transition-colors whitespace-nowrap">
+<i class="ri-user-add-line"></i> Nouvel utilisateur
+</button>
+</div>
+<div class="p-6">
+<div class="text-center text-secondary py-12">
+<i class="ri-group-line ri-3x mb-4"></i>
+<p>Liste des agents et gestionnaires</p>
+</div>
+</div>
+</div>
+`,
+parametres: `
+<div class="mb-6">
+<h1 class="text-2xl font-bold text-gray-900 mb-2">Paramètres du Système</h1>
+<p class="text-sm text-secondary">Configuration de la plateforme</p>
+</div>
+<div class="grid grid-cols-3 gap-6">
+<div class="bg-white rounded-md shadow-sm p-6">
+<div class="flex items-center gap-4 mb-4">
+<div class="w-12 h-12 flex items-center justify-center bg-blue-100 rounded-md">
+<i class="ri-settings-3-line ri-xl text-blue-600"></i>
+</div>
+<div>
+<div class="text-sm font-bold text-gray-900">Paramètres généraux</div>
+<div class="text-xs text-secondary">Configuration de base</div>
+</div>
+</div>
+<button class="w-full px-4 py-2 text-primary border border-primary text-sm font-medium rounded-button hover:bg-blue-50 transition-colors whitespace-nowrap">
+Configurer
+</button>
+</div>
+<div class="bg-white rounded-md shadow-sm p-6">
+<div class="flex items-center gap-4 mb-4">
+<div class="w-12 h-12 flex items-center justify-center bg-green-100 rounded-md">
+<i class="ri-shield-user-line ri-xl text-green-600"></i>
+</div>
+<div>
+<div class="text-sm font-bold text-gray-900">Sécurité</div>
+<div class="text-xs text-secondary">Permissions et accès</div>
+</div>
+</div>
+<button class="w-full px-4 py-2 text-primary border border-primary text-sm font-medium rounded-button hover:bg-blue-50 transition-colors whitespace-nowrap">
+Configurer
+</button>
+</div>
+<div class="bg-white rounded-md shadow-sm p-6">
+<div class="flex items-center gap-4 mb-4">
+<div class="w-12 h-12 flex items-center justify-center bg-purple-100 rounded-md">
+<i class="ri-notification-3-line ri-xl text-purple-600"></i>
+</div>
+<div>
+<div class="text-sm font-bold text-gray-900">Notifications</div>
+<div class="text-xs text-secondary">Alertes et messages</div>
+</div>
+</div>
+<button class="w-full px-4 py-2 text-primary border border-primary text-sm font-medium rounded-button hover:bg-blue-50 transition-colors whitespace-nowrap">
+Configurer
+</button>
+</div>
+</div>
+`
+};
+sidebarItems.forEach((item, index) => {
+item.addEventListener('click', function(e) {
+e.preventDefault();
+sidebarItems.forEach(i => i.classList.remove('active'));
+this.classList.add('active');
+const pageKeys = ['dashboard', 'demandes', 'signalements', 'projets', 'aides', 'crises', 'documents', 'rapports', 'utilisateurs', 'parametres'];
+const pageKey = pageKeys[index];
+if (pages[pageKey]) {
+mainContent.innerHTML = pages[pageKey];
+if (pageKey === 'dashboard') {
+initDashboardCharts();
+}
+}
+});
+});
+function initDashboardCharts() {
+const demandesChart = echarts.init(document.getElementById('demandesChart'));
+const demandesOption = {
+animation: false,
+grid: { top: 20, right: 20, bottom: 40, left: 60 },
+xAxis: {
+type: 'category',
+data: ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Jun', 'Jul', 'Aoû', 'Sep', 'Oct', 'Nov', 'Déc'],
+axisLine: { lineStyle: { color: '#E5E7EB' } },
+axisLabel: { color: '#6B7280' }
+},
+yAxis: {
+type: 'value',
+axisLine: { show: false },
+splitLine: { lineStyle: { color: '#F3F4F6' } },
+axisLabel: { color: '#6B7280' }
+},
+tooltip: {
+trigger: 'axis',
+backgroundColor: 'rgba(255, 255, 255, 0.95)',
+borderColor: '#E5E7EB',
+borderWidth: 1,
+textStyle: { color: '#1F2937' }
+},
+legend: {
+data: ['Reçues', 'Traitées', 'Rejetées'],
+bottom: 0,
+textStyle: { color: '#6B7280' }
+},
+series: [
+{
+name: 'Reçues',
+type: 'line',
+smooth: true,
+data: [820, 932, 901, 934, 1290, 1330, 1320, 1450, 1380, 1420, 1520, 1650],
+lineStyle: { color: 'rgba(87, 181, 231, 1)', width: 3 },
+itemStyle: { color: 'rgba(87, 181, 231, 1)' },
+areaStyle: {
+color: {
+type: 'linear',
+x: 0, y: 0, x2: 0, y2: 1,
+colorStops: [
+{ offset: 0, color: 'rgba(87, 181, 231, 0.3)' },
+{ offset: 1, color: 'rgba(87, 181, 231, 0.05)' }
+]
+}
+},
+showSymbol: false
+},
+{
+name: 'Traitées',
+type: 'line',
+smooth: true,
+data: [720, 832, 801, 834, 1190, 1230, 1220, 1350, 1280, 1320, 1420, 1550],
+lineStyle: { color: 'rgba(141, 211, 199, 1)', width: 3 },
+itemStyle: { color: 'rgba(141, 211, 199, 1)' },
+areaStyle: {
+color: {
+type: 'linear',
+x: 0, y: 0, x2: 0, y2: 1,
+colorStops: [
+{ offset: 0, color: 'rgba(141, 211, 199, 0.3)' },
+{ offset: 1, color: 'rgba(141, 211, 199, 0.05)' }
+]
+}
+},
+showSymbol: false
+},
+{
+name: 'Rejetées',
+type: 'line',
+smooth: true,
+data: [100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100],
+lineStyle: { color: 'rgba(252, 141, 98, 1)', width: 3 },
+itemStyle: { color: 'rgba(252, 141, 98, 1)' },
+areaStyle: {
+color: {
+type: 'linear',
+x: 0, y: 0, x2: 0, y2: 1,
+colorStops: [
+{ offset: 0, color: 'rgba(252, 141, 98, 0.3)' },
+{ offset: 1, color: 'rgba(252, 141, 98, 0.05)' }
+]
+}
+},
+showSymbol: false
+}
+]
+};
+demandesChart.setOption(demandesOption);
+const signalementsChart = echarts.init(document.getElementById('signalementsChart'));
+const signalementsOption = {
+animation: false,
+tooltip: {
+trigger: 'item',
+backgroundColor: 'rgba(255, 255, 255, 0.95)',
+borderColor: '#E5E7EB',
+borderWidth: 1,
+textStyle: { color: '#1F2937' }
+},
+legend: {
+orient: 'vertical',
+right: 20,
+top: 'center',
+textStyle: { color: '#6B7280' }
+},
+series: [
+{
+type: 'pie',
+radius: ['40%', '70%'],
+center: ['35%', '50%'],
+avoidLabelOverlap: false,
+itemStyle: {
+borderRadius: 8,
+borderColor: '#fff',
+borderWidth: 2
+},
+label: {
+show: false
+},
+emphasis: {
+label: {
+show: true,
+fontSize: 14,
+fontWeight: 'bold'
+},
+itemStyle: {
+shadowBlur: 10,
+shadowOffsetX: 0,
+shadowColor: 'rgba(0, 0, 0, 0.2)'
+}
+},
+data: [
+{ value: 120, name: 'Infrastructure', itemStyle: { color: 'rgba(87, 181, 231, 1)' } },
+{ value: 68, name: 'Environnement', itemStyle: { color: 'rgba(141, 211, 199, 1)' } },
+{ value: 51, name: 'Sécurité', itemStyle: { color: 'rgba(251, 191, 114, 1)' } },
+{ value: 48, name: 'Voirie', itemStyle: { color: 'rgba(252, 141, 98, 1)' } },
+{ value: 55, name: 'Autres', itemStyle: { color: '#CBD5E1' } }
+]
+}
+]
+};
+signalementsChart.setOption(signalementsOption);
+const projetsChart = echarts.init(document.getElementById('projetsChart'));
+const projetsOption = {
+animation: false,
+grid: { top: 20, right: 80, bottom: 40, left: 120 },
+xAxis: {
+type: 'value',
+axisLine: { show: false },
+splitLine: { lineStyle: { color: '#F3F4F6' } },
+axisLabel: { color: '#6B7280' }
+},
+yAxis: {
+type: 'category',
+data: ['Routes', 'Écoles', 'Hôpitaux', 'Eau & Assainissement', 'Électricité'],
+axisLine: { lineStyle: { color: '#E5E7EB' } },
+axisLabel: { color: '#6B7280' }
+},
+tooltip: {
+trigger: 'axis',
+axisPointer: { type: 'shadow' },
+backgroundColor: 'rgba(255, 255, 255, 0.95)',
+borderColor: '#E5E7EB',
+borderWidth: 1,
+textStyle: { color: '#1F2937' }
+},
+legend: {
+data: ['Planifiés', 'En cours', 'Terminés', 'En retard'],
+bottom: 0,
+textStyle: { color: '#6B7280' }
+},
+series: [
+{
+name: 'Planifiés',
+type: 'bar',
+stack: 'total',
+data: [10, 8, 5, 12, 7],
+itemStyle: { color: 'rgba(87, 181, 231, 1)', borderRadius: [0, 0, 0, 0] }
+},
+{
+name: 'En cours',
+type: 'bar',
+stack: 'total',
+data: [15, 12, 8, 18, 10],
+itemStyle: { color: 'rgba(141, 211, 199, 1)', borderRadius: [0, 0, 0, 0] }
+},
+{
+name: 'Terminés',
+type: 'bar',
+stack: 'total',
+data: [20, 15, 10, 22, 14],
+itemStyle: { color: 'rgba(251, 191, 114, 1)', borderRadius: [0, 0, 0, 0] }
+},
+{
+name: 'En retard',
+type: 'bar',
+stack: 'total',
+data: [5, 3, 2, 4, 3],
+itemStyle: { color: 'rgba(252, 141, 98, 1)', borderRadius: [0, 8, 8, 0] }
+}
+]
+};
+projetsChart.setOption(projetsOption);
+const performanceChart = echarts.init(document.getElementById('performanceChart'));
+const performanceOption = {
+animation: false,
+tooltip: {
+backgroundColor: 'rgba(255, 255, 255, 0.95)',
+borderColor: '#E5E7EB',
+borderWidth: 1,
+textStyle: { color: '#1F2937' }
+},
+legend: {
+data: ['Urbanisme', 'État Civil', 'Aides Sociales', 'Environnement'],
+bottom: 0,
+textStyle: { color: '#6B7280' }
+},
+radar: {
+indicator: [
+{ name: 'Délai de traitement', max: 100 },
+{ name: 'Satisfaction', max: 100 },
+{ name: 'Efficacité', max: 100 },
+{ name: 'Qualité', max: 100 },
+{ name: 'Réactivité', max: 100 }
+],
+splitArea: {
+areaStyle: {
+color: ['rgba(87, 181, 231, 0.05)', 'rgba(87, 181, 231, 0.1)']
+}
+},
+axisLine: { lineStyle: { color: '#E5E7EB' } },
+splitLine: { lineStyle: { color: '#E5E7EB' } }
+},
+series: [
+{
+type: 'radar',
+data: [
+{
+value: [85, 90, 88, 92, 87],
+name: 'Urbanisme',
+lineStyle: { color: 'rgba(87, 181, 231, 1)', width: 2 },
+itemStyle: { color: 'rgba(87, 181, 231, 1)' },
+areaStyle: { color: 'rgba(87, 181, 231, 0.2)' }
+},
+{
+value: [92, 88, 90, 85, 93],
+name: 'État Civil',
+lineStyle: { color: 'rgba(141, 211, 199, 1)', width: 2 },
+itemStyle: { color: 'rgba(141, 211, 199, 1)' },
+areaStyle: { color: 'rgba(141, 211, 199, 0.2)' }
+},
+{
+value: [78, 82, 80, 88, 85],
+name: 'Aides Sociales',
+lineStyle: { color: 'rgba(251, 191, 114, 1)', width: 2 },
+itemStyle: { color: 'rgba(251, 191, 114, 1)' },
+areaStyle: { color: 'rgba(251, 191, 114, 0.2)' }
+},
+{
+value: [88, 85, 87, 90, 82],
+name: 'Environnement',
+lineStyle: { color: 'rgba(252, 141, 98, 1)', width: 2 },
+itemStyle: { color: 'rgba(252, 141, 98, 1)' },
+areaStyle: { color: 'rgba(252, 141, 98, 0.2)' }
+}
+]
+}
+]
+};
+performanceChart.setOption(performanceOption);
+}
+});
+</script>
+        <script>
+document.addEventListener('DOMContentLoaded', function() {
+const demandesChart = echarts.init(document.getElementById('demandesChart'));
+const demandesOption = {
+animation: false,
+grid: { top: 20, right: 20, bottom: 40, left: 60 },
+xAxis: {
+type: 'category',
+data: ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Jun', 'Jul', 'Aoû', 'Sep', 'Oct', 'Nov', 'Déc'],
+axisLine: { lineStyle: { color: '#E5E7EB' } },
+axisLabel: { color: '#6B7280' }
+},
+yAxis: {
+type: 'value',
+axisLine: { show: false },
+splitLine: { lineStyle: { color: '#F3F4F6' } },
+axisLabel: { color: '#6B7280' }
+},
+tooltip: {
+trigger: 'axis',
+backgroundColor: 'rgba(255, 255, 255, 0.95)',
+borderColor: '#E5E7EB',
+borderWidth: 1,
+textStyle: { color: '#1F2937' }
+},
+legend: {
+data: ['Reçues', 'Traitées', 'Rejetées'],
+bottom: 0,
+textStyle: { color: '#6B7280' }
+},
+series: [
+{
+name: 'Reçues',
+type: 'line',
+smooth: true,
+data: [820, 932, 901, 934, 1290, 1330, 1320, 1450, 1380, 1420, 1520, 1650],
+lineStyle: { color: 'rgba(87, 181, 231, 1)', width: 3 },
+itemStyle: { color: 'rgba(87, 181, 231, 1)' },
+areaStyle: {
+color: {
+type: 'linear',
+x: 0, y: 0, x2: 0, y2: 1,
+colorStops: [
+{ offset: 0, color: 'rgba(87, 181, 231, 0.3)' },
+{ offset: 1, color: 'rgba(87, 181, 231, 0.05)' }
+]
+}
+},
+showSymbol: false
+},
+{
+name: 'Traitées',
+type: 'line',
+smooth: true,
+data: [720, 832, 801, 834, 1190, 1230, 1220, 1350, 1280, 1320, 1420, 1550],
+lineStyle: { color: 'rgba(141, 211, 199, 1)', width: 3 },
+itemStyle: { color: 'rgba(141, 211, 199, 1)' },
+areaStyle: {
+color: {
+type: 'linear',
+x: 0, y: 0, x2: 0, y2: 1,
+colorStops: [
+{ offset: 0, color: 'rgba(141, 211, 199, 0.3)' },
+{ offset: 1, color: 'rgba(141, 211, 199, 0.05)' }
+]
+}
+},
+showSymbol: false
+},
+{
+name: 'Rejetées',
+type: 'line',
+smooth: true,
+data: [100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100],
+lineStyle: { color: 'rgba(252, 141, 98, 1)', width: 3 },
+itemStyle: { color: 'rgba(252, 141, 98, 1)' },
+areaStyle: {
+color: {
+type: 'linear',
+x: 0, y: 0, x2: 0, y2: 1,
+colorStops: [
+{ offset: 0, color: 'rgba(252, 141, 98, 0.3)' },
+{ offset: 1, color: 'rgba(252, 141, 98, 0.05)' }
+]
+}
+},
+showSymbol: false
+}
+]
+};
+demandesChart.setOption(demandesOption);
+});
+</script>
+        <script>
+document.addEventListener('DOMContentLoaded', function() {
+const signalementsChart = echarts.init(document.getElementById('signalementsChart'));
+const signalementsOption = {
+animation: false,
+tooltip: {
+trigger: 'item',
+backgroundColor: 'rgba(255, 255, 255, 0.95)',
+borderColor: '#E5E7EB',
+borderWidth: 1,
+textStyle: { color: '#1F2937' }
+},
+legend: {
+orient: 'vertical',
+right: 20,
+top: 'center',
+textStyle: { color: '#6B7280' }
+},
+series: [
+{
+type: 'pie',
+radius: ['40%', '70%'],
+center: ['35%', '50%'],
+avoidLabelOverlap: false,
+itemStyle: {
+borderRadius: 8,
+borderColor: '#fff',
+borderWidth: 2
+},
+label: {
+show: false
+},
+emphasis: {
+label: {
+show: true,
+fontSize: 14,
+fontWeight: 'bold'
+},
+itemStyle: {
+shadowBlur: 10,
+shadowOffsetX: 0,
+shadowColor: 'rgba(0, 0, 0, 0.2)'
+}
+},
+data: [
+{ value: 120, name: 'Infrastructure', itemStyle: { color: 'rgba(87, 181, 231, 1)' } },
+{ value: 68, name: 'Environnement', itemStyle: { color: 'rgba(141, 211, 199, 1)' } },
+{ value: 51, name: 'Sécurité', itemStyle: { color: 'rgba(251, 191, 114, 1)' } },
+{ value: 48, name: 'Voirie', itemStyle: { color: 'rgba(252, 141, 98, 1)' } },
+{ value: 55, name: 'Autres', itemStyle: { color: '#CBD5E1' } }
+]
+}
+]
+};
+signalementsChart.setOption(signalementsOption);
+});
+</script>
+        <script>
+document.addEventListener('DOMContentLoaded', function() {
+const projetsChart = echarts.init(document.getElementById('projetsChart'));
+const projetsOption = {
+animation: false,
+grid: { top: 20, right: 80, bottom: 40, left: 120 },
+xAxis: {
+type: 'value',
+axisLine: { show: false },
+splitLine: { lineStyle: { color: '#F3F4F6' } },
+axisLabel: { color: '#6B7280' }
+},
+yAxis: {
+type: 'category',
+data: ['Routes', 'Écoles', 'Hôpitaux', 'Eau & Assainissement', 'Électricité'],
+axisLine: { lineStyle: { color: '#E5E7EB' } },
+axisLabel: { color: '#6B7280' }
+},
+tooltip: {
+trigger: 'axis',
+axisPointer: { type: 'shadow' },
+backgroundColor: 'rgba(255, 255, 255, 0.95)',
+borderColor: '#E5E7EB',
+borderWidth: 1,
+textStyle: { color: '#1F2937' }
+},
+legend: {
+data: ['Planifiés', 'En cours', 'Terminés', 'En retard'],
+bottom: 0,
+textStyle: { color: '#6B7280' }
+},
+series: [
+{
+name: 'Planifiés',
+type: 'bar',
+stack: 'total',
+data: [10, 8, 5, 12, 7],
+itemStyle: { color: 'rgba(87, 181, 231, 1)', borderRadius: [0, 0, 0, 0] }
+},
+{
+name: 'En cours',
+type: 'bar',
+stack: 'total',
+data: [15, 12, 8, 18, 10],
+itemStyle: { color: 'rgba(141, 211, 199, 1)', borderRadius: [0, 0, 0, 0] }
+},
+{
+name: 'Terminés',
+type: 'bar',
+stack: 'total',
+data: [20, 15, 10, 22, 14],
+itemStyle: { color: 'rgba(251, 191, 114, 1)', borderRadius: [0, 0, 0, 0] }
+},
+{
+name: 'En retard',
+type: 'bar',
+stack: 'total',
+data: [5, 3, 2, 4, 3],
+itemStyle: { color: 'rgba(252, 141, 98, 1)', borderRadius: [0, 8, 8, 0] }
+}
+]
+};
+projetsChart.setOption(projetsOption);
+});
+</script>
+        <script>
+document.addEventListener('DOMContentLoaded', function() {
+const performanceChart = echarts.init(document.getElementById('performanceChart'));
+const performanceOption = {
+animation: false,
+tooltip: {
+backgroundColor: 'rgba(255, 255, 255, 0.95)',
+borderColor: '#E5E7EB',
+borderWidth: 1,
+textStyle: { color: '#1F2937' }
+},
+legend: {
+data: ['Urbanisme', 'État Civil', 'Aides Sociales', 'Environnement'],
+bottom: 0,
+textStyle: { color: '#6B7280' }
+},
+radar: {
+indicator: [
+{ name: 'Délai de traitement', max: 100 },
+{ name: 'Satisfaction', max: 100 },
+{ name: 'Efficacité', max: 100 },
+{ name: 'Qualité', max: 100 },
+{ name: 'Réactivité', max: 100 }
+],
+splitArea: {
+areaStyle: {
+color: ['rgba(87, 181, 231, 0.05)', 'rgba(87, 181, 231, 0.1)']
+}
+},
+axisLine: { lineStyle: { color: '#E5E7EB' } },
+splitLine: { lineStyle: { color: '#E5E7EB' } }
+},
+series: [
+{
+type: 'radar',
+data: [
+{
+value: [85, 90, 88, 92, 87],
+name: 'Urbanisme',
+lineStyle: { color: 'rgba(87, 181, 231, 1)', width: 2 },
+itemStyle: { color: 'rgba(87, 181, 231, 1)' },
+areaStyle: { color: 'rgba(87, 181, 231, 0.2)' }
+},
+{
+value: [92, 88, 90, 85, 93],
+name: 'État Civil',
+lineStyle: { color: 'rgba(141, 211, 199, 1)', width: 2 },
+itemStyle: { color: 'rgba(141, 211, 199, 1)' },
+areaStyle: { color: 'rgba(141, 211, 199, 0.2)' }
+},
+{
+value: [78, 82, 80, 88, 85],
+name: 'Aides Sociales',
+lineStyle: { color: 'rgba(251, 191, 114, 1)', width: 2 },
+itemStyle: { color: 'rgba(251, 191, 114, 1)' },
+areaStyle: { color: 'rgba(251, 191, 114, 0.2)' }
+},
+{
+value: [88, 85, 87, 90, 82],
+name: 'Environnement',
+lineStyle: { color: 'rgba(252, 141, 98, 1)', width: 2 },
+itemStyle: { color: 'rgba(252, 141, 98, 1)' },
+areaStyle: { color: 'rgba(252, 141, 98, 0.2)' }
+}
+]
+}
+]
+};
+performanceChart.setOption(performanceOption);
+});
+</script>
+    </body>
+</html>

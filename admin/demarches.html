@@ -1,0 +1,158 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><meta name="viewport"
+            content="width=device-width, initial-scale=1.0"><title>Demarches -
+            Admin</title><script
+            src="https://cdn.tailwindcss.com/3.4.16"></script><link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css"><link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+            rel="stylesheet"><link rel="stylesheet"
+            href="admin.css"><script>tailwind.config={theme:{extend:{colors:{primary:'#00853F',secondary:'#475569'},borderRadius:{button:'8px'}}}}</script></head><body
+        class="bg-gray-50">
+        <header
+            class="fixed top-0 left-0 right-0 h-16 bg-white shadow-sm z-50 flex items-center justify-between px-6"><div
+                class="flex items-center gap-3"><i
+                    class="ri-government-line text-3xl text-primary"></i><div><div
+                        class="text-sm font-bold text-primary">Republique du
+                        Senegal</div><div
+                        class="text-xs text-secondary">E-Administration
+                        Territoriale</div></div></div><div
+                class="text-sm text-secondary hidden md:block">Region de Dakar -
+                Prefecture de Dakar</div><div
+                class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold">ND</div></header>
+        <aside
+            class="fixed top-16 left-0 w-64 bottom-0 bg-white border-r border-gray-200 overflow-y-auto z-40"><nav
+                class="py-4"><a href="index.html"
+                    class="sidebar-item flex items-center gap-3 px-6 py-3"><i
+                        class="ri-dashboard-line text-lg"></i><span
+                        class="font-medium">Dashboard</span></a><a
+                    href="demarches.html"
+                    class="sidebar-item active flex items-center gap-3 px-6 py-3"><i
+                        class="ri-file-list-3-line text-lg"></i><span
+                        class="font-medium">Demarches
+                        Administratives</span><span
+                        class="ml-auto badge badge-orange">24</span></a><a
+                    href="signalements.html"
+                    class="sidebar-item flex items-center gap-3 px-6 py-3"><i
+                        class="ri-alert-line text-lg"></i><span
+                        class="font-medium">Signalements</span></a><a
+                    href="projets.html"
+                    class="sidebar-item flex items-center gap-3 px-6 py-3"><i
+                        class="ri-building-line text-lg"></i><span
+                        class="font-medium">Projets Publics</span></a><a
+                    href="aides.html"
+                    class="sidebar-item flex items-center gap-3 px-6 py-3"><i
+                        class="ri-hand-heart-line text-lg"></i><span
+                        class="font-medium">Aides Sociales</span></a><a
+                    href="crises.html"
+                    class="sidebar-item flex items-center gap-3 px-6 py-3"><i
+                        class="ri-alarm-warning-line text-lg"></i><span
+                        class="font-medium">Gestion des Crises</span><span
+                        class="ml-auto badge badge-red">3</span></a><a
+                    href="documents.html"
+                    class="sidebar-item flex items-center gap-3 px-6 py-3"><i
+                        class="ri-folder-line text-lg"></i><span
+                        class="font-medium">Documents</span></a><a
+                    href="rapports.html"
+                    class="sidebar-item flex items-center gap-3 px-6 py-3"><i
+                        class="ri-bar-chart-box-line text-lg"></i><span
+                        class="font-medium">Rapports</span></a><a
+                    href="utilisateurs.html"
+                    class="sidebar-item flex items-center gap-3 px-6 py-3"><i
+                        class="ri-group-line text-lg"></i><span
+                        class="font-medium">Utilisateurs</span></a><a
+                    href="parametres.html"
+                    class="sidebar-item flex items-center gap-3 px-6 py-3"><i
+                        class="ri-settings-3-line text-lg"></i><span
+                        class="font-medium">Parametres</span></a></nav></aside>
+        <main class="ml-64 mt-16 p-8"><div
+                class="mb-6 flex items-end justify-between"><div><h1
+                        class="text-2xl font-bold text-gray-900">Demarches
+                        Administratives</h1><p
+                        class="text-sm text-secondary">Suivi des demandes
+                        deposees par les citoyens.</p></div><button
+                    class="px-4 py-2 bg-primary text-white rounded-button text-sm font-semibold">Nouvelle
+                    demarche</button></div>
+            <section class="bg-white rounded-md shadow-sm"><div
+                    class="p-6 border-b"><h2 class="text-lg font-bold">Liste des
+                        demandes</h2></div><div class="overflow-x-auto"><table
+                        id="demarchesTable" data-paginated data-page-size="6"
+                        class="w-full text-sm"><thead
+                            class="bg-gray-50 text-xs uppercase text-gray-500"><tr><th
+                                    class="px-6 py-3 text-left">Reference</th><th
+                                    class="px-6 py-3 text-left">Citoyen</th><th
+                                    class="px-6 py-3 text-left">Demarche</th><th
+                                    class="px-6 py-3 text-left">Departement</th><th
+                                    class="px-6 py-3 text-left">Date</th><th
+                                    class="px-6 py-3 text-left">Statut</th></tr></thead><tbody
+                            class="divide-y divide-gray-100">
+                            <tr class="table-row"><td
+                                    class="px-6 py-4">DMA-001</td><td
+                                    class="px-6 py-4">Aissatou Diop</td><td
+                                    class="px-6 py-4">Acte de naissance</td><td
+                                    class="px-6 py-4">Dakar</td><td
+                                    class="px-6 py-4">05/06/2026</td><td
+                                    class="px-6 py-4"><span
+                                        class="badge badge-green">Validee</span></td></tr>
+                            <tr class="table-row"><td
+                                    class="px-6 py-4">DMA-002</td><td
+                                    class="px-6 py-4">Mamadou Fall</td><td
+                                    class="px-6 py-4">Certificat de
+                                    residence</td><td
+                                    class="px-6 py-4">Thies</td><td
+                                    class="px-6 py-4">04/06/2026</td><td
+                                    class="px-6 py-4"><span
+                                        class="badge badge-orange">Instruction</span></td></tr>
+                            <tr class="table-row"><td
+                                    class="px-6 py-4">DMA-003</td><td
+                                    class="px-6 py-4">Khady Ndiaye</td><td
+                                    class="px-6 py-4">Carte de
+                                    commercant</td><td
+                                    class="px-6 py-4">Kaolack</td><td
+                                    class="px-6 py-4">04/06/2026</td><td
+                                    class="px-6 py-4"><span
+                                        class="badge badge-green">Validee</span></td></tr>
+                            <tr class="table-row"><td
+                                    class="px-6 py-4">DMA-004</td><td
+                                    class="px-6 py-4">Oumar Ba</td><td
+                                    class="px-6 py-4">Permis de
+                                    construire</td><td
+                                    class="px-6 py-4">Rufisque</td><td
+                                    class="px-6 py-4">03/06/2026</td><td
+                                    class="px-6 py-4"><span
+                                        class="badge badge-red">Piece
+                                        requise</span></td></tr>
+                            <tr class="table-row"><td
+                                    class="px-6 py-4">DMA-005</td><td
+                                    class="px-6 py-4">Fatou Gueye</td><td
+                                    class="px-6 py-4">Legalisation</td><td
+                                    class="px-6 py-4">Saint-Louis</td><td
+                                    class="px-6 py-4">03/06/2026</td><td
+                                    class="px-6 py-4"><span
+                                        class="badge badge-orange">En
+                                        attente</span></td></tr>
+                            <tr class="table-row"><td
+                                    class="px-6 py-4">DMA-006</td><td
+                                    class="px-6 py-4">Cheikh Sarr</td><td
+                                    class="px-6 py-4">Extrait de mariage</td><td
+                                    class="px-6 py-4">Louga</td><td
+                                    class="px-6 py-4">02/06/2026</td><td
+                                    class="px-6 py-4"><span
+                                        class="badge badge-green">Validee</span></td></tr>
+                            <tr class="table-row"><td
+                                    class="px-6 py-4">DMA-007</td><td
+                                    class="px-6 py-4">Mariama Cisse</td><td
+                                    class="px-6 py-4">Autorisation
+                                    evenement</td><td
+                                    class="px-6 py-4">Ziguinchor</td><td
+                                    class="px-6 py-4">01/06/2026</td><td
+                                    class="px-6 py-4"><span
+                                        class="badge badge-orange">Instruction</span></td></tr>
+                        </tbody></table></div><div
+                    data-pager-for="demarchesTable"
+                    class="p-4 border-t flex items-center justify-end gap-3"><button
+                        data-prev
+                        class="px-3 py-2 border rounded-button text-sm disabled:opacity-40">Precedent</button><span
+                        data-page-label
+                        class="text-sm text-secondary"></span><button data-next
+                        class="px-3 py-2 border rounded-button text-sm disabled:opacity-40">Suivant</button></div></section></main><script
+            src="admin.js"></script></body></html>
